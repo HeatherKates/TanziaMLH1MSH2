@@ -4,7 +4,7 @@ This repository contains scripts and files related to the analysis of RNAseq, AT
 
 ## Overview
 
-The code provided here is fully reproducible. Except for the original `fastq.gz` files, all other files and results can be recreated using the scripts included in this repository. Due to size constraints, large files are omitted. For access to these files, please see the `.gitignore` and email [hkates@ufl.edu](mailto:hkates@ufl.edu).
+The code provided here is fully reproducible. Except for the original `fastq.gz` files, all other files and results can be recreated using the scripts included in this repository. Due to size constraints and data ownership, large files and non public files are omitted. For access to these files, please see the `.gitignore` and email [hkates@ufl.edu](mailto:hkates@ufl.edu).
 
 ## Directory Structure
 
@@ -15,7 +15,7 @@ The code provided here is fully reproducible. Except for the original `fastq.gz`
 
 To ensure full reproducibility, follow the steps below:
 
-1. **Download Original Data**: Obtain the original `fastq.gz` files or run scripts on hipergator where they will access data in /orange
+1. **Download Original Data**: Obtain the original `fastq.gz` files or run scripts on hipergator where they will access data in /orange (persmission is for users in zhangw only)
 2. **Run Scripts**: Use the scripts provided in the `scripts` directory to process the data and generate results.
 
 ## Contact
