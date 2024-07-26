@@ -1,0 +1,22 @@
+{
+    "read_files": "[ /blue/zhangw/hkates/Tanzia_RNAseq/results/fastp/MSH2R4-3_S12_L002_R1_trimmed.fastq.gz, /blue/zhangw/hkates/Tanzia_RNAseq/results/fastp/MSH2R4-3_S12_L002_R2_trimmed.fastq.gz]",
+    "expected_format": "ISR",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 9186530,
+    "num_assigned_fragments": 9186530,
+    "num_frags_with_concordant_consistent_mappings": 3420035,
+    "num_frags_with_inconsistent_or_orphan_mappings": 5770521,
+    "strand_mapping_bias": 0.0000356708770971625,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 122,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 3420035,
+    "SF": 2945017,
+    "SR": 2825382,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

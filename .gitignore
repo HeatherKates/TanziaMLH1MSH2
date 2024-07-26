@@ -1,0 +1,5 @@
+# Ignore all files in the results/fastp directory
+results/fastp/*
+
+# Ignore all files in the logs directory
+logs/*

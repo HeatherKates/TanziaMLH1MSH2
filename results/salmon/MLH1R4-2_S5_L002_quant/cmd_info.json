@@ -1,0 +1,12 @@
+{
+    "salmon_version": "1.10.2",
+    "index": "/blue/zhangw/hkates/Tanzia_RNAseq/salmon_index/salmon_index_mouse",
+    "libType": "A",
+    "mates1": "/blue/zhangw/hkates/Tanzia_RNAseq/results/fastp/MLH1R4-2_S5_L002_R1_trimmed.fastq.gz",
+    "mates2": "/blue/zhangw/hkates/Tanzia_RNAseq/results/fastp/MLH1R4-2_S5_L002_R2_trimmed.fastq.gz",
+    "threads": "4",
+    "output": "/blue/zhangw/hkates/Tanzia_RNAseq/results/salmon/MLH1R4-2_S5_L002_quant",
+    "seqBias": [],
+    "gcBias": [],
+    "auxDir": "aux_info"
+}
