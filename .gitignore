@@ -3,3 +3,10 @@ results/fastp/*
 
 # Ignore all files in the logs directory
 logs/*
+
+# Ignore salmon_index files because they're large
+salmon_index/*
+
+#ignore rserver files
+rstudio-rserver
+rstudio-rsession
