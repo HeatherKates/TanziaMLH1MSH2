@@ -25,7 +25,7 @@ colData <- data.frame(
 
 # Use biomaRt to get the transcript-to-gene mapping
 options(timeout = 600)  # 10 minutes
-mart <- useMart("ensembl", dataset="mmusculus_gene_ensembl")
+mart <- useMart("ensembl", dataset="hsapiens_gene_ensembl")
 tx2gene <- getBM(attributes=c("ensembl_transcript_id_version", "ensembl_gene_id"),
                  mart=mart)
 
