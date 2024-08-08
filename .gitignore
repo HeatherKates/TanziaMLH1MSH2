@@ -10,3 +10,4 @@ salmon_index/*
 #ignore rserver files
 rstudio-rserver
 rstudio-rsession
+rserver*
