@@ -1,4 +1,5 @@
 library(dplyr)
+library(DESeq2)
 MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
 MSH2_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_dds.Rds")
 MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
