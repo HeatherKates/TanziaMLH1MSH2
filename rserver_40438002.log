@@ -1,5 +1,0 @@
-Starting rserver on port 32726 in the /blue/zhangw/hkates/Tanzia_RNAseq directory.
-Create an SSH tunnel with:
-ssh -N -L 8080:c0707a-s15.ufhpc:32726 hkates@hpg.rc.ufl.edu
-Then, open in the local browser:
-http://localhost:8080
