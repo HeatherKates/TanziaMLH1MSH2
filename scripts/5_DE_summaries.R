@@ -24,7 +24,7 @@ combined_res <- full_join(MLH1_res_labeled, MSH2_res_labeled, by = "gene", suffi
 
 # Determine the result status
 combined_res <- combined_res %>%
-  mutate(Result_KOvsWT = case_when(
+  mutate(Result_KOvsHA = case_when(
     DE_MLH1 == "DE (up)" & DE_MSH2 == "Not DE" ~ "DE (up) in MLH1",
     DE_MLH1 == "DE (down)" & DE_MSH2 == "Not DE" ~ "DE (down) in MLH1",
     DE_MSH2 == "DE (up)" & DE_MLH1 == "Not DE" ~ "DE (up) in MSH2",
@@ -36,7 +36,7 @@ combined_res <- combined_res %>%
 
 # Select relevant columns
 final_res <- combined_res %>%
-  select(gene, padj_MLH1, log2FoldChange_MLH1, padj_MSH2, log2FoldChange_MSH2, Result_KOvsWT)
+  dplyr::select(gene, padj_MLH1, log2FoldChange_MLH1, padj_MSH2, log2FoldChange_MSH2, Result_KOvsHA)
 
 # Save to CSV
 write.csv(final_res, file = "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/combined_DE_results.csv", row.names = FALSE)

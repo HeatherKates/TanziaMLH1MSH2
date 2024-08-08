@@ -15,12 +15,12 @@ names(files) <- basename(dirs)
 
 # Define the conditions based on filenames
 sample_names <- names(files)
-conditions <- ifelse(grepl("KO", sample_names), "KO", "WT")
+conditions <- ifelse(grepl("KO", sample_names), "KO", "HA")
 
 # Create colData dataframe
 colData <- data.frame(
   row.names = sample_names,
-  condition = factor(conditions, levels = c("WT", "KO"))
+  condition = factor(conditions, levels = c("HA", "KO"))
 )
 
 # Use biomaRt to get the transcript-to-gene mapping
@@ -46,6 +46,11 @@ genes <- getBM(attributes=c("ensembl_gene_id", "external_gene_name"),
 # Ensure that all gene IDs are mapped
 genes <- genes[match(gene_ids, genes$ensembl_gene_id),]
 
+# Store the mapping in a separate data frame
+gene_mapping <- data.frame(ensembl_gene_id = gene_ids, 
+                           external_gene_name = genes$external_gene_name)
+
+
 # Replace row names in DESeq2 dataset
 rownames(dds) <- genes$external_gene_name
 
@@ -53,16 +58,17 @@ rownames(dds) <- genes$external_gene_name
 rownames(dds)[1:10]
 
 # Differential expression analysis
-MSH2_dds <- DESeq(dds)
-MSH2_res <- results(MSH2_dds)
+dds <- DESeq(dds)
+res <- results(dds)
 
 # Save results
+MSH2_dds <- dds
+MSH2_res <- res
+MSH2_gene_mapping <- gene_mapping
+
 write.csv(as.data.frame(MSH2_res), file="/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_DESeq2_gene_results.csv")
 save.image(file="/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_DESeq2_result.RDATA")
-load("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_DESeq2_result.RDATA")
-MLH1_dds <- dds
-MLH1_res <- res
-saveRDS(MLH1_dds,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
+
 saveRDS(MSH2_dds,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_dds.Rds")
-saveRDS(MLH1_res,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
 saveRDS(MSH2_res,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_res.Rds")
+saveRDS(MSH2_gene_mapping,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gene_mapping.Rds")
