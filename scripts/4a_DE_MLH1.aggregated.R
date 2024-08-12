@@ -35,6 +35,10 @@ txi <- tximport(files, type="salmon", tx2gene=tx2gene, txOut=FALSE)
 # Create DESeq2 dataset
 dds <- DESeqDataSetFromTximport(txi, colData, design=~condition)
 
+# Differential expression analysis
+dds <- DESeq(dds)
+res <- results(dds)
+
 # replace with gene names
 # Get the gene names for the Ensembl gene IDs
 gene_ids <- rownames(dds)
@@ -51,15 +55,10 @@ gene_mapping <- data.frame(ensembl_gene_id = gene_ids,
                            external_gene_name = genes$external_gene_name)
 
 
-# Replace row names in DESeq2 dataset
-rownames(dds) <- genes$external_gene_name
-
-# Verify the change
-rownames(dds)[1:10]
-
-# Differential expression analysis
-dds <- DESeq(dds)
-res <- results(dds)
+# Add gene mapping to dds@elementMetadata
+dds@elementMetadata <- DataFrame(gene_mapping)
+# Add gene symbols to the results data frame
+res$geneSymbol <- gene_mapping$external_gene_name
 
 # Save results
 MLH1_dds <- dds
@@ -72,3 +71,73 @@ save.image(file="/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_DESeq2_re
 saveRDS(MLH1_dds,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
 saveRDS(MLH1_res,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
 saveRDS(MLH1_gene_mapping,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gene_mapping.Rds")
+
+#Write more results (counts, etc.)
+# Extract the counts data frame
+counts_df <- as.data.frame(MLH1_dds@assays@data@listData[["counts"]])
+counts_df$geneSymbol <- res$geneSymbol
+counts_df$ensembl_gene_id <- rownames(counts_df)
+counts_df <- counts_df[,c("geneSymbol","ensembl_gene_id",colnames(counts_df)[1:6])]
+avgTxLength_df <- as.data.frame(MLH1_dds@assays@data@listData[["avgTxLength"]])
+normalizationFactors_df <- as.data.frame(MLH1_dds@assays@data@listData[["normalizationFactors"]])
+mu_df <- as.data.frame(MLH1_dds@assays@data@listData[["mu"]])
+H_df <- as.data.frame(MLH1_dds@assays@data@listData[["H"]])
+cooks_df <- as.data.frame(MLH1_dds@assays@data@listData[["cooks"]])
+
+# Extract the geneSymbol and ensembl_gene_id columns from counts_df
+cols_to_add <- counts_df[, c("geneSymbol", "ensembl_gene_id")]
+avgTxLength_df <- cbind(cols_to_add,avgTxLength_df)
+normalizationFactors_df <- cbind(cols_to_add,normalizationFactors_df )
+mu_df <- cbind(cols_to_add,mu_df)
+H_df <- cbind(cols_to_add,H_df)
+cooks_df <- cbind(cols_to_add,cooks_df)
+
+# Create a list of the data frames
+list_of_dfs <- list(
+  counts = counts_df,
+  avgTxLength = avgTxLength_df,
+  normalizationFactors = normalizationFactors_df,
+  mu = mu_df,
+  H = H_df,
+  cooks = cooks_df
+)
+# Set the column names based on counts_df (including the added columns)
+new_colnames <-colnames(counts_df)
+
+# Apply the new column names to each data frame
+list_of_dfs <- lapply(list_of_dfs, function(df) {
+  colnames(df) <- new_colnames
+  return(df)
+})
+# Create the README data frame
+README <- data.frame(
+  sheet = names(list_of_dfs),
+  description = c(
+    "Raw gene counts per sample. Rows correspond to genes and columns correspond to samples.",
+    "Average transcript length for each gene in each sample. Rows correspond to genes and columns correspond to samples.",
+    "Normalization factors used to scale the counts for each sample. Rows correspond to genes and columns correspond to samples.",
+    "Fitted mean values (mu) for each gene in each sample. Rows correspond to genes and columns correspond to samples.",
+    "H values, which are intermediate values used in DESeq2’s dispersion estimation. Rows correspond to genes and columns correspond to samples.",
+    "Cook's distance values, indicating the influence of each sample on the estimation of the model parameters for each gene. Rows correspond to genes and columns correspond to samples."
+  )
+)
+# Add the README df to the beginning of the list_of_dfs
+list_of_dfs <- c(list(README = as.data.frame(README)), list_of_dfs)
+
+#Write to excel
+library(openxlsx)
+# Define the output file path
+output_file <- "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_DESeq2_analysis_dataframes.xlsx"
+
+# Create a new Excel workbook
+wb <- createWorkbook()
+
+# Add each data frame as a separate sheet in the workbook
+for (sheet_name in names(list_of_dfs)) {
+  addWorksheet(wb, sheet_name)
+  writeData(wb, sheet = sheet_name, x = list_of_dfs[[sheet_name]])
+}
+
+# Save the workbook
+saveWorkbook(wb, output_file, overwrite = TRUE)
+

@@ -38,14 +38,12 @@ msigdb_h <- msigdbr(species = "Homo sapiens", category = "H")
 # Combine C2 and H sets for further use
 msigdb_combined <- rbind(msigdb_c2, msigdb_h)
 
-# Create gene sets for immune-related pathways (if using C5, you'll need to filter specifically)
-immune_gene_sets <- msigdb_c5[grepl("immune", msigdb_c5$gs_name, ignore.case = TRUE),]
-
 # Convert to list format required by GSEA function
-immune_gene_sets_list <- split(immune_gene_sets$gene_symbol, immune_gene_sets$gs_name)
 c2_gene_sets_list <- split(msigdb_c2$gene_symbol, msigdb_c2$gs_name)
 h_gene_sets_list <- split(msigdb_h$gene_symbol, msigdb_h$gs_name)
 combined_gene_sets_list <- split(msigdb_combined$gene_symbol, msigdb_combined$gs_name)
+c5_gene_sets_list <- split(msigdb_c5$gene_symbol, msigdb_c5$gs_name)
+
 
 # Ensure your gene sets are in the correct format: a data frame with two columns
 immune_gene_sets_df <- do.call(rbind, lapply(names(immune_gene_sets_list), function(gs_name) {
@@ -54,6 +52,10 @@ immune_gene_sets_df <- do.call(rbind, lapply(names(immune_gene_sets_list), funct
 
 c2_gene_sets_df <- do.call(rbind, lapply(names(c2_gene_sets_list), function(gs_name) {
   data.frame(term = gs_name, gene = c2_gene_sets_list[[gs_name]])
+}))
+
+c5_gene_sets_df <- do.call(rbind, lapply(names(c5_gene_sets_list), function(gs_name) {
+  data.frame(term = gs_name, gene = c5_gene_sets_list[[gs_name]])
 }))
 
 h_gene_sets_df <- do.call(rbind, lapply(names(h_gene_sets_list), function(gs_name) {
@@ -72,6 +74,7 @@ gsea_immune <- GSEA(geneList, TERM2GENE = immune_gene_sets_df, pvalueCutoff = 0.
 gsea_c2 <- GSEA(geneList, TERM2GENE = c2_gene_sets_df, pvalueCutoff = 0.05, verbose = TRUE, BPPARAM = MulticoreParam(4))
 gsea_h <- GSEA(geneList, TERM2GENE = h_gene_sets_df, pvalueCutoff = 0.05, verbose = TRUE, BPPARAM = MulticoreParam(4))
 gsea_combined <- GSEA(geneList, TERM2GENE = combined_gene_sets_df, pvalueCutoff = 0.05, verbose = TRUE, BPPARAM = MulticoreParam(4))
+gsea_c5 <- GSEA(geneList, TERM2GENE = c5_gene_sets_df, pvalueCutoff = 0.05, verbose = TRUE, BPPARAM = MulticoreParam(4))
 
 # Print and save results
 # Function to create GSEA plots for each pathway
@@ -105,8 +108,11 @@ save_plots_to_pdf <- function(plots, file_name, ncol = 1, nrow = 2) {
 c2_plots <- create_gsea_plots(gsea_c2)
 h_plots <- create_gsea_plots(gsea_h)
 combined_plots <- create_gsea_plots(gsea_combined)
+c5_plots <- create_gsea_plots(gsea_c5)
+
 
 # Save the plots to PDF
 save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_c2.pdf")
+save_plots_to_pdf(c5_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_c5.pdf")
 save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_h.pdf")
 save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_combined.pdf")
