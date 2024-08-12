@@ -107,6 +107,6 @@ h_plots <- create_gsea_plots(gsea_h)
 combined_plots <- create_gsea_plots(gsea_combined)
 
 # Save the plots to PDF
-save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_c2.pdf")
-save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_h.pdf")
-save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_combined.pdf")
+save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_c2.pdf")
+save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_h.pdf")
+save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_combined.pdf")
