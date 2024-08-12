@@ -9,7 +9,7 @@ The code provided here is fully reproducible. Except for the original `fastq.gz`
 ## Directory Structure
 
 - **scripts/**: Contains all the scripts necessary to reproduce the analysis.  
-    script files are named beginning with a sequential order that they can be run in for full reproducibility. (A comes before B).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;script files are named beginning with a sequential order that they can be run in for full reproducibility. (A comes before B).
 - **results/**: Directory for storing analysis results.
 
 ## Reproducibility
