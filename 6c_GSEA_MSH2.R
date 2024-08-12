@@ -10,22 +10,22 @@ library(cowplot)
 library(ggplot2)
 library(grid)
 #load data
-MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
-MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
+MSH2_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_res.Rds")
+MSH2_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_dds.Rds")
 
-# Convert DESeqMLH1_results to a data frame
-MLH1_res_df <- as.data.frame(MLH1_res)
-MLH1_res_df$external_gene_name <- rownames(MLH1_res_df)
+# Convert DESeqMSH2_results to a data frame
+MSH2_res_df <- as.data.frame(MSH2_res)
+MSH2_res_df$external_gene_name <- rownames(MSH2_res_df)
 
 #read in gene mapping df
-#gene_mapping <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gene_mapping.Rds")
+#gene_mapping <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gene_mapping.Rds")
 
 # Merge with the gene mapping to retain ENSEMBL IDs and gene names
-#MLH1_res_df <- merge(MLH1_res_df, gene_mapping, by = "external_gene_name")
+#MSH2_res_df <- merge(MSH2_res_df, gene_mapping, by = "external_gene_name")
 
 # Create a named vector of log2FoldChange values with ENSEMBL IDs
-geneList <- MLH1_res_df$log2FoldChange
-names(geneList) <- MLH1_res_df$external_gene_name
+geneList <- MSH2_res_df$log2FoldChange
+names(geneList) <- MSH2_res_df$external_gene_name
 
 # Sort the gene list in decreasing order
 geneList <- sort(geneList, decreasing = TRUE)
@@ -103,10 +103,10 @@ save_plots_to_pdf <- function(plots, file_name, ncol = 1, nrow = 2) {
 }
 # Create GSEA plots for each pathway
 c2_plots <- create_gsea_plots(gsea_c2)
-h_plots <- create_gsea_plots(gsea_h)
+#h_plots <- create_gsea_plots(gsea_h)
 combined_plots <- create_gsea_plots(gsea_combined)
 
 # Save the plots to PDF
-save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_c2.pdf")
-save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_h.pdf")
-save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gsea_combined.pdf")
+save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gsea_c2.pdf")
+#save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gsea_h.pdf")
+save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gsea_combined.pdf")
