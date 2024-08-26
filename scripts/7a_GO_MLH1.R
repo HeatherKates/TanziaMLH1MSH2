@@ -6,6 +6,7 @@ library(enrichplot)
 library(ggplot2)
 library(BiocParallel)
 
+dataset="MLH1"
 # Load data
 MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
 MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
