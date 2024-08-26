@@ -1,9 +1,9 @@
 library(dplyr)
 library(DESeq2)
-MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
-MSH2_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_dds.Rds")
-MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
-MSH2_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_res.Rds")
+MLH1_dds <- readRDS("../results/deseq2/MLH1_dds.Rds")
+MSH2_dds <- readRDS("../results/deseq2/MSH2_dds.Rds")
+MLH1_res <- readRDS("../results/deseq2/MLH1_res.Rds")
+MSH2_res <- readRDS("../results/deseq2/MSH2_res.Rds")
 
 # Function to label DE genes
 label_DE <- function(res, antibody) {
@@ -39,4 +39,4 @@ final_res <- combined_res %>%
   dplyr::select(gene, padj_MLH1, log2FoldChange_MLH1, padj_MSH2, log2FoldChange_MSH2, Result_KOvsHA)
 
 # Save to CSV
-write.csv(final_res, file = "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/combined_DE_results.csv", row.names = FALSE)
+write.csv(final_res, file = "../results/deseq2/combined_DE_results.csv", row.names = FALSE)

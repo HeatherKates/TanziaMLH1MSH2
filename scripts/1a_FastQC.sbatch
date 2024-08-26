@@ -35,7 +35,7 @@ Sample1=$(ls ${DIR}*_R1_001.fastq.gz)
 Sample2=$(ls ${DIR}*_R2_001.fastq.gz)
 
 # Define the output directory
-OUT_DIR="/blue/zhangw/hkates/Tanzia_RNAseq/results/fastqc"
+OUT_DIR="../results/fastqc"
 
 # Run FastQC
 fastqc ${Sample1} ${Sample2} -o ${OUT_DIR}

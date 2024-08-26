@@ -4,7 +4,7 @@ library(DESeq2)
 library(biomaRt)
 
 # Define the directory containing the quantification results
-dir <- "/blue/zhangw/hkates/Tanzia_RNAseq/results/salmon/"
+dir <- "../results/salmon/"
 
 # Get the list of quantification directories starting with "MLH1"
 dirs <- list.files(dir, pattern="^MLH1.*_quant$", full.names=TRUE)
@@ -65,12 +65,12 @@ MLH1_dds <- dds
 MLH1_res <- res
 MLH1_gene_mapping <- gene_mapping
 
-write.csv(as.data.frame(MLH1_res), file="/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_DESeq2_gene_results.csv")
-save.image(file="/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_DESeq2_result.RDATA")
+write.csv(as.data.frame(MLH1_res), file="../results/deseq2/MSH2_DESeq2_gene_results.csv")
+save.image(file="../results/deseq2/MSH2_DESeq2_result.RDATA")
 
-saveRDS(MLH1_dds,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
-saveRDS(MLH1_res,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
-saveRDS(MLH1_gene_mapping,"/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gene_mapping.Rds")
+saveRDS(MLH1_dds,"../results/deseq2/MLH1_dds.Rds")
+saveRDS(MLH1_res,"../results/deseq2/MLH1_res.Rds")
+saveRDS(MLH1_gene_mapping,"../results/deseq2/MLH1_gene_mapping.Rds")
 
 #Write more results (counts, etc.)
 # Extract the counts data frame
@@ -127,7 +127,7 @@ list_of_dfs <- c(list(README = as.data.frame(README)), list_of_dfs)
 #Write to excel
 library(openxlsx)
 # Define the output file path
-output_file <- "/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_DESeq2_analysis_dataframes.xlsx"
+output_file <- "../results/deseq2/MLH1_DESeq2_analysis_dataframes.xlsx"
 
 # Create a new Excel workbook
 wb <- createWorkbook()

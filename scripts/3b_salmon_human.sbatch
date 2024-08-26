@@ -22,7 +22,7 @@ echo -e "\nInfo: Starting a job on $(date) on $(hostname) in $(pwd).\n"
 module load salmon/1.10.1
 
 # Define the base directory
-BASE_DIR="/blue/zhangw/hkates/Tanzia_RNAseq/results/fastp"
+BASE_DIR="results/fastp"
 
 # Create an array of trimmed files dynamically
 FILES=$(ls ${BASE_DIR}/*_R1_trimmed.fastq.gz)
@@ -35,7 +35,7 @@ Sample1=${FILE}
 Sample2=$(echo ${FILE} | sed 's/_R1_/_R2_/')
 
 # Define the output directory
-OUT_DIR="/blue/zhangw/hkates/Tanzia_RNAseq/results/salmon"
+OUT_DIR="../results/salmon"
 
 # Create output directory if it doesn't exist
 mkdir -p ${OUT_DIR}
@@ -44,7 +44,7 @@ mkdir -p ${OUT_DIR}
 SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_trimmed.fastq.gz//')
 
 # Path to the Salmon index
-SALMON_INDEX="/blue/zhangw/hkates/Tanzia_RNAseq/salmon_index/salmon_index_human"
+SALMON_INDEX="../salmon_index/salmon_index_human"
 
 # Run Salmon quantification with quasi-mapping
 salmon quant -i ${SALMON_INDEX} -l A -1 ${Sample1} -2 ${Sample2} -p 4 -o ${OUT_DIR}/${SAMPLE_NAME}_quant --seqBias --gcBias

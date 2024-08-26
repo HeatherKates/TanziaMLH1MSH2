@@ -5,18 +5,20 @@ library(DOSE)
 library(enrichplot)
 library(ggplot2)
 library(BiocParallel)
+library(DESeq2)
+library(dplyr)
 
 dataset="MLH1"
 # Load data
-MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
-MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
+MLH1_res <- readRDS("../results/deseq2/MLH1_res.Rds")
+MLH1_dds <- readRDS("../results/deseq2/MLH1_dds.Rds")
 
 # Convert DESeq results to a data frame
 MLH1_res_df <- as.data.frame(MLH1_res)
 MLH1_res_df$external_gene_name <- rownames(MLH1_res_df)
 
 # Filter genes by adjusted p-value < 0.05
-significant_genes <- MLH1_res_df[MLH1_res_df$padj < 0.05, ]
+significant_genes <- na.omit(MLH1_res_df[MLH1_res_df$padj < 0.05, ])
 
 # Create lists for upregulated and downregulated genes
 up_genes <- significant_genes[significant_genes$log2FoldChange > 0.58, ]
@@ -81,17 +83,17 @@ go_combined_plot_up <- create_combined_go_plot(go_enrichment_up,dataset,directio
 
 # Save the plots as single-page PDFs
 if(!is.null(go_combined_plot_down)){
-  ggsave("/blue/zhangw/hkates/Tanzia_RNAseq/results/GO/MLH1_combined_go_enrichment_down.pdf",
+  ggsave("../results/GO/MLH1_combined_go_enrichment_down.pdf",
          plot = go_combined_plot_down, width = 12, height = 16) } else {
            print("no down plot to print")
          }
 
 if(!is.null(go_combined_plot_up)){
-  ggsave("/blue/zhangw/hkates/Tanzia_RNAseq/results/GO/MLH1_combined_go_enrichment_up.pdf",
+  ggsave("../results/GO/MLH1_combined_go_enrichment_up.pdf",
          plot = go_combined_plot_up, width = 12, height = 16) } else {
            print("no down plot to print")
          }
 
 #Write the results to a file
-write.csv(file="/blue/zhangw/hkates/Tanzia_RNAseq/results/GO/MLH1_combined_go_enrichment_up.csv",go_enrichment_up@result)
-write.csv(file="/blue/zhangw/hkates/Tanzia_RNAseq/results/GO/MLH1_combined_go_enrichment_down.csv",go_enrichment_down@result)
+write.csv(file="../results/GO/MLH1_combined_go_enrichment_up.csv",go_enrichment_up@result)
+write.csv(file="../results/GO/MLH1_combined_go_enrichment_down.csv",go_enrichment_down@result)

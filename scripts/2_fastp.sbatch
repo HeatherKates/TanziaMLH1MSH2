@@ -35,7 +35,7 @@ Sample1=$(ls ${DIR}/*_R1_001.fastq.gz)
 Sample2=$(ls ${DIR}/*_R2_001.fastq.gz)
 
 # Define the output directory
-OUT_DIR="/blue/zhangw/hkates/Tanzia_RNAseq/results/fastp"
+OUT_DIR="results/fastp"
 
 # Extract sample name from the input file path
 SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_001.fastq.gz//')

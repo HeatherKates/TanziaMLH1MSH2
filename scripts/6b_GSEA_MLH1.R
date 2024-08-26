@@ -10,15 +10,15 @@ library(cowplot)
 library(ggplot2)
 library(grid)
 #load data
-MLH1_res <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_res.Rds")
-MLH1_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_dds.Rds")
+MLH1_res <- readRDS("../results/deseq2/MLH1_res.Rds")
+MLH1_dds <- readRDS("../results/deseq2/MLH1_dds.Rds")
 
 # Convert DESeqMLH1_results to a data frame
 MLH1_res_df <- as.data.frame(MLH1_res)
 MLH1_res_df$external_gene_name <- rownames(MLH1_res_df)
 
 #read in gene mapping df
-#gene_mapping <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MLH1_gene_mapping.Rds")
+#gene_mapping <- readRDS("../results/deseq2/MLH1_gene_mapping.Rds")
 
 # Merge with the gene mapping to retain ENSEMBL IDs and gene names
 #MLH1_res_df <- merge(MLH1_res_df, gene_mapping, by = "external_gene_name")
@@ -112,7 +112,7 @@ c5_plots <- create_gsea_plots(gsea_c5)
 
 
 # Save the plots to PDF
-save_plots_to_pdf(c2_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_c2.pdf")
-save_plots_to_pdf(c5_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_c5.pdf")
-save_plots_to_pdf(h_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_h.pdf")
-save_plots_to_pdf(combined_plots, "/blue/zhangw/hkates/Tanzia_RNAseq/results/GSEA/MLH1_gsea_combined.pdf")
+save_plots_to_pdf(c2_plots, "../results/GSEA/MLH1_gsea_c2.pdf")
+save_plots_to_pdf(c5_plots, "../results/GSEA/MLH1_gsea_c5.pdf")
+save_plots_to_pdf(h_plots, "../results/GSEA/MLH1_gsea_h.pdf")
+save_plots_to_pdf(combined_plots, "../results/GSEA/MLH1_gsea_combined.pdf")
