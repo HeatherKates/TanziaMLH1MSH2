@@ -15,7 +15,7 @@ MSH2_dds <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_dds.R
 
 # Convert DESeqMSH2_results to a data frame
 MSH2_res_df <- as.data.frame(MSH2_res)
-MSH2_res_df$external_gene_name <- rownames(MSH2_res_df)
+MSH2_res_df$external_gene_name <- MSH2_res_df$geneSymbol
 
 #read in gene mapping df
 #gene_mapping <- readRDS("/blue/zhangw/hkates/Tanzia_RNAseq/results/deseq2/MSH2_gene_mapping.Rds")
