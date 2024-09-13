@@ -1,3 +1,4 @@
 #!/bin/bash
-cd ATACseq/results/fastqc
-multiqc .
+module load multiqc
+multiqc ../results/fastqc/ -o ../results/multiqc/
+
