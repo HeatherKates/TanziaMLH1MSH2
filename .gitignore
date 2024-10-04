@@ -11,3 +11,19 @@ RNAseq/salmon_index/*
 rstudio-rserver
 rstudio-rsession
 rserver*
+
+# Ignore everything in all subdirectories
+ATACseq/*/*
+
+# Allow .gitkeep files in all directories
+!ATACseq/*/*/.gitkeep
+
+# Allow files in the root directory (i.e., don't ignore them)
+!/*/*
+
+# Do not ignore files in the scripts/ directory
+!ATACseq/*/scripts/*
+
+#rserver etc files
+ATACseq/*/scripts/rs*
+ATACseq/*/scripts/core*
