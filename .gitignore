@@ -16,14 +16,14 @@ rserver*
 ATACseq/*/*
 
 # Allow .gitkeep files in all directories
-!ATACseq/*/*/.gitkeep
+!ATACseq/**/.gitkeep
 
 # Allow files in the root directory (i.e., don't ignore them)
 !/*/*
 
 # Do not ignore files in the scripts/ directory
-!ATACseq/*/scripts/*
+!ATACseq/**/scripts/*
 
 #rserver etc files
-ATACseq/*/scripts/rs*
-ATACseq/*/scripts/core*
+ATACseq/**/scripts/rs*
+ATACseq/**/scripts/core*
