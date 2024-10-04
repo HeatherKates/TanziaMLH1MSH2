@@ -19,7 +19,7 @@ ATACseq/**
 !ATACseq/**/.gitkeep
 
 # Allow files in the root directory (i.e., don't ignore them)
-!/*/*
+!ATACseq/**/
 
 # Do not ignore files in the scripts/ directory
 !ATACseq/**/scripts/*
