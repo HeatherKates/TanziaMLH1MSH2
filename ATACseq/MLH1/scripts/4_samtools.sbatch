@@ -21,7 +21,7 @@ cd ../
 sample=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" MLH1_sample_list.txt)
 
 # Step 1: Convert the SAM file to BAM
-#samtools view -h -b 3_bowtie/${sample}.sam > 4a_samtools/${sample}.bam
+samtools view -h -b 3_bowtie/${sample}.sam > 4a_samtools/${sample}.bam
 
 # Step 2: Apply filters to keep only mapped, properly paired reads with high quality, and save to temp BAM
 samtools view -h -b -F 1804 -f 2 -q 30 -@ 4 4a_samtools/${sample}.bam > 4a_samtools/${sample}.filtered.bam
