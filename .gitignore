@@ -13,7 +13,7 @@ rstudio-rsession
 rserver*
 
 # Ignore everything in all subdirectories
-ATACseq/*/*
+ATACseq/**
 
 # Allow .gitkeep files in all directories
 !ATACseq/**/.gitkeep
