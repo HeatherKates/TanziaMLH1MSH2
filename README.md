@@ -8,12 +8,12 @@ The code provided here is fully reproducible. Except for the original `fastq.gz`
 
 ## Directory Structure
 
-- **RNAseq**
+# RNAseq Pipeline Summary
+
   * **scripts/**: Contains all the scripts necessary to reproduce the analysis.  
     * script files are named beginning with a sequential order that they can be run in for full reproducibility. (A comes before B).
   * **results/**: Directory for storing analysis results.
 
-- **ATACseq**
 # ATAC-seq Pipeline Summary
 
 This pipeline processes ATAC-seq data starting from raw FASTQ files through trimming, alignment, peak calling, and differential binding analysis. Below is a summary of each step and the associated input/output files.
@@ -117,8 +117,8 @@ Performs differential binding analysis between groups (e.g., KO vs WT) using Dif
 
 # Logging
 
-Warnings and issues encountered during the pipeline run are logged in:
-  - Example: `QC_warnings.log`
+Warnings and issues encountered during the pipeline run are logged in logs/:
+  - Example: 
   
 ## Reproducibility
 
