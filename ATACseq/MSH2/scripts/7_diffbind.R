@@ -72,7 +72,7 @@ write_peaks_to_bed(diffPeaksIn, "../7_diffbind/MSH2_differential_binding_results
 # Define column names and their descriptions
 column_descriptions <- data.frame(
   Heading = c("X", "seqnames", "start", "end", "width", "strand", "Conc", 
-              "Conc_MSH2", "Conc_KO", "Fold", "p.value", "FDR"),
+              "Conc_MSH2R4", "Conc_MSH2KO", "Fold", "p.value", "FDR"),
   Description = c(
     "Row index or identifier (not relevant for analysis)",
     "Chromosome or contig name where the peak is located",
@@ -83,8 +83,8 @@ column_descriptions <- data.frame(
     "Average read concentration (normalized counts) across all samples",
     "Average read concentration in MSH2 samples (wild-type or tagged)",
     "Average read concentration in KO (knockout) samples",
-    "Log2 fold change of read concentration between KO and MSH2 samples",
-    "Raw p-value for differential binding between KO and MSH2 samples",
+    "Log2 fold change of read concentration between MSH2KO and MSH2R4 samples",
+    "Raw p-value for differential binding between MSH2KO and MSH2R4 samples",
     "False discovery rate (adjusted p-value) for differential binding"
   ),
   stringsAsFactors = FALSE
@@ -96,12 +96,12 @@ print(column_descriptions)
 #MSH2 peaks
 
 # Set thresholds
-min_Conc_MSH2 <- 2  # Adjust this value based on data and expectations
-max_Conc_KO <- 0.2  # Adjust based on definition of "low" in KO
+min_Conc_MSH2R4 <- 2  # Adjust this value based on data and expectations
+max_Conc_MSH2KO <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MSH2
 MSH2R4_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold > 0 & Conc_MSH2KO < max_Conc_KO & Conc_MSH2 > min_Conc_MSH2)
+  filter(Fold > 0 & Conc_MSH2KO < max_Conc_MSH2KO & Conc_MSH2R4 > min_Conc_MSH2R4)
 
 # Check the filtered results
 write.csv(MSH2R4_filtered_peaks,"../7_diffbind/MSH2R4_filtered_peaks.csv")
@@ -110,12 +110,12 @@ write_peaks_to_bed(MSH2R4_filtered_peaks, "../7_diffbind/MSH2R4_filtered_differe
 #MSH2KO peaks
 
 # Set thresholds
-min_Conc_KO <- 2  # Adjust this value based on data and expectations
-max_Conc_MSH2 <- 0.2  # Adjust based on definition of "low" in MSH2
+min_Conc_MSH2KO <- 2  # Adjust this value based on data and expectations
+max_Conc_MSH2R4 <- 0.2  # Adjust based on definition of "low" in MSH2
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MSH2
 MSH2KO_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold < 0 & Conc_MSH2 < max_Conc_MSH2 & Conc_KO > min_Conc_KO)
+  filter(Fold < 0 & Conc_MSH2R4 < max_Conc_MSH2R4 & Conc_MSH2KO > min_Conc_MSH2KO)
 
 # Check the filtered results
 head(filtered_peaks)

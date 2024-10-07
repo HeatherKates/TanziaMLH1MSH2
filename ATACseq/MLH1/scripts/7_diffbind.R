@@ -74,7 +74,7 @@ write_peaks_to_bed(diffPeaksIn, "../7_diffbind/MLH1_differential_binding_results
 # Define column names and their descriptions
 column_descriptions <- data.frame(
   Heading = c("X", "seqnames", "start", "end", "width", "strand", "Conc", 
-              "Conc_MLH1", "Conc_KO", "Fold", "p.value", "FDR"),
+              "Conc_MLH1R4", "Conc_MLH1KO", "Fold", "p.value", "FDR"),
   Description = c(
     "Row index or identifier (not relevant for analysis)",
     "Chromosome or contig name where the peak is located",
@@ -83,8 +83,8 @@ column_descriptions <- data.frame(
     "Width of the peak (end - start)",
     "Strand information (+/-) where the peak is located, if applicable",
     "Average read concentration (normalized counts) across all samples",
-    "Average read concentration in MLH1 samples (wild-type or tagged)",
-    "Average read concentration in KO (knockout) samples",
+    "Average read concentration in MLH1R4 samples (wild-type or tagged)",
+    "Average read concentration in MLH1KO (knockout) samples",
     "Log2 fold change of read concentration between KO and MLH1 samples",
     "Raw p-value for differential binding between KO and MLH1 samples",
     "False discovery rate (adjusted p-value) for differential binding"
@@ -95,12 +95,12 @@ column_descriptions <- data.frame(
 #Filter peaks only in MLH1R4 (vs MLH1KO)
 
 # Set thresholds
-min_Conc_MLH1 <- 2  # Adjust this value based on data and expectations
+min_Conc_MLH1R4 <- 2  # Adjust this value based on data and expectations
 max_Conc_MLH1KO <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
 MLH1R4_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1 > min_Conc_MLH1)
+  filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1R4 > min_Conc_MLH1)
 
 # Check the filtered results
 write.csv(MLH1R4_filtered_peaks,"../7_diffbind/MLH1R4_filtered_differential_binding_results.csv")
@@ -114,11 +114,11 @@ write_peaks_to_bed(MLH1R4_filtered_peaks, "../7_diffbind/MLH1R4_filtered_differe
 
 # Set thresholds
 min_Conc_MLH1KO <- 2  # Adjust this value based on data and expectations
-max_Conc_MLH1 <- 0.2  # Adjust based on definition of "low" in KO
+max_Conc_MLH1R4 <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
 MLH1KO_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold < 0 & Conc_MLH1 < max_Conc_MLH1 & Conc_MLH1KO > min_Conc_MLH1KO)
+  filter(Fold < 0 & Conc_MLH1R4 < max_Conc_MLH1R4 & Conc_MLH1KO > min_Conc_MLH1KO)
 
 # Check the filtered results
 write.csv(MLH1KO_filtered_peaks,"../7_diffbind/MLH1KO_filtered_differential_binding_results.csv")
