@@ -92,8 +92,7 @@ column_descriptions <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# View the data frame
-print(column_descriptions)
+#Filter peaks only in MLH1
 
 # Set thresholds
 min_Conc_MLH1 <- 2  # Adjust this value based on data and expectations
@@ -110,4 +109,23 @@ write_peaks_to_bed(filtered_peaks, "../7_diffbind/MLH1_filtered_differential_bin
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
 #"../7_diffbind/filtered_differential_binding_results.bed"
 #"../6_bigwig/MLH1KO-1.bw","../6_bigwig/MLH1KO-2.bw","../6_bigwig/MLH1KO-3.bw","../6_bigwig/MLH1R4-1.bw","../6_bigwig/MLH1R4-2.bw","../6_bigwig/MLH1R4-3.bw")
+
+#Filter peaks only in MLH1KO
+
+# Set thresholds
+min_Conc_MLH1KO <- 2  # Adjust this value based on data and expectations
+max_Conc_MLH1 <- 0.2  # Adjust based on definition of "low" in KO
+
+# Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
+filtered_peaks <- diffPeaksIn %>%
+  filter(Fold < 0 & Conc_MLH1 < max_Conc_MLH1 & Conc_MLH1KO > min_Conc_MLH1KO)
+
+# Check the filtered results
+head(filtered_peaks)
+write_peaks_to_bed(filtered_peaks, "../7_diffbind/MLH1KO_filtered_differential_binding_results.bed")
+
+#From this point, you can view filtered peaks and per-sample reads in IGV by loading:
+#"../7_diffbind/filtered_differential_binding_results.bed"
+#"../6_bigwig/MLH1KO-1.bw","../6_bigwig/MLH1KO-2.bw","../6_bigwig/MLH1KO-3.bw","../6_bigwig/MLH1R4-1.bw","../6_bigwig/MLH1R4-2.bw","../6_bigwig/MLH1R4-3.bw")
+
 
