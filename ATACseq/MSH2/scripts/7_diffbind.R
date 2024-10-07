@@ -115,7 +115,7 @@ max_Conc_MSH2 <- 0.2  # Adjust based on definition of "low" in MSH2
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MSH2
 MSH2KO_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold > 0 & Conc_MSH2 < max_Conc_MSH2 & Conc_KO > min_Conc_KO)
+  filter(Fold < 0 & Conc_MSH2 < max_Conc_MSH2 & Conc_KO > min_Conc_KO)
 
 # Check the filtered results
 head(filtered_peaks)
