@@ -39,7 +39,7 @@ saveRDS(dbaObj,file="../7_diffbind/MLH1_dbaObj.RDATA")
 
 # Generate and inspect the report of differentially bound regions
 diffPeaks <- dba.report(dbaObj)
-head(diffPeaks)
+
 write.csv(diffPeaks, file = "../7_diffbind/MLH1_differential_binding_results.csv")
 diffPeaksIn <- read.csv("../7_diffbind/MLH1_differential_binding_results.csv")
 
@@ -100,7 +100,7 @@ max_Conc_MLH1KO <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
 MLH1R4_filtered_peaks <- diffPeaksIn %>%
-  filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1R4 > min_Conc_MLH1)
+  filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1R4 > min_Conc_MLH1R4)
 
 # Check the filtered results
 write.csv(MLH1R4_filtered_peaks,"../7_diffbind/MLH1R4_filtered_differential_binding_results.csv")
