@@ -7,9 +7,9 @@ bp_param <- MulticoreParam(workers = 6)
 
 samples <- data.frame(
   SampleID = c("MSH2KO-1", "MSH2KO-2", "MSH2KO-3", "MSH2R4-1", "MSH2R4-2", "MSH2R4-3"),
-  Tissue = c(rep("KO", 3), rep("MSH2", 3)),  #  'Tissue' can represent conditions or leave this column out.
+  Tissue = c(rep("MSH2KO", 3), rep("MSH2R4", 3)),  #  'Tissue' can represent conditions or leave this column out.
   Factor = c(rep("MSH2KO", 3), rep("MSH2R4", 3)),
-  Condition = c(rep("MSH2KO", 3), rep("MSH2", 3)),  # The experimental conditions
+  Condition = c(rep("MSH2KO", 3), rep("MSH2R4", 3)),  # The experimental conditions
   Treatment = rep("None", 6),  # Since there's no treatment in this setup
   Replicate = c(1, 2, 3, 1, 2, 3),  # Indicating replicates
   bamReads = c("../6_bigwig/MSH2KO-1_sort_n.bam", "../6_bigwig/MSH2KO-2_sort_n.bam", "../6_bigwig/MSH2KO-3_sort_n.bam",
@@ -38,8 +38,8 @@ saveRDS(dbaObj,file="../7_diffbind/MSH2_dbaObj.RDATA")
 # Generate and inspect the report of differentially bound regions
 diffPeaks <- dba.report(dbaObj)
 head(diffPeaks)
-write.csv(diffPeaks, file = "../7_diffbind/differential_binding_results.csv")
-diffPeaksIn <- read.csv("../7_diffbind/differential_binding_results.csv")
+write.csv(diffPeaks, file = "../7_diffbind/MSH2_differential_binding_results.csv")
+diffPeaksIn <- read.csv("../7_diffbind/MSH2_differential_binding_results.csv")
 
 
 # Function to write peaks data frame to a BED file
@@ -66,7 +66,7 @@ write_peaks_to_bed <- function(peaks_df, output_file) {
 }
 
 # Example usage with your dataframe 'diffPeaksIn'
-write_peaks_to_bed(diffPeaksIn, "../7_diffbind/differential_binding_results.bed")
+write_peaks_to_bed(diffPeaksIn, "../7_diffbind/MSH2_differential_binding_results.bed")
 
 #Make a README
 # Define column names and their descriptions
@@ -105,7 +105,7 @@ MSH2R4_filtered_peaks <- diffPeaksIn %>%
 
 # Check the filtered results
 write.csv(MSH2R4_filtered_peaks,"../7_diffbind/MSH2R4_filtered_peaks.csv")
-write_peaks_to_bed(MSH2_filtered_peaks, "../7_diffbind/MSH2_filtered_differential_binding_results.bed")
+write_peaks_to_bed(MSH2R4_filtered_peaks, "../7_diffbind/MSH2R4_filtered_differential_binding_results.bed")
 
 #MSH2KO peaks
 

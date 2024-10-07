@@ -8,9 +8,9 @@ bp_param <- MulticoreParam(workers = 6)
 
 samples <- data.frame(
   SampleID = c("MLH1KO-1", "MLH1KO-2", "MLH1KO-3", "MLH1R4-1", "MLH1R4-2", "MLH1R4-3"),
-  Tissue = c(rep("KO", 3), rep("MLH1", 3)),  #  'Tissue' can represent conditions or leave this column out.
+  Tissue = c(rep("MLH1KO", 3), rep("MLH1R4", 3)),  #  'Tissue' can represent conditions or leave this column out.
   Factor = c(rep("MLH1KO", 3), rep("MLH1R4", 3)),
-  Condition = c(rep("MLH1KO", 3), rep("MLH1", 3)),  # The experimental conditions
+  Condition = c(rep("MLH1KO", 3), rep("MLH1R4", 3)),  # The experimental conditions
   Treatment = rep("None", 6),  # Since there's no treatment in this setup
   Replicate = c(1, 2, 3, 1, 2, 3),  # Indicating replicates
   bamReads = c("../6_bigwig/MLH1KO-1_sort_n.bam", "../6_bigwig/MLH1KO-2_sort_n.bam", "../6_bigwig/MLH1KO-3_sort_n.bam",
@@ -128,4 +128,22 @@ write_peaks_to_bed(MLH1KO_filtered_peaks, "../7_diffbind/MLH1KO_filtered_differe
 #"../7_diffbind/filtered_differential_binding_results.bed"
 #"../6_bigwig/MLH1KO-1.bw","../6_bigwig/MLH1KO-2.bw","../6_bigwig/MLH1KO-3.bw","../6_bigwig/MLH1R4-1.bw","../6_bigwig/MLH1R4-2.bw","../6_bigwig/MLH1R4-3.bw")
 
+#Write all the results to an excel
+library(openxlsx)
+# Create a new workbook
+wb <- createWorkbook()
 
+# List of data frames and their corresponding names
+dfs <- list(README = column_descriptions,
+            differential_peaks = diffPeaksIn,
+            MLH1R4_filtered_peaks = MLH1R4_filtered_peaks,
+            MLH1KO_filtered_peaks = MLH1KO_filtered_peaks)
+
+# Add each data frame to the workbook as a separate sheet
+for (df_name in names(dfs)) {
+  addWorksheet(wb, df_name)  # Create a sheet named after the data frame
+  writeData(wb, df_name, dfs[[df_name]])  # Write the data to the sheet
+}
+
+# Save the workbook to an Excel file
+saveWorkbook(wb, "../7_diffbind/MLH1_Differential_binding_results.xlsx", overwrite = TRUE)
