@@ -100,7 +100,7 @@ MSH2R4_filtered_peaks <- diffPeaksIn %>%
   filter(Fold > 0 & Conc_MSH2KO < max_Conc_MSH2KO & Conc_MSH2R4 > min_Conc_MSH2R4)
 
 # Check the filtered results
-write.csv(MSH2R4_filtered_peaks,"../7_diffbind/MSH2R4_filtered_peaks.csv")
+write.csv(MSH2R4_filtered_peaks,"../7_diffbind/MSH2R4_filtered_differential_binding_results.csv")
 write_peaks_to_bed(MSH2R4_filtered_peaks, "../7_diffbind/MSH2R4_filtered_differential_binding_results.bed")
 
 #MSH2KO peaks
@@ -114,7 +114,7 @@ MSH2KO_filtered_peaks <- diffPeaksIn %>%
   filter(Fold < 0 & Conc_MSH2R4 < max_Conc_MSH2R4 & Conc_MSH2KO > min_Conc_MSH2KO)
 
 # Check the filtered results
-write.csv(MSH2KO_filtered_peaks,"../7_diffbind/MSH2KO_filtered_peaks.csv")
+write.csv(MSH2KO_filtered_peaks,"../7_diffbind/MSH2KO_filtered_differential_binding_results.csv")
 write_peaks_to_bed(MSH2KO_filtered_peaks, "../7_diffbind/MSH2KO_filtered_differential_binding_results.bed")
 
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
