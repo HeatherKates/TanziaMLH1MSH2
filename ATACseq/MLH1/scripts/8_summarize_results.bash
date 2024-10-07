@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set file paths and sample list
-base_dir="."  # Ensure this is the absolute path to the MLH1 directory
+base_dir="../"  # Ensure this is the absolute path to the MLH1 directory
 sample_list="$base_dir/MLH1_sample_list.txt"
-output_summary="$base_dir/ATACseq_QC_summary.csv"
+output_summary="$base_dir/8_summarize_results/ATACseq_results_summary.csv"
 
 # Write header to summary CSV
 echo "Sample,Lane,Read,Raw_Reads,Trimmed_Reads,Adapter_Content,GC_Content,Duplicate_Level,Total_Reads_FastQC,Mapped_Reads,Properly_Paired_Reads,Peaks_Called,Differential_Peaks,BigWig_File" > $output_summary
