@@ -40,8 +40,8 @@ saveRDS(dbaObj,file="../7_diffbind/MLH1_dbaObj.RDATA")
 # Generate and inspect the report of differentially bound regions
 diffPeaks <- dba.report(dbaObj)
 head(diffPeaks)
-write.csv(diffPeaks, file = "../7_diffbind/differential_binding_results.csv")
-diffPeaksIn <- read.csv("../7_diffbind/differential_binding_results.csv")
+write.csv(diffPeaks, file = "../7_diffbind/MLH1_differential_binding_results.csv")
+diffPeaksIn <- read.csv("../7_diffbind/MLH1_differential_binding_results.csv")
 
 
 # Function to write peaks data frame to a BED file
@@ -92,19 +92,19 @@ column_descriptions <- data.frame(
   stringsAsFactors = FALSE
 )
 
-#Filter peaks only in MLH1
+#Filter peaks only in MLH1R4 (vs MLH1KO)
 
 # Set thresholds
 min_Conc_MLH1 <- 2  # Adjust this value based on data and expectations
 max_Conc_MLH1KO <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
-filtered_peaks <- diffPeaksIn %>%
+MLH1R4_filtered_peaks <- diffPeaksIn %>%
   filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1 > min_Conc_MLH1)
 
 # Check the filtered results
-head(filtered_peaks)
-write_peaks_to_bed(filtered_peaks, "../7_diffbind/MLH1_filtered_differential_binding_results.bed")
+write.csv(MLH1R4_filtered_peaks,"../7_diffbind/MLH1R4_filtered_differential_binding_results.csv")
+write_peaks_to_bed(MLH1R4_filtered_peaks, "../7_diffbind/MLH1R4_filtered_differential_binding_results.bed")
 
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
 #"../7_diffbind/filtered_differential_binding_results.bed"
@@ -117,12 +117,12 @@ min_Conc_MLH1KO <- 2  # Adjust this value based on data and expectations
 max_Conc_MLH1 <- 0.2  # Adjust based on definition of "low" in KO
 
 # Filter peaks for positive fold change, low concentration in KO, and reasonably high concentration in MLH1
-filtered_peaks <- diffPeaksIn %>%
+MLH1KO_filtered_peaks <- diffPeaksIn %>%
   filter(Fold < 0 & Conc_MLH1 < max_Conc_MLH1 & Conc_MLH1KO > min_Conc_MLH1KO)
 
 # Check the filtered results
-head(filtered_peaks)
-write_peaks_to_bed(filtered_peaks, "../7_diffbind/MLH1KO_filtered_differential_binding_results.bed")
+write.csv(MLH1KO_filtered_peaks,"../7_diffbind/MLH1KO_filtered_differential_binding_results.csv")
+write_peaks_to_bed(MLH1KO_filtered_peaks, "../7_diffbind/MLH1KO_filtered_differential_binding_results.bed")
 
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
 #"../7_diffbind/filtered_differential_binding_results.bed"
