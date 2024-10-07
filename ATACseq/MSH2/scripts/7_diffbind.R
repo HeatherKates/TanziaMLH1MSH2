@@ -37,7 +37,6 @@ dbaObj <- dba.analyze(dbaObj)
 saveRDS(dbaObj,file="../7_diffbind/MSH2_dbaObj.RDATA")
 # Generate and inspect the report of differentially bound regions
 diffPeaks <- dba.report(dbaObj)
-head(diffPeaks)
 write.csv(diffPeaks, file = "../7_diffbind/MSH2_differential_binding_results.csv")
 diffPeaksIn <- read.csv("../7_diffbind/MSH2_differential_binding_results.csv")
 
@@ -90,9 +89,6 @@ column_descriptions <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# View the data frame
-print(column_descriptions)
-
 #MSH2 peaks
 
 # Set thresholds
@@ -118,11 +114,29 @@ MSH2KO_filtered_peaks <- diffPeaksIn %>%
   filter(Fold < 0 & Conc_MSH2R4 < max_Conc_MSH2R4 & Conc_MSH2KO > min_Conc_MSH2KO)
 
 # Check the filtered results
-head(filtered_peaks)
-write.csv(filtered_peaks,"../7_diffbind/MSH2KO_filtered_peaks.csv")
+write.csv(MSH2KO_filtered_peaks,"../7_diffbind/MSH2KO_filtered_peaks.csv")
 write_peaks_to_bed(MSH2KO_filtered_peaks, "../7_diffbind/MSH2KO_filtered_differential_binding_results.bed")
 
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
 #"../7_diffbind/filtered_differential_binding_results.bed"
 #"../6_bigwig/MSH2KO-1.bw","../6_bigwig/MSH2KO-2.bw","../6_bigwig/MSH2KO-3.bw","../6_bigwig/MSH2R4-1.bw","../6_bigwig/MSH2R4-2.bw","../6_bigwig/MSH2R4-3.bw")
+#Write all the results to an excel
+library(openxlsx)
+# Create a new workbook
+wb <- createWorkbook()
+
+# List of data frames and their corresponding names
+dfs <- list(README = column_descriptions,
+            differential_peaks = diffPeaksIn,
+            MLH1R4_filtered_peaks = MSH2R4_filtered_peaks,
+            MLH1KO_filtered_peaks = MSH2KO_filtered_peaks)
+
+# Add each data frame to the workbook as a separate sheet
+for (df_name in names(dfs)) {
+  addWorksheet(wb, df_name)  # Create a sheet named after the data frame
+  writeData(wb, df_name, dfs[[df_name]])  # Write the data to the sheet
+}
+
+# Save the workbook to an Excel file
+saveWorkbook(wb, "../7_diffbind/MSH2_Differential_binding_results.xlsx", overwrite = TRUE)
 
