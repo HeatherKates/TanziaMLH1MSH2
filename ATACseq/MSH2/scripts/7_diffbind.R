@@ -147,7 +147,7 @@ peak_annotation_df <- as.data.frame(peak_annotation)
 
 # Add column descriptions for the annotation results
 column_descriptions_anno <- data.frame(
-  Column = c(
+  Heading = c(
     "seqnames", "start", "end", "width", "strand", 
     "V4", "V5", "annotation", "geneChr", "geneStart", 
     "geneEnd", "geneLength", "geneStrand", "geneId", 
@@ -174,14 +174,29 @@ column_descriptions_anno <- data.frame(
   stringsAsFactors = FALSE
 )
 
+## Combine peak and peak annotation dfs
+
+# rbind peak col descr with anno col descr
+peaks_and_anno_cols_descr <- rbind(column_descriptions,column_descriptions_anno)
+
+# cbind peaks and annotation
+peaks_with_anno <- cbind(diffPeaksIn,peak_annotation_df)
+
+# Add a column to indicate if the peak is a MSH2KO peak
+peaks_with_anno$MSH2KO_peak <- ifelse(peaks_with_anno$X %in% MSH2KO_filtered_peaks$X, TRUE, FALSE)
+peaks_with_anno$MSH2R4_peak <- ifelse(peaks_with_anno$X %in% MSH2R4_filtered_peaks$X, TRUE, FALSE)
+
+#Read in the HOMER motif results
+MSH2KO_motifs <- read.csv("../9_HOMER/MSH2KO_peaks_motifs/knownResults.csv",row.names = NULL)
+MSH2R4_motifs <- read.csv("../9_HOMER/MSH2R4_peaks_motifs/knownResults.csv",row.names = NULL)
 
 library(openxlsx)
 # Create a new workbook
 wb <- createWorkbook()
 
 # List of data frames and their corresponding names
-dfs <- list(README = column_descriptions,
-            differential_peaks = diffPeaksIn,
+dfs <- list(README = peaks_and_anno_cols_descr,
+            peaks_with_anno = diffPeaksIn,
             MLH1R4_filtered_peaks = MSH2R4_filtered_peaks,
             MLH1KO_filtered_peaks = MSH2KO_filtered_peaks)
 
