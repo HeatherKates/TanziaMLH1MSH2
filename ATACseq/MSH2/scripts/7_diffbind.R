@@ -121,6 +121,60 @@ write_peaks_to_bed(MSH2KO_filtered_peaks, "../7_diffbind/MSH2KO_filtered_differe
 #"../7_diffbind/filtered_differential_binding_results.bed"
 #"../6_bigwig/MSH2KO-1.bw","../6_bigwig/MSH2KO-2.bw","../6_bigwig/MSH2KO-3.bw","../6_bigwig/MSH2R4-1.bw","../6_bigwig/MSH2R4-2.bw","../6_bigwig/MSH2R4-3.bw")
 #Write all the results to an excel
+
+##Annotate peaks with chipseeker
+# Load necessary libraries
+library(ChIPseeker)
+library(TxDb.Hsapiens.UCSC.hg38.knownGene)  # You can change the genome version accordingly
+library(clusterProfiler)
+
+# Load the peaks (ensure peaks are in BED format)
+peaks <- readPeakFile("../7_diffbind/MSH2_differential_binding_results.bed")
+
+library(GenomicRanges)
+
+# Ensure peaks are in the GRanges format, then add the "chr" prefix
+seqlevelsStyle(peaks) <- "UCSC"  # This will add "chr" to the chromosome names
+
+# Annotate the peaks to genes
+txdb <- TxDb.Hsapiens.UCSC.hg38.knownGene
+
+# Now, run the annotation
+peak_annotation <- annotatePeak(peaks, tssRegion=c(-3000, 3000), TxDb=txdb)
+
+# Save the annotated results
+peak_annotation_df <- as.data.frame(peak_annotation)
+
+# Add column descriptions for the annotation results
+column_descriptions_anno <- data.frame(
+  Column = c(
+    "seqnames", "start", "end", "width", "strand", 
+    "V4", "V5", "annotation", "geneChr", "geneStart", 
+    "geneEnd", "geneLength", "geneStrand", "geneId", 
+    "transcriptId", "distanceToTSS"
+  ),
+  Description = c(
+    "Chromosome name where the peak is located",
+    "Start position of the peak",
+    "End position of the peak",
+    "Width of the peak (end - start)",
+    "Strand of the peak (+ or -)",
+    "Additional metadata (e.g., score or rank of peak)", 
+    "Additional metadata (e.g., signal value or score)",
+    "Genomic annotation of the peak (e.g., promoter, exon, intron, intergenic)",
+    "Chromosome where the nearest gene is located",
+    "Start position of the nearest gene",
+    "End position of the nearest gene",
+    "Length of the nearest gene",
+    "Strand of the nearest gene (+ or -)",
+    "Ensembl or RefSeq ID of the nearest gene",
+    "Ensembl or RefSeq ID of the nearest transcript",
+    "Distance from the peak to the transcription start site (TSS) of the nearest gene"
+  ),
+  stringsAsFactors = FALSE
+)
+
+
 library(openxlsx)
 # Create a new workbook
 wb <- createWorkbook()
