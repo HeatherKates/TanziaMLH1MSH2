@@ -88,7 +88,7 @@ column_descriptions <- data.frame(
   ),
   stringsAsFactors = FALSE
 )
-
+column_descriptions$Sheet="peaks_with_anno"
 #MSH2 peaks
 
 # Set thresholds
@@ -173,7 +173,7 @@ column_descriptions_anno <- data.frame(
   ),
   stringsAsFactors = FALSE
 )
-
+column_descriptions_anno$Sheet="peaks_with_anno"
 ## Combine peak and peak annotation dfs
 
 # rbind peak col descr with anno col descr
@@ -186,19 +186,46 @@ peaks_with_anno <- cbind(diffPeaksIn,peak_annotation_df)
 peaks_with_anno$MSH2KO_peak <- ifelse(peaks_with_anno$X %in% MSH2KO_filtered_peaks$X, TRUE, FALSE)
 peaks_with_anno$MSH2R4_peak <- ifelse(peaks_with_anno$X %in% MSH2R4_filtered_peaks$X, TRUE, FALSE)
 
+source("helpers.R")
 #Read in the HOMER motif results
-MSH2KO_motifs <- read.csv("../9_HOMER/MSH2KO_peaks_motifs/knownResults.csv",row.names = NULL)
-MSH2R4_motifs <- read.csv("../9_HOMER/MSH2R4_peaks_motifs/knownResults.csv",row.names = NULL)
+MSH2KO_motifs <- read_HOMER("../9_HOMER/MSH2KO_peaks_motifs/knownResults.txt")
+MSH2R4_motifs <- read_HOMER("../9_HOMER/MSH2R4_peaks_motifs/knownResults.txt")
+
+#README for HOMER motifs
+# Create the descriptions for each column
+headings <- c("Motif Name", "Consensus", "P-value", "Log P-value", "q-value (Benjamini)",
+              "# of Target Sequences with Motif", "% of Target Sequences with Motif", 
+              "# of Background Sequences with Motif", "% of Background Sequences with Motif")
+
+descriptions <- c(
+  "The name of the motif, including the transcription factor and dataset used to identify it.",
+  "The consensus sequence of the motif, which represents the DNA sequence pattern recognized by the transcription factor.",
+  "The p-value representing the statistical significance of the motifs enrichment in the target sequences.",
+  "The logarithmic transformation of the p-value to make it easier to interpret the strength of significance.",
+  "The q-value after Benjamini-Hochberg correction, representing the false discovery rate adjusted p-value.",
+  "The number of target sequences (out of the total target sequences) that contain the motif.",
+  "The percentage of target sequences (out of the total target sequences) that contain the motif.",
+  "The number of background sequences (out of the total background sequences) that contain the motif.",
+  "The percentage of background sequences (out of the total background sequences) that contain the motif."
+)
+
+# Combine them into a data frame
+HOMER_descriptions_df <- data.frame(Heading = headings, Description = descriptions, stringsAsFactors = FALSE)
+HOMER_descriptions_df$Sheet <- "Group_motifs"
+
+#Bind all readmes
+README <- rbind(peaks_and_anno_cols_descr,HOMER_descriptions_df)
+
 
 library(openxlsx)
 # Create a new workbook
 wb <- createWorkbook()
 
 # List of data frames and their corresponding names
-dfs <- list(README = peaks_and_anno_cols_descr,
+dfs <- list(README = README,
             peaks_with_anno = diffPeaksIn,
-            MLH1R4_filtered_peaks = MSH2R4_filtered_peaks,
-            MLH1KO_filtered_peaks = MSH2KO_filtered_peaks)
+            MLH1R4_motifs = MSH2R4_motifs,
+            MLH1KO_motifs = MSH2KO_motifs)
 
 # Add each data frame to the workbook as a separate sheet
 for (df_name in names(dfs)) {
