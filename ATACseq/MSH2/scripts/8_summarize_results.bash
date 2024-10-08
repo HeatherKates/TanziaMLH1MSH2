@@ -3,7 +3,7 @@
 # Set file paths and sample list
 base_dir="../"  
 sample_list="$base_dir/MSH2_sample_list.txt"
-output_summary="$base_dir/8_summary/ATACseq_results_summary.csv"
+output_summary="$base_dir/9_summary/ATACseq_results_summary.csv"
 
 # Write header to summary CSV
 echo "Sample,Lane,Read,Raw_Reads,Trimmed_Reads,Adapter_Content,GC_Content,Duplicate_Level,Total_Reads_FastQC,Mapped_Reads,Properly_Paired_Reads,Peaks_Called,Differential_Peaks,BigWig_File" > $output_summary
