@@ -216,23 +216,16 @@ HOMER_descriptions_df$Sheet <- "Group_motifs"
 #Bind all readmes
 README <- rbind(peaks_and_anno_cols_descr,HOMER_descriptions_df)
 
+library(writexl)
 
-library(openxlsx)
-# Create a new workbook
-wb <- createWorkbook()
+dfs <- list(
+  README = README,
+  peaks_with_anno = peaks_with_anno,
+  MLH1R4_motifs = MSH2R4_motifs,
+  MLH1KO_motifs = MSH2KO_motifs
+)
 
-# List of data frames and their corresponding names
-dfs <- list(README = README,
-            peaks_with_anno = diffPeaksIn,
-            MLH1R4_motifs = MSH2R4_motifs,
-            MLH1KO_motifs = MSH2KO_motifs)
 
-# Add each data frame to the workbook as a separate sheet
-for (df_name in names(dfs)) {
-  addWorksheet(wb, df_name)  # Create a sheet named after the data frame
-  writeData(wb, df_name, dfs[[df_name]])  # Write the data to the sheet
-}
-
-# Save the workbook to an Excel file
-saveWorkbook(wb, "../7_diffbind/MSH2_Differential_binding_results.xlsx", overwrite = TRUE)
+# Write the list of data frames to an Excel file using writexl
+write_xlsx(dfs, "../7_diffbind/MSH2_Differential_binding_results.xlsx")
 
