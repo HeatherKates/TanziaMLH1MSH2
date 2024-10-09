@@ -186,46 +186,15 @@ peaks_with_anno <- cbind(diffPeaksIn,peak_annotation_df)
 peaks_with_anno$MSH2KO_peak <- ifelse(peaks_with_anno$X %in% MSH2KO_filtered_peaks$X, TRUE, FALSE)
 peaks_with_anno$MSH2R4_peak <- ifelse(peaks_with_anno$X %in% MSH2R4_filtered_peaks$X, TRUE, FALSE)
 
-source("helpers.R")
-#Read in the HOMER motif results
-MSH2KO_motifs <- read_HOMER("../9_HOMER/MSH2KO_peaks_motifs/knownResults.txt")
-MSH2R4_motifs <- read_HOMER("../9_HOMER/MSH2R4_peaks_motifs/knownResults.txt")
-
-#README for HOMER motifs
-# Create the descriptions for each column
-headings <- c("Motif Name", "Consensus", "P-value", "Log P-value", "q-value (Benjamini)",
-              "# of Target Sequences with Motif", "% of Target Sequences with Motif", 
-              "# of Background Sequences with Motif", "% of Background Sequences with Motif")
-
-descriptions <- c(
-  "The name of the motif, including the transcription factor and dataset used to identify it.",
-  "The consensus sequence of the motif, which represents the DNA sequence pattern recognized by the transcription factor.",
-  "The p-value representing the statistical significance of the motifs enrichment in the target sequences.",
-  "The logarithmic transformation of the p-value to make it easier to interpret the strength of significance.",
-  "The q-value after Benjamini-Hochberg correction, representing the false discovery rate adjusted p-value.",
-  "The number of target sequences (out of the total target sequences) that contain the motif.",
-  "The percentage of target sequences (out of the total target sequences) that contain the motif.",
-  "The number of background sequences (out of the total background sequences) that contain the motif.",
-  "The percentage of background sequences (out of the total background sequences) that contain the motif."
-)
-
-# Combine them into a data frame
-HOMER_descriptions_df <- data.frame(Heading = headings, Description = descriptions, stringsAsFactors = FALSE)
-HOMER_descriptions_df$Sheet <- "Group_motifs"
-
-#Bind all readmes
-README <- rbind(peaks_and_anno_cols_descr,HOMER_descriptions_df)
 
 library(writexl)
 
 dfs <- list(
-  README = README,
+  README = peaks_and_anno_cols_descr,
   peaks_with_anno = peaks_with_anno,
-  MLH1R4_motifs = MSH2R4_motifs,
-  MLH1KO_motifs = MSH2KO_motifs
 )
 
-
+#Add the gene symbol to the annotation
 # Write the list of data frames to an Excel file using writexl
 write_xlsx(dfs, "../7_diffbind/MSH2_Differential_binding_results.xlsx")
 
