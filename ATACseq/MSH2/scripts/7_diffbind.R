@@ -67,29 +67,7 @@ write_peaks_to_bed <- function(peaks_df, output_file) {
 # Example usage with your dataframe 'diffPeaksIn'
 write_peaks_to_bed(diffPeaksIn, "../7_diffbind/MSH2_differential_binding_results.bed")
 
-#Make a README
-# Define column names and their descriptions
-column_descriptions <- data.frame(
-  Heading = c("X", "seqnames", "start", "end", "width", "strand", "Conc", 
-              "Conc_MSH2R4", "Conc_MSH2KO", "Fold", "p.value", "FDR"),
-  Description = c(
-    "Row index or identifier (not relevant for analysis)",
-    "Chromosome or contig name where the peak is located",
-    "Start position of the peak on the chromosome",
-    "End position of the peak on the chromosome",
-    "Width of the peak (end - start)",
-    "Strand information (+/-) where the peak is located, if applicable",
-    "Average read concentration (normalized counts) across all samples",
-    "Average read concentration in MSH2 samples (wild-type or tagged)",
-    "Average read concentration in KO (knockout) samples",
-    "Log2 fold change of read concentration between MSH2KO and MSH2R4 samples",
-    "Raw p-value for differential binding between MSH2KO and MSH2R4 samples",
-    "False discovery rate (adjusted p-value) for differential binding"
-  ),
-  stringsAsFactors = FALSE
-)
-column_descriptions$Sheet="peaks_with_anno"
-#MSH2 peaks
+# MSH2 unique peaks
 
 # Set thresholds
 min_Conc_MSH2R4 <- 2  # Adjust this value based on data and expectations
@@ -103,7 +81,7 @@ MSH2R4_filtered_peaks <- diffPeaksIn %>%
 write.csv(MSH2R4_filtered_peaks,"../7_diffbind/MSH2R4_filtered_differential_binding_results.csv")
 write_peaks_to_bed(MSH2R4_filtered_peaks, "../7_diffbind/MSH2R4_filtered_differential_binding_results.bed")
 
-#MSH2KO peaks
+# MSH2KO unique peaks
 
 # Set thresholds
 min_Conc_MSH2KO <- 2  # Adjust this value based on data and expectations
@@ -142,56 +120,161 @@ txdb <- TxDb.Hsapiens.UCSC.hg38.knownGene
 # Now, run the annotation
 peak_annotation <- annotatePeak(peaks, tssRegion=c(-3000, 3000), TxDb=txdb)
 
+# Add gene symbols
+
+# Load the necessary library for gene symbol mapping
+library(org.Hs.eg.db)  # For human genes, change if using another species
+
+# Extract the Entrez IDs from the annotation result
+entrez_ids <- as.data.frame(peak_annotation)$geneId
+
+# Map Entrez IDs to gene symbols
+gene_symbols <- mapIds(org.Hs.eg.db, keys = entrez_ids, column = "SYMBOL", keytype = "ENTREZID", multiVals = "first")
+
 # Save the annotated results
 peak_annotation_df <- as.data.frame(peak_annotation)
 
-# Add column descriptions for the annotation results
-column_descriptions_anno <- data.frame(
-  Heading = c(
-    "seqnames", "start", "end", "width", "strand", 
-    "V4", "V5", "annotation", "geneChr", "geneStart", 
-    "geneEnd", "geneLength", "geneStrand", "geneId", 
-    "transcriptId", "distanceToTSS"
-  ),
+# Add the gene symbols to the peak_annotation result
+peak_annotation_df$geneSymbol <- gene_symbols
+
+#Add peak annotation to diffbind results
+# Add a "X" column
+peak_annotation_df$X=rownames(peak_annotation_df)
+
+# merge peaks and annotation
+peaks_with_anno <- merge(diffPeaksIn,peak_annotation_df,by="X")
+
+# Remove redundant .y columns (from ChIPseeker/diffbind for seqnames)
+peaks_with_anno <- peaks_with_anno %>%
+  dplyr::select(-seqnames.y, -start.y, -end.y, -width.y, -strand.y,-seqnames.x)
+
+# Add group specific significance results
+# Create a new column to indicate in which group the peak is significant
+peaks_with_anno$Unique_to_group <- ifelse(
+  peaks_with_anno$X %in% MSH2KO_filtered_peaks$X, "MSH2KO",
+  ifelse(peaks_with_anno$X %in% MSH2R4_filtered_peaks$X, "MSH2R4", "None")
+)
+
+# Add DE results
+
+#Read in DE results
+DE_results <- read.csv("../../../RNAseq/results/deseq2/MSH2_DESeq2_gene_results.csv")
+
+# Specify the direction of the log2FoldChange
+DE_results <- DE_results %>% dplyr::rename(log2FoldChange_KOvsR4=log2FoldChange)
+
+# Rename ensemble ID col
+DE_results <- DE_results %>% dplyr::rename(ensembl_gene_id=X)
+
+# Add entrez ID for merge with peak annotation
+library(biomaRt)
+ensembl <- useEnsembl(biomart = "genes", dataset = "hsapiens_gene_ensembl")
+
+# Extract the Ensembl Gene IDs from DE_results dataframe
+ensembl_ids <- DE_results$ensembl_gene_id
+
+# Use biomaRt to retrieve the corresponding Entrez Gene IDs
+gene_info <- getBM(attributes = c("ensembl_gene_id", "entrezgene_id"),
+                   filters = "ensembl_gene_id", values = ensembl_ids, mart = ensembl)
+
+# Merge the Entrez Gene IDs with your DE_results dataframe based on the Ensembl Gene IDs
+DE_results <- merge(DE_results,gene_info,by="ensembl_gene_id",all.x=TRUE)
+
+# Add DE_result to all colnames except the last 2 col which is geneSymbol and entrez ID
+colnames(DE_results)[1:7] <- paste0("DE_result.",colnames(DE_results)[1:7])
+
+# Merge DE result with peaks
+peaks_with_anno <- merge(peaks_with_anno,DE_results,by.y="entrezgene_id",by.x="geneId",all.x=TRUE)
+
+# Add identifier for gene symbol
+peaks_with_anno <- peaks_with_anno %>% dplyr::rename(DE_result.geneSymbol=geneSymbol.y)
+
+# Rename "X" to be more informative
+peaks_with_anno <- peaks_with_anno %>% dplyr::rename(peak_ID=X)
+
+# Remove suffix x from merges
+colnames(peaks_with_anno) <- gsub(".x$","",colnames(peaks_with_anno))
+
+# Remove chipseeker cols redundant with genrich cols
+peaks_with_anno <- peaks_with_anno %>% dplyr::select(c(-V4,-V5))
+## Add README
+
+# Create a data frame with the column names, descriptions, and the source of the data
+README_df <- data.frame(
+  Column = colnames(peaks_with_anno),
   Description = c(
-    "Chromosome name where the peak is located",
-    "Start position of the peak",
-    "End position of the peak",
-    "Width of the peak (end - start)",
-    "Strand of the peak (+ or -)",
-    "Additional metadata (e.g., score or rank of peak)", 
-    "Additional metadata (e.g., signal value or score)",
-    "Genomic annotation of the peak (e.g., promoter, exon, intron, intergenic)",
-    "Chromosome where the nearest gene is located",
-    "Start position of the nearest gene",
-    "End position of the nearest gene",
-    "Length of the nearest gene",
-    "Strand of the nearest gene (+ or -)",
-    "Ensembl or RefSeq ID of the nearest gene",
-    "Ensembl or RefSeq ID of the nearest transcript",
-    "Distance from the peak to the transcription start site (TSS) of the nearest gene"
+    "Gene ID from annotation",
+    "Peak ID from Genrich peak calling",
+    "Start position of the peak (Genrich)",
+    "End position of the peak (Genrich)",
+    "Width of the peak (Genrich)",
+    "Strand of the peak (Genrich)",
+    "Concentration of signal across all conditions (DiffBind)",
+    "Concentration of signal in MSH2R4 condition (DiffBind)",
+    "Concentration of signal in MSH2KO condition (DiffBind)",
+    "Fold change between MSH2KO and MSH2R4 (DiffBind)",
+    "P-value for the difference between conditions (DiffBind)",
+    "FDR-adjusted p-value (DiffBind)",
+    "Peak annotation (e.g., promoter, exon, intron) from ChIPseeker",
+    "Chromosome of the annotated gene (ChIPseeker)",
+    "Start position of the annotated gene (ChIPseeker)",
+    "End position of the annotated gene (ChIPseeker)",
+    "Length of the annotated gene (ChIPseeker)",
+    "Strand of the annotated gene (ChIPseeker)",
+    "Transcript ID from ChIPseeker annotation",
+    "Distance from the peak to the nearest TSS (ChIPseeker)",
+    "Gene symbol from ChIPseeker annotation",
+    "Indicates whether the peak is unique to a specific group (DiffBind analysis)",
+    "Ensembl gene ID from DESeq2 results",
+    "Base mean expression level (DESeq2)",
+    "Log2 fold change between MSH2KO and MSH2R4 (DESeq2)",
+    "Standard error of the log2 fold change (DESeq2)",
+    "Statistical test statistic (DESeq2)",
+    "P-value for differential expression (DESeq2)",
+    "FDR-adjusted p-value for differential expression (DESeq2)",
+    "Gene symbol from DESeq2 results"
+  ),
+  `Analysis that produced field` = c(
+    "ChIPseeker",
+    "Genrich",
+    "Genrich",
+    "Genrich",
+    "Genrich",
+    "Genrich",
+    "DiffBind",
+    "DiffBind",
+    "DiffBind",
+    "DiffBind",
+    "DiffBind",
+    "DiffBind",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "ChIPseeker",
+    "DiffBind",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2",
+    "DESeq2"
   ),
   stringsAsFactors = FALSE
 )
-column_descriptions_anno$Sheet="peaks_with_anno"
-## Combine peak and peak annotation dfs
-
-# rbind peak col descr with anno col descr
-peaks_and_anno_cols_descr <- rbind(column_descriptions,column_descriptions_anno)
-
-# cbind peaks and annotation
-peaks_with_anno <- cbind(diffPeaksIn,peak_annotation_df)
-
-# Add a column to indicate if the peak is a MSH2KO peak
-peaks_with_anno$MSH2KO_peak <- ifelse(peaks_with_anno$X %in% MSH2KO_filtered_peaks$X, TRUE, FALSE)
-peaks_with_anno$MSH2R4_peak <- ifelse(peaks_with_anno$X %in% MSH2R4_filtered_peaks$X, TRUE, FALSE)
 
 
 library(writexl)
 
 dfs <- list(
-  README = peaks_and_anno_cols_descr,
-  peaks_with_anno = peaks_with_anno,
+  README = README_df,
+  peaks_with_anno = peaks_with_anno
 )
 
 #Add the gene symbol to the annotation
