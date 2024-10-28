@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set file paths and sample list
-base_dir="../"  # Ensure this is the absolute path to the MLH1 directory
-sample_list="$base_dir/MLH1_sample_list.txt"
-output_summary="$base_dir/8_summarize_results/ATACseq_results_summary.csv"
+base_dir="../"  
+sample_list="$base_dir/MSH2_sample_list.txt"
+output_summary="$base_dir/9_summary/ATACseq_results_summary.csv"
 
 # Write header to summary CSV
 echo "Sample,Lane,Read,Raw_Reads,Trimmed_Reads,Adapter_Content,GC_Content,Duplicate_Level,Total_Reads_FastQC,Mapped_Reads,Properly_Paired_Reads,Peaks_Called,Differential_Peaks,BigWig_File" > $output_summary
@@ -37,7 +37,8 @@ else
 fi
 
 # Step 2: Find and unzip the FastQC summary file
-fastqc_zip=$(ls "$base_dir/2_fastQC"/*${sample}*${lane}_${read}_001_fastqc.zip 2>/dev/null)
+read_num=$(echo ${read} | cut -c 2)
+fastqc_zip=$(ls "$base_dir/2_fastQC"/*${sample}*${lane}_val_${read_num}_fastqc.zip 2>/dev/null)
 if [ -f "$fastqc_zip" ]; then
     unzip -p "$fastqc_zip" "*fastqc_data.txt" > "${sample}_fastqc_data.txt"
 
