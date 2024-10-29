@@ -9,6 +9,7 @@ The code provided here is fully reproducible. Except for the original `fastq.gz`
 To run these pipelines navigate to the hipergator directory of your choice and use `git clone https://github.com/HeatherKates/TanziaMLH1MSH2.git`
 
 Each pipeline has a **data/** folder that contains a symlink to the actual location of the data on hipergator
+
 ## Directory Structure
 
 # RNAseq Pipeline Summary
@@ -21,8 +22,9 @@ This directory contains the RNA-seq pipeline files and scripts to analyze the ro
 
 Nothing else needs to be changed
 
-**Run *sbatch scripts by typing `sbatch FILENAME`**
-**Run *R scripts by typing `module load R` and then `Rscript FILENAME`**
+**Run .sbatch scripts by typing `sbatch FILENAME`**
+
+**Run .R scripts by typing `module load R` and then `Rscript FILENAME`**
 
 ## Directory Structure
 
