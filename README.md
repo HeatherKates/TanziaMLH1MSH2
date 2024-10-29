@@ -8,6 +8,7 @@ The code provided here is fully reproducible. Except for the original `fastq.gz`
 
 To run these pipelines navigate to the hipergator directory of your choice and use `git clone https://github.com/HeatherKates/TanziaMLH1MSH2.git`
 
+Each pipeline has a **data/** folder that contains a symlink to the actual location of the data on hipergator
 ## Directory Structure
 
 # RNAseq Pipeline Summary
