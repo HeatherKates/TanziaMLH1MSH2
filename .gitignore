@@ -28,6 +28,7 @@ ATACseq/**
 
 # Do not ignore files in the scripts/ directory
 !ATACseq/**/scripts/*
+!ATACseq/data
 
 #rserver etc files
 ATACseq/**/scripts/rs*
