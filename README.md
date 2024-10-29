@@ -10,11 +10,7 @@ To run these pipelines navigate to the hipergator directory of your choice and u
 
 Each pipeline has a **data/** folder that contains a symlink to the actual location of the data on hipergator
 
-## Directory Structure
-
-# RNAseq Pipeline Summary
-
-This directory contains the RNA-seq pipeline files and scripts to analyze the roles of MSH2 and MLH1 in tumor metastasis. Below is an overview of the main folders and the contents within each directory.
+## Getting started
 
 **ALL SCRIPTS SHOULD BE RUN FROM THE scripts/ DIRECTORY.**
 
@@ -38,6 +34,10 @@ Nothing else needs to be changed
 **Run .sbatch scripts by typing `sbatch FILENAME`**
 
 **Run .R scripts by typing `module load R` and then `Rscript FILENAME`**
+
+# RNAseq Pipeline Summary
+
+This directory contains the RNA-seq pipeline files and scripts to analyze the roles of MSH2 and MLH1 in tumor metastasis. Below is an overview of the main folders and the contents within each directory.
 
 ## Directory Structure
 
