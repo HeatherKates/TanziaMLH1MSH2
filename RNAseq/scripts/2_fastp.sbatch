@@ -7,9 +7,9 @@
 #SBATCH --qos=timgarrett
 #SBATCH --account=timgarrett
 #SBATCH -t 01:00:00
-#SBATCH --output=/blue/zhangw/hkates/Tanzia_RNAseq/logs/fastp.%j.out
-#SBATCH --error=/blue/zhangw/hkates/Tanzia_RNAseq/logs/fastp.%j.err
-#SBATCH --array=12
+#SBATCH --output=logs/fastp.%j.out
+#SBATCH --error=logs/fastp.%j.err
+#SBATCH --array=1-12
 
 echo This is task $SLURM_ARRAY_TASK_ID
 
@@ -35,7 +35,7 @@ Sample1=$(ls ${DIR}/*_R1_001.fastq.gz)
 Sample2=$(ls ${DIR}/*_R2_001.fastq.gz)
 
 # Define the output directory
-OUT_DIR="results/fastp"
+OUT_DIR="../results/2_fastp"
 
 # Extract sample name from the input file path
 SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_001.fastq.gz//')
