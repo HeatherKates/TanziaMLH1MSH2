@@ -34,7 +34,7 @@ Nothing else needs to be changed
 
 **Run .R scripts by typing `module load R` and then `Rscript FILENAME`**
 
-**Executing scripts may create directories and files in the respective results/ folders. These will overwrite any existing files. If you wish to re-run an analysis *without* over-writing files, rename the directory and reclone the repo before starting again.
+**Executing scripts may create directories and files in the respective results/ folders. These will overwrite any existing files. If you wish to re-run an analysis *without* over-writing files, rename the directory and reclone the repo before starting again.**
 
 # RNAseq Pipeline Summary
 
