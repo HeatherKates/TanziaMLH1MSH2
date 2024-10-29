@@ -1,11 +1,16 @@
-# Ignore all files in the results/fastp directory
-RNAseq/results/fastp/*
+# Ignore all files in the results/fastp directory, except .gitkeep
+RNAseq/results/2_fastp/*
+!RNAseq/results/2_fastp/.gitkeep
+
+# Ignore all files in the salmon_index directory, except .gitkeep
+RNAseq/salmon_index/*
+!RNAseq/salmon_index/.gitkeep
 
 # Ignore all files in the logs directory
-RNAseq/logs/*
+RNAseq/scripts/logs/*
 
-# Ignore salmon_index files because they're large
-RNAseq/salmon_index/*
+# Ignore large files
+RNAseq/results/4-6_deseq2/MLH1_DESeq2_result.RDATA
 
 #ignore rserver files
 rstudio-rserver
