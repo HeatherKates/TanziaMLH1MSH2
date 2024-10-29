@@ -18,6 +18,9 @@ This directory contains the RNA-seq pipeline files and scripts to analyze the ro
 
 Nothing else needs to be changed
 
+**Run *sbatch scripts by typing `sbatch FILENAME`**
+**Run *R scripts by typing `module load R` and then `Rscript FILENAME`**
+
 ## Directory Structure
 
 * **results/**: This directory contains subdirectories corresponding to the main stages of the RNA-seq analysis pipeline.
