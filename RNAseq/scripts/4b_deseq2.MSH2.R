@@ -65,12 +65,12 @@ MSH2_dds <- dds
 MSH2_res <- res
 MSH2_gene_mapping <- gene_mapping
 
-write.csv(as.data.frame(MSH2_res), file="../results/deseq2/MSH2_DESeq2_gene_results.csv")
-save.image(file="../results/deseq2/MSH2_DESeq2_result.RDATA")
+write.csv(as.data.frame(MSH2_res), file="../results/4-6_deseq2/MSH2_DESeq2_gene_results.csv")
+save.image(file="../results/4-6_deseq2/MSH2_DESeq2_result.RDATA")
 
-saveRDS(MSH2_dds,"../results/deseq2/MSH2_dds.Rds")
-saveRDS(MSH2_res,"../results/deseq2/MSH2_res.Rds")
-saveRDS(MSH2_gene_mapping,"../results/deseq2/MSH2_gene_mapping.Rds")
+saveRDS(MSH2_dds,"../results/4-6_deseq2/MSH2_dds.Rds")
+saveRDS(MSH2_res,"../results/4-6_deseq2/MSH2_res.Rds")
+saveRDS(MSH2_gene_mapping,"../results/4-6_deseq2/MSH2_gene_mapping.Rds")
 
 #Write more results (counts, etc.)
 # Extract the counts data frame
@@ -127,7 +127,7 @@ list_of_dfs <- c(list(README = as.data.frame(README)), list_of_dfs)
 #Write to excel
 library(openxlsx)
 # Define the output file path
-output_file <- "../results/deseq2/MSH2_DESeq2_analysis_dataframes.xlsx"
+output_file <- "../results/4-6_deseq2/MSH2_DESeq2_analysis_dataframes.xlsx"
 
 # Create a new Excel workbook
 wb <- createWorkbook()

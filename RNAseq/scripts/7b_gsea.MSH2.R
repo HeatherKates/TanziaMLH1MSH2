@@ -10,15 +10,15 @@ library(cowplot)
 library(ggplot2)
 library(grid)
 #load data
-MSH2_res <- readRDS("../results/deseq2/MSH2_res.Rds")
-MSH2_dds <- readRDS("../results/deseq2/MSH2_dds.Rds")
+MSH2_res <- readRDS("../results/4-6_deseq2/MSH2_res.Rds")
+MSH2_dds <- readRDS("../results/4-6_deseq2/MSH2_dds.Rds")
 
 # Convert DESeqMSH2_results to a data frame
 MSH2_res_df <- as.data.frame(MSH2_res)
 MSH2_res_df$external_gene_name <- MSH2_res_df$geneSymbol
 
 #read in gene mapping df
-#gene_mapping <- readRDS("../results/deseq2/MSH2_gene_mapping.Rds")
+#gene_mapping <- readRDS("../results/4-6_deseq2/MSH2_gene_mapping.Rds")
 
 # Merge with the gene mapping to retain ENSEMBL IDs and gene names
 #MSH2_res_df <- merge(MSH2_res_df, gene_mapping, by = "external_gene_name")
@@ -107,6 +107,6 @@ c2_plots <- create_gsea_plots(gsea_c2)
 combined_plots <- create_gsea_plots(gsea_combined)
 
 # Save the plots to PDF
-save_plots_to_pdf(c2_plots, "../results/GSEA/MSH2_gsea_c2.pdf")
-#save_plots_to_pdf(h_plots, "../results/GSEA/MSH2_gsea_h.pdf")
-save_plots_to_pdf(combined_plots, "../results/GSEA/MSH2_gsea_combined.pdf")
+save_plots_to_pdf(c2_plots, "../results/7_GSEA/MSH2_gsea_c2.pdf")
+#save_plots_to_pdf(h_plots, "../results/7_GSEA/MSH2_gsea_h.pdf")
+save_plots_to_pdf(combined_plots, "../results/7_GSEA/MSH2_gsea_combined.pdf")
