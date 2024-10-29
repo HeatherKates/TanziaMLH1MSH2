@@ -6,6 +6,8 @@ This repository contains scripts and files related to the analysis of RNAseq, AT
 
 The code provided here is fully reproducible. Except for the original `fastq.gz` files, all other files and results can be recreated using the scripts included in this repository. Due to size constraints and data ownership, large files and non public files are omitted. For access to these files, please see the `.gitignore` and email [hkates@ufl.edu](mailto:hkates@ufl.edu).
 
+To run these pipelines navigate to the hipergator directory of your choice and use `git clone 
+
 ## Directory Structure
 
 # RNAseq Pipeline Summary
