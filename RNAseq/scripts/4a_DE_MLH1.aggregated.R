@@ -24,7 +24,7 @@ colData <- data.frame(
 )
 
 # Use biomaRt to get the transcript-to-gene mapping
-options(timeout = 600)  # 10 minutes
+options(timeout = 60000000)  # 10 minutes
 mart <- useMart("ensembl", dataset="hsapiens_gene_ensembl")
 tx2gene <- getBM(attributes=c("ensembl_transcript_id_version", "ensembl_gene_id"),
                  mart=mart)
@@ -65,8 +65,8 @@ MLH1_dds <- dds
 MLH1_res <- res
 MLH1_gene_mapping <- gene_mapping
 
-write.csv(as.data.frame(MLH1_res), file="../results/deseq2/MSH2_DESeq2_gene_results.csv")
-save.image(file="../results/deseq2/MSH2_DESeq2_result.RDATA")
+write.csv(as.data.frame(MLH1_res), file="../results/deseq2/MLH1_DESeq2_gene_results.csv")
+save.image(file="../results/deseq2/MLH1_DESeq2_result.RDATA")
 
 saveRDS(MLH1_dds,"../results/deseq2/MLH1_dds.Rds")
 saveRDS(MLH1_res,"../results/deseq2/MLH1_res.Rds")
