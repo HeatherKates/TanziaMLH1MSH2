@@ -99,7 +99,6 @@ create_violin_plot(mlh1_dds, top_genes_mlh1, mlh1_condition, "Violin Plots - MLH
 # Create violin plots for MSH2
 create_violin_plot(msh2_dds, top_genes_msh2, msh2_condition, "Violin Plots - MSH2")
 
-#GO ENRICHMENT
 # Perform GO enrichment analysis
 perform_go_enrichment <- function(genes, title) {
   ego <- enrichGO(gene          = genes,
