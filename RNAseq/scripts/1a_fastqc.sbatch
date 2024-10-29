@@ -4,11 +4,11 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8GB
-#SBATCH --qos=timgarrett-b
-#SBATCH --account=timgarrett
+#SBATCH --qos=timgarrett-b #Replace with your hipergator qos
+#SBATCH --account=timgarrett #Replace with your hipergator account
 #SBATCH -t 02:00:00
-#SBATCH --output=/blue/zhangw/hkates/Tanzia_RNAseq/ATACseq/logs/fastqc.%j.out
-#SBATCH --error=/blue/zhangw/hkates/Tanzia_RNAseq/ATACseq/logs/fastqc.%j.err
+#SBATCH --output=logs/fastqc.%j.out
+#SBATCH --error=logs/fastqc.%j.err
 #SBATCH --array=1-12
 
 echo "This is task $SLURM_ARRAY_TASK_ID"
@@ -41,7 +41,7 @@ Sample1_L002=$(ls ${BASE_DIR}/${SAMPLE_BASE}_L002/*_R1_001.fastq.gz)
 Sample2_L002=$(ls ${BASE_DIR}/${SAMPLE_BASE}_L002/*_R2_001.fastq.gz)
 
 # Define the output directory
-OUT_DIR="../results/fastqc/${SAMPLE_BASE}"
+OUT_DIR="../results/1_fastqc/${SAMPLE_BASE}"
 mkdir -p ${OUT_DIR}
 
 # Run FastQC on both lanes
