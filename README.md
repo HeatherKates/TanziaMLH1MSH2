@@ -12,9 +12,7 @@ Each pipeline has a **data/** folder that contains a symlink to the actual locat
 
 ## Getting started
 
-**ALL SCRIPTS SHOULD BE RUN FROM THE scripts/ DIRECTORY.**
-
-	e.g. 
+Clone this repository to your directory of choice, e.g.
 
 	`ssh hkates@hpg2.rc.ufl.edu`
 
@@ -22,10 +20,11 @@ Each pipeline has a **data/** folder that contains a symlink to the actual locat
 
 	`git clone https://github.com/HeatherKates/TanziaMLH1MSH2.git`
 	
+**ALL SCRIPTS SHOULD BE RUN FROM THE scripts/ DIRECTORY.**
+
 	`cd TanziaMLH1MSH2/RNAseq/scripts`
 
-	`sbatch 1a_fastqc.sbatch`
-	
+	`sbatch 1a_fastqc.sbatch`	
 
 **MAKE SURE THAT YOU CHANGE THE HIPERGATOR RESOURSE REQUESTS IN ANY .SBATCH FILES**
 
@@ -34,6 +33,8 @@ Nothing else needs to be changed
 **Run .sbatch scripts by typing `sbatch FILENAME`**
 
 **Run .R scripts by typing `module load R` and then `Rscript FILENAME`**
+
+**Executing scripts may create directories and files in the respective results/ folders. These will overwrite any existing files. If you wish to re-run an analysis *without* over-writing files, rename the directory and reclone the repo before starting again.
 
 # RNAseq Pipeline Summary
 
