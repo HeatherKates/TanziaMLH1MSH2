@@ -41,7 +41,6 @@ diffPeaks <- dba.report(dbaObj)
 write.csv(diffPeaks, file = "../7_diffbind/MLH1_differential_binding_results.csv")
 diffPeaksIn <- read.csv("../7_diffbind/MLH1_differential_binding_results.csv")
 
-
 # Function to write peaks data frame to a BED file
 write_peaks_to_bed <- function(peaks_df, output_file) {
   
