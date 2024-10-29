@@ -15,7 +15,7 @@
 module load salmon/1.10.1
 
 # Create the directory for the Salmon index
-mkdir -p ../results/3_salmon
+mkdir -p ../salmon_index
 path="salmon_index"
 
 # Download the transcriptome and move it to the designated directory

@@ -22,7 +22,7 @@ echo -e "\nInfo: Starting a job on $(date) on $(hostname) in $(pwd).\n"
 module load salmon/1.10.1
 
 # Define the base directory
-BASE_DIR="results/fastp"
+BASE_DIR="../results/2_fastp"
 
 # Create an array of trimmed files dynamically
 FILES=$(ls ${BASE_DIR}/*_R1_trimmed.fastq.gz)
