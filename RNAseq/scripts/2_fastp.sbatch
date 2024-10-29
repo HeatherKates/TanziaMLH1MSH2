@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=3
 #SBATCH --mem=8gb
 #SBATCH --qos=timgarrett
-#SBATCH --account=timgarrett
+#SBATCH --account=REPLACE_WITH_YOUR_ACCOUNT
 #SBATCH -t 01:00:00
 #SBATCH --output=logs/fastp.%j.out
 #SBATCH --error=logs/fastp.%j.err

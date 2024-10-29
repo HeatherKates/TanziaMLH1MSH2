@@ -4,11 +4,11 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16gb
-#SBATCH --qos=timgarrett-b
-#SBATCH --account=timgarrett
+#SBATCH --qos=REPLACE_WITH_YOUR_QOS
+#SBATCH --account=REPLACE_WITH_YOUR_ACCOUNT
 #SBATCH -t 08:00:00
-#SBATCH --output=/blue/zhangw/hkates/Tanzia_RNAseq/logs/salmon.%j.out
-#SBATCH --error=/blue/zhangw/hkates/Tanzia_RNAseq/logs/salmon.%j.err
+#SBATCH --output=logs/salmon.%j.out
+#SBATCH --error=logs/salmon.%j.err
 #SBATCH --array=1-12
 
 echo "This is task $SLURM_ARRAY_TASK_ID"

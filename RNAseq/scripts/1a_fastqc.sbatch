@@ -4,8 +4,8 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8GB
-#SBATCH --qos=timgarrett-b #Replace with your hipergator qos
-#SBATCH --account=timgarrett #Replace with your hipergator account
+#SBATCH --qos=REPLACE_WITH_YOUR_QOS #Replace with your hipergator qos
+#SBATCH --account=REPLACE_WITH_YOUR_ACCOUNT #Replace with your hipergator account
 #SBATCH -t 02:00:00
 #SBATCH --output=logs/fastqc.%j.out
 #SBATCH --error=logs/fastqc.%j.err
