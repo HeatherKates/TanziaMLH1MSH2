@@ -18,6 +18,19 @@ This directory contains the RNA-seq pipeline files and scripts to analyze the ro
 
 **ALL SCRIPTS SHOULD BE RUN FROM THE scripts/ DIRECTORY.**
 
+	e.g. 
+
+	`ssh hkates@hpg2.rc.ufl.edu`
+
+	`cd /blue/zhangw/hkates`
+
+	`git clone https://github.com/HeatherKates/TanziaMLH1MSH2.git`
+	
+	`cd TanziaMLH1MSH2/RNAseq/scripts`
+
+	`sbatch 1a_fastqc.sbatch`
+	
+
 **MAKE SURE THAT YOU CHANGE THE HIPERGATOR RESOURSE REQUESTS IN ANY .SBATCH FILES**
 
 Nothing else needs to be changed
