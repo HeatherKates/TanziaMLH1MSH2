@@ -7,15 +7,15 @@
 #SBATCH --qos=timgarrett
 #SBATCH --account=timgarrett
 #SBATCH -t 01:00:00
-#SBATCH --output=/blue/zhangw/hkates/Tanzia_RNAseq/logs/makeindex.out
-#SBATCH --error=/blue/zhangw/hkates/Tanzia_RNAseq/logs/makeindex.err
+#SBATCH --output=logs/makeindex.out
+#SBATCH --error=logs/makeindex.err
 
 
 # Load Salmon module
 module load salmon/1.10.1
 
 # Create the directory for the Salmon index
-mkdir -p salmon_index
+mkdir -p ../results/3_salmon
 path="salmon_index"
 
 # Download the transcriptome and move it to the designated directory
