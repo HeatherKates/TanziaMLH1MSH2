@@ -24,7 +24,9 @@ Clone this repository to your directory of choice, e.g.
 
 	`cd TanziaMLH1MSH2/RNAseq/scripts`
 
-	`sbatch 1a_fastqc.sbatch`	
+	`nano 2_fastp.sbatch` to change resource requests (or edit another way)
+
+	`sbatch 2_fastp.sbatch`	
 
 **MAKE SURE THAT YOU CHANGE THE HIPERGATOR RESOURSE REQUESTS IN ANY .SBATCH FILES**
 
@@ -43,7 +45,7 @@ This directory contains the RNA-seq pipeline files and scripts to analyze the ro
 ## Directory Structure
 
 * **results/**: This directory contains subdirectories corresponding to the main stages of the RNA-seq analysis pipeline.
-  * **1_fastqc/**: Quality control outputs from FASTQ files.
+  * **1_fastqc/**: Quality control outputs from FASTQ files. 
   * **2_fastp/**: Contains results from FASTQ trimming and preprocessing with Fastp.
   * **3_salmon/**: Outputs from transcript quantification using Salmon.
   * **4-6_deseq2/**: DESeq2 results for differential expression analysis, including MSH2 and MLH1 comparisons.
@@ -51,8 +53,8 @@ This directory contains the RNA-seq pipeline files and scripts to analyze the ro
   * **8_GO/**: GO enrichment analysis outputs.
 
 * **scripts/**: Contains all scripts used to perform each step of the pipeline, named sequentially to indicate the recommended order of execution.
-  * **1a_fastqc.sbatch**: Script to perform quality control using FastQC.
-  * **1b_summarize_fastqc.bash**: Summarizes FastQC results for review.
+  * **SKIP FOR NOW 1a_fastqc.sbatch**: Script to perform quality control using FastQC.
+  * **SKIP FOR NOW 1b_summarize_fastqc.bash**: Summarizes FastQC results for review.
   * **2_fastp.sbatch**: Trims and preprocesses FASTQ files with Fastp.
   * **3a_salmon_human_index.sbatch**: Creates a human transcriptome index for Salmon.
   * **3b_salmon_human.sbatch**: Runs Salmon for transcript quantification.

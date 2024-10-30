@@ -1,3 +1,4 @@
+DO NOT RUN. THIS IS FROM THE ATACseq PIPELINE AND NEEDS TO BE UPDATED. SKIP FOR NOW.
 #!/bin/bash
 #SBATCH --job-name=fastqc.%j
 #SBATCH --nodes=1
