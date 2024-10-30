@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing the FastQC zip files
-FASTQC_DIR="../results/fastqc"
+FASTQC_DIR="../results/1_fastqc"
 
 # Output CSV file
 OUTPUT_CSV="${FASTQC_DIR}/fastqc_summary.csv"
