@@ -3,10 +3,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=3
-#SBATCH --mem=8gb
-#SBATCH --qos=timgarrett
-#SBATCH --account=REPLACE_WITH_YOUR_ACCOUNT
-#SBATCH -t 01:00:00
+#SBATCH --mem=16gb
+#SBATCH --qos=zhangw-b
+#SBATCH --account=zhangw
+#SBATCH -t 04:00:00
 #SBATCH --output=logs/makeindex.out
 #SBATCH --error=logs/makeindex.err
 
@@ -16,7 +16,7 @@ module load salmon/1.10.1
 
 # Create the directory for the Salmon index
 mkdir -p ../salmon_index
-path="salmon_index"
+path="../salmon_index"
 
 # Download the transcriptome and move it to the designated directory
 wget -P $path ftp://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
