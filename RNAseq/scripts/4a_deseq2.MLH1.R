@@ -15,8 +15,9 @@ dir <- args[1]
 out_dir <- args[2]
 
 # Define the directory containing the quantification results
-#dir <- "../results/3_salmon/"
+dir <- "../results/3_salmon/"
 #out_dir="../results/4-6_deseq2/"
+#out_dir= "test_4a_out/"
 
 # Get the list of quantification directories starting with "MLH1"
 dirs <- list.files(dir, pattern="^MLH1.*_quant$", full.names=TRUE)
@@ -36,7 +37,7 @@ colData <- data.frame(
 )
 
 # Use biomaRt to get the transcript-to-gene mapping
-options(timeout = 60000000)  # 10 minutes
+options(timeout = 600)  # 10 minutes
 mart <- useMart("ensembl", dataset="hsapiens_gene_ensembl")
 tx2gene <- getBM(attributes=c("ensembl_transcript_id_version", "ensembl_gene_id"),
                  mart=mart)
