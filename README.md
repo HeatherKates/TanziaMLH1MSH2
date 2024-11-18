@@ -177,34 +177,37 @@ Warnings and issues encountered during the pipeline run are logged in logs/:
 
 # CUT&RUN Pipeline Summary
 
-This directory contains the CUT&RUN pipeline files and scripts to analyze the roles of MSH2 and MLH1 in tumor metastasis. Below is an overview of the main folders and the contents within each direct
-ory.
+This directory contains the CUT&RUN pipeline files and scripts to analyze the roles of MSH2 and MLH1 in tumor metastasis. Below is an overview of the main folders and the contents within each directory.
 
-CUT&RUN analysis is performed using the nf-core/cutandrun pipeline https://github.com/nf-core/cutandrun/tree/master so scripts are minimal and directory output structure follows https://nf-co.re/cutandrun/3.2.2/results/cutandrun/results-6e1125d4fee4ea7c8b70ed836bb0e92a89e3305f/
+CUT&RUN analysis is performed using the nf-core/cutandrun pipeline https://github.com/nf-core/cutandrun/tree/master, so scripts are minimal and directory output structure follows https://nf-co.re/cutandrun/3.2.2/results/cutandrun/results-6e1125d4fee4ea7c8b70ed836bb0e92a89e3305f/.
 
-Dependencies are provided using a custom conda environment loaded in the .sbatch script
+Dependencies are provided using a custom conda environment loaded in the .sbatch script.
 
 ## Directory Structure
 
 * **MSH2**: This directory contains the analysis related to peak-calling in MSH2KO and MSH2R4 cell lines
   * **KO/**: Peak calling in MSH2KO cell lines
-	* **samplesheet.csv**: This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
-	* **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resources requests to your own.
-	* ** *fastq.gz**: symlinks to the original read files on /orange
-  * **R4/**: Peak calling in MSH2R4 cell lines        
-        * **samplesheet.csv**:	This is	the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
-        * **cutandrun.sbatch**:	.sbatch	script to run nf-core/cutandrun	pipeline. Change resources requests to your own.
-  	* ** *fastq.gz**: symlinks to the original read files on /orange
+    * **samplesheet.csv**: This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
+    * **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resource requests to your own.
+    * ** *fastq.gz**: symlinks to the original read files on /orange
+  * **R4/**: Peak calling in MSH2R4 cell lines
+    * **samplesheet.csv**: This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
+    * **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resource requests to your own.
+    * ** *fastq.gz**: symlinks to the original read files on /orange
 
-* **MLH1**: This directory contains the analysis related to peak-calling in MLH1KO and MLH1R4 cell lines             
-  * **KO/**: Peak calling in MLH1KO cell lines        
-        * **samplesheet.csv**:	This is	the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
-        * **cutandrun.sbatch**:	.sbatch	script to run nf-core/cutandrun	pipeline. Change resources requests to your own.
-        * ** *fastq.gz**: symlinks to the original read	files on /orange
+---
+
+* **MLH1**: This directory contains the analysis related to peak-calling in MLH1KO and MLH1R4 cell lines
+  * **KO/**: Peak calling in MLH1KO cell lines
+    * **samplesheet.csv**: This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
+    * **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resource requests to your own.
+    * ** *fastq.gz**: symlinks to the original read files on /orange
   * **R4/**: Peak calling in MLH1R4 cell lines
-        * **samplesheet.csv**:  This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
-        * **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resources requests to your own.
-        * ** *fastq.gz**: symlinks to the original read files on /orange
+    * **samplesheet.csv**: This is the main input for nf-core/cutandrun that lists the groups, read files, and controls for each sample
+    * **cutandrun.sbatch**: .sbatch script to run nf-core/cutandrun pipeline. Change resource requests to your own.
+    * ** *fastq.gz**: symlinks to the original read files on /orange
+
+---
 
 ## Reproducibility
 
