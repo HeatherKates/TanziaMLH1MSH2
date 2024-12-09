@@ -1,0 +1,13 @@
+SampleID,Tissue,Factor,Condition,Treatment,Replicate,Tissue,bamReads,Peaks,PeakCaller
+../KO_HA_1,MSH2,HA,../KO,none,1,MSH2,../KO/02_alignment/bowtie2/target/markdup/HA_R1.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/HA_R1.macs2_peaks.narrowPeak,narrow
+../KO_HA_2,MSH2,HA,../KO,none,2,MSH2,../KO/02_alignment/bowtie2/target/markdup/HA_R2.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/HA_R2.macs2_peaks.narrowPeak,narrow
+../KO_IgG_1,MSH2,IgG,../KO,none,1,MSH2,../KO/02_alignment/bowtie2/target/markdup/IgG_R1.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/IgG_R1.macs2_peaks.narrowPeak,narrow
+../KO_IgG_2,MSH2,IgG,../KO,none,2,MSH2,../KO/02_alignment/bowtie2/target/markdup/IgG_R2.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/IgG_R2.macs2_peaks.narrowPeak,narrow
+../KO_H3K4me3_1,MSH2,H3K4me3,../KO,none,1,MSH2,../KO/02_alignment/bowtie2/target/markdup/H3K4me3_R1.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/H3K4me3_R1.macs2_peaks.narrowPeak,narrow
+../KO_H3K4me3_2,MSH2,H3K4me3,../KO,none,2,MSH2,../KO/02_alignment/bowtie2/target/markdup/H3K4me3_R2.target.markdup.sorted.bam,../KO/03_peak_calling/04_called_peaks/macs2/H3K4me3_R2.macs2_peaks.narrowPeak,narrow
+../R4_H3K4me3_1,MSH2,H3K4me3,../R4,none,1,MSH2,../R4/02_alignment/bowtie2/target/markdup/H3K4me3_R1.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/H3K4me3_R1.macs2_peaks.narrowPeak,narrow
+../R4_H3K4me3_2,MSH2,H3K4me3,../R4,none,2,MSH2,../R4/02_alignment/bowtie2/target/markdup/H3K4me3_R2.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/H3K4me3_R2.macs2_peaks.narrowPeak,narrow
+../R4_HA_1,MSH2,HA,../R4,none,1,MSH2,../R4/02_alignment/bowtie2/target/markdup/HA_R1.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/HA_R1.macs2_peaks.narrowPeak,narrow
+../R4_HA_2,MSH2,HA,../R4,none,2,MSH2,../R4/02_alignment/bowtie2/target/markdup/HA_R2.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/HA_R2.macs2_peaks.narrowPeak,narrow
+../R4_IgG_1,MSH2,IgG,../R4,none,1,MSH2,../R4/02_alignment/bowtie2/target/markdup/IgG_R1.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/IgG_R1.macs2_peaks.narrowPeak,narrow
+../R4_IgG_2,MSH2,IgG,../R4,none,2,MSH2,../R4/02_alignment/bowtie2/target/markdup/IgG_R2.target.markdup.sorted.bam,../R4/03_peak_calling/04_called_peaks/macs2/IgG_R2.macs2_peaks.narrowPeak,narrow

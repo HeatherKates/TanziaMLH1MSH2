@@ -1,35 +1,45 @@
-# Ignore all files in the results/fastp directory, except .gitkeep
-RNAseq/results/2_fastp/*
-!RNAseq/results/2_fastp/.gitkeep
-
-# Ignore all files in the salmon_index directory, except .gitkeep
-RNAseq/salmon_index/*
-!RNAseq/salmon_index/.gitkeep
-
-# Ignore all files in the logs directory
-RNAseq/scripts/logs/*
-
-# Ignore large files
-RNAseq/results/4-6_deseq2/MLH1_DESeq2_result.RDATA
-
-#ignore rserver files
-rstudio-rserver
-rstudio-rsession
-rserver*
-
-# Ignore everything in all subdirectories
-ATACseq/**
-
-# Allow .gitkeep files in all directories
-!ATACseq/**/.gitkeep
 
 # Allow files in the root directory (i.e., don't ignore them)
+# Allow .gitkeep files in all directories
 !ATACseq/**/
-
-# Do not ignore files in the scripts/ directory
-!ATACseq/**/scripts/*
+ATACseq/**
 !ATACseq/data
 !ATACseq/data/*
-#rserver etc files
-ATACseq/**/scripts/rs*
+!ATACseq/**/.gitkeep
+!ATACseq/**/scripts/*
 ATACseq/**/scripts/core*
+ATACseq/**/scripts/rs*
+# Do not ignore files in the scripts/ directory
+IginoreLargeFiles.bash 
+# Ignore all files in the logs directory
+# Ignore all files in the results/fastp directory, except .gitkeep
+# Ignore all files in the salmon_index directory, except .gitkeep
+# Ignore everything in all subdirectories
+# Ignore large files
+#ignore rserver files
+RNAseq/results/2_fastp/*
+!RNAseq/results/2_fastp/.gitkeep
+RNAseq/results/4-6_deseq2/MLH1_DESeq2_result.RDATA
+RNAseq/salmon_index/*
+!RNAseq/salmon_index/.gitkeep
+RNAseq/scripts/logs/*
+rserver*
+#rserver etc files
+rstudio-rserver
+rstudio-rsession
+#CUTANDRUN
+# Ignore everything recursively inside CUTANDRUN
+CUTANDRUN/*/*/*
+
+# Allow 'data/' and its contents
+!CUTANDRUN/*/data/
+!CUTANDRUN/*/data/**
+
+# Allow 'results/' and its contents
+!CUTANDRUN/*/results/
+!CUTANDRUN/*/results/**
+
+# Allow scripts/ and specific files in immediate subdirectories
+!CUTANDRUN/*/scripts/**
+!CUTANDRUN/*/samplesheet.csv
+

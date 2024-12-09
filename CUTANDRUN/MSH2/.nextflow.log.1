@@ -1,0 +1,990 @@
+Nov-17 14:50:38.322 [main] DEBUG nextflow.cli.Launcher - $> nextflow run nf-core/cutandrun -profile test -resume
+Nov-17 14:50:38.437 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.0
+Nov-17 14:50:38.454 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/hkates/.nextflow/plugins; core-plugins: nf-amazon@2.9.0,nf-azure@1.10.1,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.2,nf-tower@1.9.3,nf-wave@1.7.2
+Nov-17 14:50:38.479 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-17 14:50:38.479 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-17 14:50:38.481 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-17 14:50:38.492 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-17 14:50:38.504 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/hkates/.nextflow/scm
+Nov-17 14:50:39.447 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/hkates/.nextflow/assets/nf-core/cutandrun/.git/config; branch: null; remote: origin; url: https://github.com/nf-core/cutandrun.git
+Nov-17 14:50:39.469 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Nov-17 14:50:39.476 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/hkates/.nextflow/assets/nf-core/cutandrun/.git/config; branch: null; remote: origin; url: https://github.com/nf-core/cutandrun.git
+Nov-17 14:50:43.194 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/hkates/.nextflow/assets/nf-core/cutandrun/nextflow.config
+Nov-17 14:50:43.196 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/hkates/.nextflow/assets/nf-core/cutandrun/nextflow.config
+Nov-17 14:50:43.204 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/hkates/.nextflow/secrets/store.json
+Nov-17 14:50:43.205 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@41bfa9e9] - activable => nextflow.secret.LocalSecretsProvider@41bfa9e9
+Nov-17 14:50:43.209 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `test`
+Nov-17 14:50:45.023 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, test_no_control, giga, laptop, incliva, ilifu, uge, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, ccga_med, tes, scw, unc_longleaf, test_no_genome, tigem, tubingen_apg, google, apollo, ipop_up, vsc_calcua, pdc_kth, googlels, ceci_nic5, test_fasta_only, stjude, daisybio, eddie, medair, biowulf, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, ucl_myriad, utd_ganymede, charliecloud, test_full_small, icr_davros, ceres, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, biohpc_gen, shifter, mana, test_full_multi, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, genotoul, nci_gadi, abims, janelia, nu_genomics, googlebatch, oist, sahmri, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, test_full_small_local_zip, marjorie, computerome, ucd_sonic, seg_globe, sanger, dkfz, bluebear, test_tech_reps, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, hki, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, nygc, fgcz, conda, crg, singularity, mpcdf_viper, pe2, self_hosted_runner, tufts, uw_hyak_pedslabs, debug, genouest, cbe, test_local_zip, phoenix, gitpod, seawulf, uod_hpc, test_linear_dedup, fub_curta, uct_hpc, aws_tower, binac]
+Nov-17 14:50:45.094 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-17 14:50:45.095 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/nf-core/cutandrun` [gigantic_baekeland] DSL2 - revision: 6e1125d4fe [master]
+Nov-17 14:50:45.096 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-validation@1.1.3]
+Nov-17 14:50:45.097 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-17 14:50:45.097 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-validation@1.1.3]
+Nov-17 14:50:45.097 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-validation version: 1.1.3
+Nov-17 14:50:45.105 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-validation@1.1.3' resolved
+Nov-17 14:50:45.106 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-validation@1.1.3'
+Nov-17 14:50:45.112 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-validation@1.1.3
+Nov-17 14:50:45.154 [main] DEBUG nextflow.Session - Session UUID: a4ac3dcb-e44a-4938-861b-c73df2e2b58a
+Nov-17 14:50:45.154 [main] DEBUG nextflow.Session - Run name: gigantic_baekeland
+Nov-17 14:50:45.154 [main] DEBUG nextflow.Session - Executor pool size: 2
+Nov-17 14:50:45.161 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-17 14:50:45.165 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov-17 14:50:45.191 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.0 build 5928
+  Created: 27-10-2024 18:36 UTC (14:36 EDT)
+  System: Linux 4.18.0-553.27.1.el8_10.x86_64
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 17.0.13-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 2981739@c0709a-s30.ufhpc [172.16.199.125]
+  CPUs: 2 - Mem: 16 GB (12.3 GB) - Swap: 0 (0)
+Nov-17 14:50:45.218 [main] DEBUG nextflow.Session - Work-dir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work [lustre]
+Nov-17 14:50:45.243 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-17 14:50:45.249 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-17 14:50:45.293 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-17 14:50:45.301 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 3; maxThreads: 1000
+Nov-17 14:50:45.430 [main] DEBUG nextflow.Session - Session start
+Nov-17 14:50:45.432 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/results/pipeline_info/execution_trace_2024-11-17_14-50-44.txt
+Nov-17 14:50:45.438 [main] DEBUG nextflow.Session - Using default localLib path: /home/hkates/.nextflow/assets/nf-core/cutandrun/lib
+Nov-17 14:50:45.440 [main] DEBUG nextflow.Session - Adding to the classpath library: /home/hkates/.nextflow/assets/nf-core/cutandrun/lib
+Nov-17 14:50:45.754 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-17 14:50:45.767 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters, paramsHelp:paramsHelp]; plugin Id: nf-validation
+Nov-17 14:50:45.780 [main] DEBUG nextflow.validation.SchemaValidator - Starting parameters validation
+Nov-17 14:50:46.129 [main] DEBUG nextflow.validation.SchemaValidator - Finishing parameters validation
+Nov-17 14:50:47.093 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog, paramsSummaryMap:paramsSummaryMap]; plugin Id: nf-validation
+Nov-17 14:50:47.096 [main] WARN  nextflow.Nextflow - =========================================================================================================
+  dt_calc_all_matrix is switched on which will calculate a deeptools matrix for all samples. 
+  If you have a large sample count, this may affect pipeline performance and result in errors. 
+  Set this option to false to disable this feature and only calculate deeptools heatmaps for single samples
+===============================================================================================================
+Nov-17 14:50:47.115 [main] INFO  nextflow.Nextflow - 
+
+-[2m----------------------------------------------------[0m-
+                                        [0;32m,--.[0;30m/[0;32m,-.[0m
+[0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
+[0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
+[0;34m  | \| |       \__, \__/ |  \ |___     [0;32m\`-._,-`-,[0m
+                                        [0;32m`._,._,'[0m
+[0;35m  nf-core/cutandrun v3.2.2-g6e1125d[0m
+-[2m----------------------------------------------------[0m-
+[1mCore Nextflow options[0m
+  [0;34mrevision                  : [0;32mmaster[0m
+  [0;34mrunName                   : [0;32mgigantic_baekeland[0m
+  [0;34mlaunchDir                 : [0;32m/blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2[0m
+  [0;34mworkDir                   : [0;32m/blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work[0m
+  [0;34mprojectDir                : [0;32m/home/hkates/.nextflow/assets/nf-core/cutandrun[0m
+  [0;34muserName                  : [0;32mhkates[0m
+  [0;34mprofile                   : [0;32mtest[0m
+  [0;34mconfigFiles               : [0;32m[0m
+
+[1mInput/output options[0m
+  [0;34minput                     : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/samplesheet_2_0/test-GSE145187-small.csv[0m
+
+[1mReference data options[0m
+  [0;34mbowtie2                   : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-bowtie2.tar.gz[0m
+  [0;34mgtf                       : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-genes.gtf.gz[0m
+  [0;34mgene_bed                  : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-genes.bed.gz[0m
+  [0;34mblacklist                 : [0;32m/home/hkates/.nextflow/assets/nf-core/cutandrun/assets/blacklists/hg38-blacklist.bed[0m
+  [0;34mspikein_bowtie2           : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/e_coli_U00096_3.tar.gz[0m
+  [0;34mspikein_fasta             : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/e_coli_U00096_3.fa.gz[0m
+  [0;34mfasta                     : [0;32mhttps://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20.fa.gz[0m
+
+[1mPipeline Options[0m
+  [0;34mremove_mitochondrial_reads: [0;32mtrue[0m
+  [0;34mmito_name                 : [0;32mchrM[0m
+  [0;34mremove_linear_duplicates  : [0;32mtrue[0m
+  [0;34mmacs_gsize                : [0;32m2700000000.0[0m
+  [0;34mreplicate_threshold       : [0;32m1.0[0m
+
+[1mInstitutional config options[0m
+  [0;34mconfig_profile_name       : [0;32mTest profile[0m
+  [0;34mconfig_profile_description: [0;32mMinimal test dataset to check pipeline function[0m
+
+[1mMax job request options[0m
+  [0;34mmax_cpus                  : [0;32m2[0m
+  [0;34mmax_memory                : [0;32m6.GB[0m
+  [0;34mmax_time                  : [0;32m6.h[0m
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+-[2m----------------------------------------------------[0m-
+If you use nf-core/cutandrun for your analysis please cite:
+
+  https://doi.org/10.5281/zenodo.5653535
+
+* The nf-core framework
+  https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+  https://github.com/nf-core/cutandrun/blob/master/CITATIONS.md
+
+Nov-17 14:50:52.021 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_FASTA
+Nov-17 14:50:52.028 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:GUNZIP_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_FASTA
+Nov-17 14:50:52.042 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.043 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.047 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-17 14:50:52.051 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=2; memory=16 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Nov-17 14:50:52.053 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-17 14:50:52.121 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_SPIKEIN_FASTA
+Nov-17 14:50:52.125 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:GUNZIP_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_SPIKEIN_FASTA
+Nov-17 14:50:52.130 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.130 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.137 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_GTF
+Nov-17 14:50:52.142 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:GUNZIP_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_GTF
+Nov-17 14:50:52.145 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.145 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.159 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_BED
+Nov-17 14:50:52.162 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:GUNZIP_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_BED
+Nov-17 14:50:52.165 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.165 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.178 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT
+Nov-17 14:50:52.180 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT
+Nov-17 14:50:52.185 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.185 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.197 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX
+Nov-17 14:50:52.199 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:TABIX_BGZIPTABIX` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX
+Nov-17 14:50:52.202 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.203 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.214 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX
+Nov-17 14:50:52.215 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*PREPARE_GENOME:SAMTOOLS_FAIDX` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX
+Nov-17 14:50:52.219 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.219 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.229 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES
+Nov-17 14:50:52.230 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES
+Nov-17 14:50:52.231 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES
+Nov-17 14:50:52.232 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES
+Nov-17 14:50:52.235 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.235 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.245 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES
+Nov-17 14:50:52.246 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES
+Nov-17 14:50:52.247 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES
+Nov-17 14:50:52.247 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*CHROMSIZES` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES
+Nov-17 14:50:52.250 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.250 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.260 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET
+Nov-17 14:50:52.261 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:UNTAR_INDEX_.*|TARGET|SPIKEIN` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET
+Nov-17 14:50:52.262 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET
+Nov-17 14:50:52.265 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.265 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.272 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN
+Nov-17 14:50:52.273 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:UNTAR_INDEX_.*|TARGET|SPIKEIN` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN
+Nov-17 14:50:52.275 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN
+Nov-17 14:50:52.278 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.278 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.288 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK
+Nov-17 14:50:52.291 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK
+Nov-17 14:50:52.294 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.294 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.312 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT
+Nov-17 14:50:52.314 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT
+Nov-17 14:50:52.318 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.318 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.325 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT
+Nov-17 14:50:52.327 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT
+Nov-17 14:50:52.330 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.331 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.339 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT
+Nov-17 14:50:52.342 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT
+Nov-17 14:50:52.345 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.345 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.355 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK
+Nov-17 14:50:52.358 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK` matches process NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK
+Nov-17 14:50:52.361 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.361 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.390 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:CAT_FASTQ
+Nov-17 14:50:52.391 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CAT_FASTQ` matches process NFCORE_CUTANDRUN:CUTANDRUN:CAT_FASTQ
+Nov-17 14:50:52.395 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.395 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.408 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC
+Nov-17 14:50:52.409 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:FASTQC_TRIMGALORE:FASTQC` matches process NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC
+Nov-17 14:50:52.412 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.413 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.426 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE
+Nov-17 14:50:52.427 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:FASTQC_TRIMGALORE:TRIMGALORE` matches process NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE
+Nov-17 14:50:52.431 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.431 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.463 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN
+Nov-17 14:50:52.466 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN
+Nov-17 14:50:52.470 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.470 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.483 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN
+Nov-17 14:50:52.486 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN
+Nov-17 14:50:52.490 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.490 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.503 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.504 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.508 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.508 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.520 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:52.522 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:52.525 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.526 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.545 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.547 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.550 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.550 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.558 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.560 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.563 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.563 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.571 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.573 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.575 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.576 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.586 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT
+Nov-17 14:50:52.588 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT
+Nov-17 14:50:52.591 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.591 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.599 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX
+Nov-17 14:50:52.601 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX
+Nov-17 14:50:52.605 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.605 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.617 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.619 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.622 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.622 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.628 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.630 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.633 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.633 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.639 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.641 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.646 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.646 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.665 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT
+Nov-17 14:50:52.668 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.668 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.680 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT
+Nov-17 14:50:52.683 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.683 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.700 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW
+Nov-17 14:50:52.702 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW
+Nov-17 14:50:52.705 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.705 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.717 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT
+Nov-17 14:50:52.719 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT
+Nov-17 14:50:52.722 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.722 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.734 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX
+Nov-17 14:50:52.736 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX
+Nov-17 14:50:52.739 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.739 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.757 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.759 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.762 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.762 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.770 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.817 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.821 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.821 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.836 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.838 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:52.841 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.841 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.863 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single,error_ignore` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP
+Nov-17 14:50:52.864 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:error_ignore` matches labels `process_single,error_ignore` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP
+Nov-17 14:50:52.866 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP` matches process NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP
+Nov-17 14:50:52.869 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.870 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.894 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:52.896 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:52.900 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.900 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.918 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.920 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.920 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.921 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:52.924 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.924 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.942 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:52.944 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:52.945 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:52.949 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.949 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.974 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.976 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.976 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:52.979 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.979 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:52.992 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.995 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.995 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:52.998 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:52.998 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.013 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.015 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.015 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.022 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.022 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.062 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:53.066 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:PICARD_MARKDUPLICATES` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:53.069 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.070 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.084 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.092 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.092 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.093 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.102 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.103 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.116 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.117 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.118 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.122 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.122 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.146 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.148 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.148 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.151 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.151 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.161 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.162 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.163 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.165 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.165 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.174 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.176 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.176 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.179 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.179 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.211 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_PICARD_DUP_META:AWK
+Nov-17 14:50:53.213 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_PICARD_DUP_META:AWK` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_PICARD_DUP_META:AWK
+Nov-17 14:50:53.215 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.215 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.261 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_SORT
+Nov-17 14:50:53.263 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_SORT
+Nov-17 14:50:53.265 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.266 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.279 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BEDTOOLS_BAMTOBED
+Nov-17 14:50:53.281 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BEDTOOLS_BAMTOBED` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BEDTOOLS_BAMTOBED
+Nov-17 14:50:53.284 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.284 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.299 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:FIND_UNIQUE_READS
+Nov-17 14:50:53.305 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:FIND_UNIQUE_READS` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:FIND_UNIQUE_READS
+Nov-17 14:50:53.309 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.310 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.338 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_VIEW
+Nov-17 14:50:53.341 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_VIEW` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_VIEW
+Nov-17 14:50:53.345 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.345 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.387 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.389 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.389 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.390 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:53.392 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.392 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.413 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.414 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.415 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:53.418 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.419 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.446 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.447 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.447 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:53.449 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.450 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.464 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.471 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.471 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:53.476 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.477 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.491 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.492 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:.*:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.495 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:53.498 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.498 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.544 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_GENOMECOV
+Nov-17 14:50:53.546 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_GENOMECOV` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_GENOMECOV
+Nov-17 14:50:53.548 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.548 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.563 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_SORT
+Nov-17 14:50:53.564 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_SORT
+Nov-17 14:50:53.568 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.568 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.584 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDCLIP
+Nov-17 14:50:53.585 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDCLIP` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDCLIP
+Nov-17 14:50:53.588 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.588 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.600 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDGRAPHTOBIGWIG
+Nov-17 14:50:53.602 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDGRAPHTOBIGWIG` matches process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDGRAPHTOBIGWIG
+Nov-17 14:50:53.604 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.604 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.641 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:SEACR_CALLPEAK_IGG
+Nov-17 14:50:53.642 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:CUTANDRUN:SEACR_.*` matches process NFCORE_CUTANDRUN:CUTANDRUN:SEACR_CALLPEAK_IGG
+Nov-17 14:50:53.645 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.645 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.661 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:AWK_EXTRACT_SUMMITS
+Nov-17 14:50:53.662 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:AWK_EXTRACT_SUMMITS` matches process NFCORE_CUTANDRUN:CUTANDRUN:AWK_EXTRACT_SUMMITS
+Nov-17 14:50:53.665 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.665 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.672 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:AWK_NAME_PEAK_BED
+Nov-17 14:50:53.673 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:AWK_NAME_PEAK_BED` matches process NFCORE_CUTANDRUN:CUTANDRUN:AWK_NAME_PEAK_BED
+Nov-17 14:50:53.675 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.675 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.694 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:CONSENSUS_PEAKS:SORT|.*:CONSENSUS_PEAKS_ALL:SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:SORT
+Nov-17 14:50:53.696 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.696 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.707 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:BEDTOOLS_MERGE
+Nov-17 14:50:53.709 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:CONSENSUS_PEAKS:BEDTOOLS_MERGE|.*:CONSENSUS_PEAKS_ALL:BEDTOOLS_MERGE` matches process NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:BEDTOOLS_MERGE
+Nov-17 14:50:53.711 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.711 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.723 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:AWK
+Nov-17 14:50:53.725 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:CONSENSUS_PEAKS:AWK|.*:CONSENSUS_PEAKS_ALL:AWK` matches process NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:AWK
+Nov-17 14:50:53.727 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.727 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.774 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:IGV_SESSION` matches process NFCORE_CUTANDRUN:CUTANDRUN:IGV_SESSION
+Nov-17 14:50:53.777 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.777 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.796 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE
+Nov-17 14:50:53.798 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE
+Nov-17 14:50:53.800 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.800 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.812 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE
+Nov-17 14:50:53.814 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE
+Nov-17 14:50:53.816 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.816 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.836 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_PEAKS
+Nov-17 14:50:53.838 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_PEAKS` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_PEAKS
+Nov-17 14:50:53.840 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.840 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.850 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_PEAKS
+Nov-17 14:50:53.851 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_PEAKS` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_PEAKS
+Nov-17 14:50:53.854 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.855 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.885 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE_ALL
+Nov-17 14:50:53.886 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE_ALL` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE_ALL
+Nov-17 14:50:53.890 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.891 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.907 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE_ALL
+Nov-17 14:50:53.909 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE_ALL` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE_ALL
+Nov-17 14:50:53.922 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.922 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.956 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY
+Nov-17 14:50:53.957 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY
+Nov-17 14:50:53.959 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.959 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.968 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTCORRELATION
+Nov-17 14:50:53.969 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTCORRELATION` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTCORRELATION
+Nov-17 14:50:53.971 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.971 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.981 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTPCA
+Nov-17 14:50:53.982 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTPCA` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTPCA
+Nov-17 14:50:53.983 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.984 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:53.992 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTFINGERPRINT
+Nov-17 14:50:53.992 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTFINGERPRINT` matches process NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTFINGERPRINT
+Nov-17 14:50:53.994 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:53.995 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.009 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:SAMTOOLS_SORT
+Nov-17 14:50:54.010 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:EXTRACT_FRAGMENTS:SAMTOOLS_SORT` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:SAMTOOLS_SORT
+Nov-17 14:50:54.012 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.012 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.021 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:BEDTOOLS_BAMTOBED
+Nov-17 14:50:54.022 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:EXTRACT_FRAGMENTS:BEDTOOLS_BAMTOBED` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:BEDTOOLS_BAMTOBED
+Nov-17 14:50:54.024 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.024 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.031 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:AWK
+Nov-17 14:50:54.032 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:EXTRACT_FRAGMENTS:AWK` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:AWK
+Nov-17 14:50:54.033 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.033 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.040 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:CUT
+Nov-17 14:50:54.041 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:.*:EXTRACT_FRAGMENTS:CUT` matches process NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:CUT
+Nov-17 14:50:54.042 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.042 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.062 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP
+Nov-17 14:50:54.062 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP
+Nov-17 14:50:54.064 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.064 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.074 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PRIMARY_PEAK_COUNTS
+Nov-17 14:50:54.075 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PRIMARY_PEAK_COUNTS` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PRIMARY_PEAK_COUNTS
+Nov-17 14:50:54.077 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.077 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.083 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CONSENSUS_PEAK_COUNTS
+Nov-17 14:50:54.084 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CONSENSUS_PEAK_COUNTS` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CONSENSUS_PEAK_COUNTS
+Nov-17 14:50:54.086 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.086 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.094 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CUT_CALC_REPROD
+Nov-17 14:50:54.095 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CUT_CALC_REPROD` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CUT_CALC_REPROD
+Nov-17 14:50:54.097 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.097 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.113 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:BEDTOOLS_INTERSECT
+Nov-17 14:50:54.114 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:BEDTOOLS_INTERSECT` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:BEDTOOLS_INTERSECT
+Nov-17 14:50:54.116 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.116 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.125 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CALCULATE_PEAK_REPROD
+Nov-17 14:50:54.126 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CALCULATE_PEAK_REPROD` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CALCULATE_PEAK_REPROD
+Nov-17 14:50:54.127 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.127 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.140 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS
+Nov-17 14:50:54.141 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS` matches process NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS
+Nov-17 14:50:54.142 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.142 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.158 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name NFCORE_CUTANDRUN:CUTANDRUN:SAMTOOLS_CUSTOMVIEW
+Nov-17 14:50:54.159 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:SAMTOOLS_CUSTOMVIEW` matches process NFCORE_CUTANDRUN:CUTANDRUN:SAMTOOLS_CUSTOMVIEW
+Nov-17 14:50:54.161 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.161 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.171 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name NFCORE_CUTANDRUN:CUTANDRUN:FRAG_LEN_HIST
+Nov-17 14:50:54.172 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:FRAG_LEN_HIST` matches process NFCORE_CUTANDRUN:CUTANDRUN:FRAG_LEN_HIST
+Nov-17 14:50:54.173 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.173 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.198 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:CUSTOM_DUMPSOFTWAREVERSIONS
+Nov-17 14:50:54.198 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:CUSTOM_DUMPSOFTWAREVERSIONS` matches process NFCORE_CUTANDRUN:CUTANDRUN:CUSTOM_DUMPSOFTWAREVERSIONS
+Nov-17 14:50:54.200 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.200 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.299 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name NFCORE_CUTANDRUN:CUTANDRUN:MULTIQC
+Nov-17 14:50:54.300 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:NFCORE_CUTANDRUN:CUTANDRUN:MULTIQC` matches process NFCORE_CUTANDRUN:CUTANDRUN:MULTIQC
+Nov-17 14:50:54.307 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-17 14:50:54.307 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-17 14:50:54.338 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:AWK, SEACR_CALLPEAK_NOIGG, DEEPTOOLS_MULTIBAMSUMMARY, TABIX_BGZIPTABIX, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, NFCORE_CUTANDRUN:CUTANDRUN:MULTIQC, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT, BOWTIE2_BUILD_TARGET, IGV_SESSION, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PRIMARY_PEAK_COUNTS, PEAK_TO_BED, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW, FIND_UNIQUE_READS, CAT_FASTQ, GUNZIP, AWK_EXTRACT_SUMMITS, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:CUT, SAMTOOLS_STATS, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX, CUT, NFCORE_CUTANDRUN:CUTANDRUN:AWK_NAME_PEAK_BED, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT, MACS2_CALLPEAK_NOIGG, TRIMGALORE, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, SAMTOOLS_CUSTOMVIEW, BEDTOOLS_GENOMECOV, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_VIEW, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:BEDTOOLS_BAMTOBED, SEACR_CALLPEAK_IGG, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES, DEEPTOOLS_COMPUTEMATRIX_GENE_ALL, FRAG_LEN_HIST, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, BOWTIE2_ALIGN, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTFINGERPRINT, SAMTOOLS_INDEX, PRESEQ_LCEXTRAP, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, DEEPTOOLS_PLOTCORRELATION, FASTQC, BLACKLIST_BEDTOOLS_INTERSECT, PEAK_COUNTS, UCSC_BEDCLIP, DEEPTOOLS_PLOTFINGERPRINT, UCSC_BEDGRAPHTOBIGWIG, MULTIQC, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:FIND_UNIQUE_READS, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, NFCORE_CUTANDRUN:CUTANDRUN:AWK_EXTRACT_SUMMITS, GTF2BED, BEDTOOLS_BAMTOBED, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, MACS2_CALLPEAK_IGG, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:AWK, GUNZIP_GTF, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CONSENSUS_PEAK_COUNTS, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE_ALL, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT, BLACKLIST_AWK, SAMTOOLS_FAIDX, TARGET_CHROMSIZES, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_GTF, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE_ALL, SAMTOOLS_FLAGSTAT, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, SAMPLESHEET_CHECK, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:PICARD_MARKDUPLICATES, DEEPTOOLS_PLOTHEATMAP_PEAKS_ALL, GUNZIP_FASTA, GUNZIP_SPIKEIN_FASTA, NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK, DEEPTOOLS_COMPUTEMATRIX, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS, MACS2_CALLPEAK, BLACKLIST_BEDTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, UNTAR_INDEX_TARGET, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, ANNOTATION_BEDTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, SPIKEIN_CHROMSIZES, NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES, NFCORE_CUTANDRUN:CUTANDRUN:CUSTOM_DUMPSOFTWAREVERSIONS, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:BEDTOOLS_INTERSECT, NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:SORT, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK, BOWTIE2_TARGET_ALIGN, DEEPTOOLS_COMPUTEMATRIX_PEAKS_ALL, PICARD_MARKDUPLICATES, DEEPTOOLS_PLOTHEATMAP_PEAKS, BLACKLIST_BEDTOOLS_COMPLEMENT, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BEDTOOLS_BAMTOBED, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_GENOMECOV, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_SORT, UNTAR_INDEX_SPIKEIN, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS, NFCORE_CUTANDRUN:CUTANDRUN:IGV_SESSION, CUT_CALC_REPROD, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY, UNTAR, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CUT_CALC_REPROD, PLOT_CONSENSUS_PEAKS, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX, NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CALCULATE_PEAK_REPROD, DEEPTOOLS_PLOTHEATMAP, PRIMARY_PEAK_COUNTS, AWK_NAME_PEAK_BED, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_FASTA, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT, DEEPTOOLS_COMPUTEMATRIX_GENE, PEAK_FRIP, NFCORE_CUTANDRUN:CUTANDRUN:CAT_FASTQ, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTPCA, NFCORE_CUTANDRUN:CUTANDRUN:SEACR_CALLPEAK_IGG, SORT, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:SAMTOOLS_SORT, BEDTOOLS_SORT, NFCORE_CUTANDRUN:CUTANDRUN:SAMTOOLS_CUSTOMVIEW, AWK_SCRIPT, DEEPTOOLS_BAMCOVERAGE, BEDTOOLS_INTERSECT, NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:BEDTOOLS_MERGE, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTCORRELATION, BOWTIE2_BUILD, CONSENSUS_PEAK_COUNTS, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDCLIP, CUSTOM_GETCHROMSIZES, CALCULATE_PEAK_REPROD, GUNZIP_BED, DEEPTOOLS_PLOTPCA, NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP, NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, SAMTOOLS_SORT, DEEPTOOLS_PLOTHEATMAP_GENE_ALL, NFCORE_CUTANDRUN:CUTANDRUN:FRAG_LEN_HIST, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_PEAKS, AWK, SAMTOOLS_VIEW, NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, BOWTIE2_BUILD_SPIKEIN, NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_PEAKS, BEDTOOLS_COMPLEMENT, BEDTOOLS_MERGE, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_SPIKEIN_FASTA, NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS, DEEPTOOLS_COMPUTEMATRIX_PEAKS, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDGRAPHTOBIGWIG, NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_PICARD_DUP_META:AWK, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT, BOWTIE2_SPIKEIN_ALIGN, NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_BED, SAMTOOLS_IDXSTATS, CUSTOM_DUMPSOFTWAREVERSIONS, SEACR_CALLPEAK, NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX, DEEPTOOLS_PLOTHEATMAP_GENE
+Nov-17 14:50:54.375 [main] DEBUG nextflow.Session - Igniting dataflow network (198)
+Nov-17 14:50:54.375 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_FASTA
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_SPIKEIN_FASTA
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_GTF
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_BED
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES
+Nov-17 14:50:54.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET
+Nov-17 14:50:54.385 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN
+Nov-17 14:50:54.390 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK
+Nov-17 14:50:54.390 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT
+Nov-17 14:50:54.394 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT
+Nov-17 14:50:54.405 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT
+Nov-17 14:50:54.405 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK
+Nov-17 14:50:54.405 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:CAT_FASTQ
+Nov-17 14:50:54.405 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC
+Nov-17 14:50:54.407 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE
+Nov-17 14:50:54.408 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN
+Nov-17 14:50:54.408 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN
+Nov-17 14:50:54.408 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:54.408 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:54.411 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.411 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.411 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.414 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT
+Nov-17 14:50:54.414 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX
+Nov-17 14:50:54.414 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.420 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.420 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.420 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT
+Nov-17 14:50:54.424 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT
+Nov-17 14:50:54.424 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW
+Nov-17 14:50:54.424 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT
+Nov-17 14:50:54.424 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX
+Nov-17 14:50:54.430 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.430 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.430 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.430 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP
+Nov-17 14:50:54.434 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:54.434 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:54.434 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:54.434 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.434 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.437 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.437 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:PICARD_MARKDUPLICATES
+Nov-17 14:50:54.437 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:54.438 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:54.438 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.438 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.438 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_PICARD_DUP_META:AWK
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_SORT
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BEDTOOLS_BAMTOBED
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:FIND_UNIQUE_READS
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:SAMTOOLS_VIEW
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT
+Nov-17 14:50:54.441 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX
+Nov-17 14:50:54.443 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS
+Nov-17 14:50:54.443 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT
+Nov-17 14:50:54.443 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_LINEAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS
+Nov-17 14:50:54.443 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_GENOMECOV
+Nov-17 14:50:54.443 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:BEDTOOLS_SORT
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDCLIP
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_PEAKCALLING:UCSC_BEDGRAPHTOBIGWIG
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:SEACR_CALLPEAK_IGG
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:AWK_EXTRACT_SUMMITS
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:AWK_NAME_PEAK_BED
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:SORT
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:BEDTOOLS_MERGE
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:CONSENSUS_PEAKS:AWK
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:IGV_SESSION
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_PEAKS
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_PEAKS
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_COMPUTEMATRIX_GENE_ALL
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_PLOTHEATMAP_GENE_ALL
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTCORRELATION
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTPCA
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_PLOTFINGERPRINT
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:SAMTOOLS_SORT
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:BEDTOOLS_BAMTOBED
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:AWK
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_FRAGMENTS:CUT
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PRIMARY_PEAK_COUNTS
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CONSENSUS_PEAK_COUNTS
+Nov-17 14:50:54.447 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CUT_CALC_REPROD
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:BEDTOOLS_INTERSECT
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:CALCULATE_PEAK_REPROD
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:SAMTOOLS_CUSTOMVIEW
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:FRAG_LEN_HIST
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:CUSTOM_DUMPSOFTWAREVERSIONS
+Nov-17 14:50:54.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > NFCORE_CUTANDRUN:CUTANDRUN:MULTIQC
+Nov-17 14:50:54.448 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_c0f26e89902f26bf: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/linux/cut.nf
+  Script_bd09654560624228: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/python/peak_reprod.nf
+  Script_cdbce3e23a8f89e8: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../bam_stats_samtools/main.nf
+  Script_677f1233d09aa3e8: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/linux/sort.nf
+  Script_a53982674d738ebd: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/cutandrun.nf
+  Script_8ae6728f0e5ddd5d: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/consensus_peaks.nf
+  Script_5729e34c31ba6eba: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/genomecov/main.nf
+  Script_58e794dbd977701f: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../../../modules/nf-core/samtools/index/main.nf
+  Script_44c9f704edc808aa: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/picard/markduplicates/main.nf
+  Script_6aa11cde022a9aaa: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/for_patch/trimgalore/main.nf
+  Script_ba96fa5230d62919: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/merge/main.nf
+  Script_cabddbe5b472e996: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/bamtobed/main.nf
+  Script_893ba4a8cb5dd8d4: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/untar/main.nf
+  Script_2fa4b6601d9aa276: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_stats_samtools/../../../modules/nf-core/samtools/flagstat/main.nf
+  Script_9c46eb190159abe1: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/peak_qc.nf
+  Script_4f6739ae1680d27b: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/main.nf
+  Script_81b4c90ea64c3628: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/prepare_genome.nf
+  Script_96258730f628ec58: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/for_patch/bedtools/sort/main.nf
+  Script_723c8c346b4ad797: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/linux/awk_script.nf
+  Script_3d8b59eac062d357: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bowtie2/build/main.nf
+  Script_36d4290842df373a: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../../../modules/nf-core/samtools/sort/main.nf
+  Script_30800dd41172f828: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/extract_fragments.nf
+  Script_cd6f3947962f62c4: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/gunzip/main.nf
+  Script_8815d2473e8f1fb2: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/deeptools_qc.nf
+  Script_158c28682d2756a8: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/fastqc_trimgalore.nf
+  Script_d973ea11a933e1e9: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/mark_duplicates_picard.nf
+  Script_13ee14049a8ea47a: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/local/python/frag_len_hist.nf
+  Script_a5b21f101f7c7a95: /home/hkates/.nextflow/assets/nf-core/cutandrun/main.nf
+  Script_c300a4d7f354f268: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/seacr/callpeak/main.nf
+  Script_bd50296d67d7e4bb: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/local/custom_dumpsoftwareversions.nf
+  Script_db45f2a3ca1f7deb: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/peak_frip.nf
+  Script_3603a3d3fb257828: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/for_patch/samtools/view/main.nf
+  Script_fb84878f088f45c4: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/deeptools/plotfingerprint/main.nf
+  Script_bcaaf4fc8e4fc85f: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/python/samplesheet_check.nf
+  Script_ecfd5cf444c6a186: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/macs2/callpeak/main.nf
+  Script_408c0fc766352166: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/for_patch/deeptools/bamcoverage/main.nf
+  Script_b769f101d8e294bd: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/align_bowtie2.nf
+  Script_810c50b2736f1a5b: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/fastqc/main.nf
+  Script_4c3a19822bd5ee33: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/gtf2bed.nf
+  Script_d275e5701937a58c: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/input_check.nf
+  Script_32be0b964abad83e: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/preseq/lcextrap/main.nf
+  Script_03e47f2ea1ad4bda: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../bam_stats_samtools/../../../modules/nf-core/samtools/stats/main.nf
+  Script_59bebcfe6e6c5be7: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/ucsc/bedgraphtobigwig/main.nf
+  Script_02db6bb6f2ac7118: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/deeptools/computematrix/main.nf
+  Script_9e89f1fdf9ced4f0: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../nf-core/bam_sort_stats_samtools/../bam_stats_samtools/../../../modules/nf-core/samtools/idxstats/main.nf
+  Script_b6e2e2346458a109: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/python/plot_consensus_peaks.nf
+  Script_b0134b747414ad95: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/local/python/igv_session.nf
+  Script_ad406a7efdef7089: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/samtools/view/main.nf
+  Script_4d5304e6825a56b0: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/prepare_peakcalling.nf
+  Script_91d86a99cbc11962: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/deeptools/plotpca/main.nf
+  Script_9535aec60937f56c: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/deeptools/multibamsummary/main.nf
+  Script_4a7837680de75b40: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/deeptools/plotcorrelation/main.nf
+  Script_1a6fdd4e0ee0a7e1: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/deeptools/plotheatmap/main.nf
+  Script_80997e2f948fad70: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/deduplicate_linear.nf
+  Script_0e1778971d14d9f2: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/extract_metadata_awk.nf
+  Script_09757f9c04013095: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/python/find_unique_reads.nf
+  Script_9e8844b00c789c9c: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/local/samtools_custom_view.nf
+  Script_aaa732d0dff599b5: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/ucsc/bedclip/main.nf
+  Script_5c3770e354346889: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/peak_counts.nf
+  Script_ee92193e093c17f9: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/nf-core/cat/fastq/main.nf
+  Script_661d623767fae8ce: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/complement/main.nf
+  Script_8581793089ba8a98: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/samtools_view_sort_stats.nf
+  Script_3de42ff7eba7de88: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../modules/local/multiqc.nf
+  Script_0aa591851c3549cf: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bowtie2/align/main.nf
+  Script_da03e4793ab0d0dc: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/bedtools/intersect/main.nf
+  Script_03bc82120076e4df: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/local/linux/awk.nf
+  Script_36edeae94666a272: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/custom/getchromsizes/main.nf
+  Script_0638cb0b3ce4c59b: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/tabix/bgziptabix/main.nf
+  Script_82c5624f5f63abe7: /home/hkates/.nextflow/assets/nf-core/cutandrun/./workflows/../subworkflows/local/../../modules/nf-core/samtools/faidx/main.nf
+Nov-17 14:50:54.449 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-17 14:50:54.449 [main] DEBUG nextflow.Session - Session await
+Nov-17 14:50:54.513 [Actor Thread 34] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 1; slices: 1; internal sort time: 0.0 s; external sort time: 0.008 s; total time: 0.008 s
+Nov-17 14:50:54.514 [Actor Thread 34] DEBUG nextflow.file.FileCollector - >> temp file exists? false
+Nov-17 14:50:54.515 [Actor Thread 34] DEBUG nextflow.file.FileCollector - Missed collect-file cache -- cause: java.nio.file.NoSuchFileException: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/collect-file/c1d46d948d4f8c889cf3b8abcded738a
+Nov-17 14:50:54.530 [Actor Thread 34] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/collect-file/c1d46d948d4f8c889cf3b8abcded738a
+Nov-17 14:50:54.534 [Actor Thread 34] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /scratch/local/50066630/nxf-2220980518637026671
+Nov-17 14:50:54.658 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/e_coli_U00096_3.tar.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/00/58262e8b79ac0da72a3639330b8791/e_coli_U00096_3.tar.gz
+Nov-17 14:50:54.741 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/e_coli_U00096_3.fa.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/30/58639c3d44426589ffe5d24c861b39/e_coli_U00096_3.fa.gz
+Nov-17 14:50:54.762 [Actor Thread 1] INFO  nextflow.processor.TaskProcessor - [f6/29345b] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_SPIKEIN_FASTA (e_coli_U00096_3.fa.gz)
+Nov-17 14:50:54.771 [Actor Thread 4] INFO  nextflow.processor.TaskProcessor - [e8/cb94a9] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_SPIKEIN (e_coli_U00096_3.tar.gz)
+Nov-17 14:50:54.847 [Actor Thread 33] INFO  nextflow.processor.TaskProcessor - [27/4e2d8a] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES (e_coli_U00096_3.fa)
+Nov-17 14:50:54.855 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-bowtie2.tar.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/03/cdd7417b32afe9023cf750977bf97d/hg38-chr20-bowtie2.tar.gz
+Nov-17 14:50:54.881 [Actor Thread 9] INFO  nextflow.processor.TaskProcessor - [2b/325d9c] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:UNTAR_INDEX_TARGET (hg38-chr20-bowtie2.tar.gz)
+Nov-17 14:50:54.963 [Actor Thread 33] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SPIKEIN_CHROMSIZES > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:50:55.126 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-genes.gtf.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/6c/bd3d94f858ecba38790e5e62dc8283/hg38-chr20-genes.gtf.gz
+Nov-17 14:50:55.137 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [1e/3225f8] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_GTF (hg38-chr20-genes.gtf.gz)
+Nov-17 14:50:55.142 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/samplesheet_2_0/test-GSE145187-small.csv at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/ba/b8541b299b6cdce673bc83b69ad8db/test-GSE145187-small.csv
+Nov-17 14:50:55.150 [Actor Thread 15] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /home/hkates/.nextflow/assets/nf-core/cutandrun/bin/check_samplesheet.py
+Nov-17 14:50:55.151 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20-genes.bed.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/bf/2369e6a0445f7f88718457c1013166/hg38-chr20-genes.bed.gz
+Nov-17 14:50:55.153 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/reference/genomes/hg38-chr20.fa.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/17/a1c5804f83c1da870feb53d6cec0c6/hg38-chr20.fa.gz
+Nov-17 14:50:55.157 [Actor Thread 2] INFO  nextflow.processor.TaskProcessor - [99/e21056] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_FASTA (hg38-chr20.fa.gz)
+Nov-17 14:50:55.161 [Actor Thread 3] INFO  nextflow.processor.TaskProcessor - [e2/80a110] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:GUNZIP_BED (hg38-chr20-genes.bed.gz)
+Nov-17 14:50:55.185 [Actor Thread 11] INFO  nextflow.processor.TaskProcessor - [7e/b126dc] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES (hg38-chr20.fa)
+Nov-17 14:50:55.190 [Actor Thread 34] INFO  nextflow.processor.TaskProcessor - [0e/af0511] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:ANNOTATION_BEDTOOLS_SORT (hg38-chr20-genes)
+Nov-17 14:50:55.194 [Actor Thread 11] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TARGET_CHROMSIZES > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:50:55.223 [Actor Thread 15] INFO  nextflow.processor.TaskProcessor - [6e/b46d1d] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:INPUT_CHECK:SAMPLESHEET_CHECK (test-GSE145187-small.csv)
+Nov-17 14:50:55.223 [Actor Thread 7] INFO  nextflow.processor.TaskProcessor - [01/afe3e3] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX (hg38-chr20.fa)
+Nov-17 14:50:55.225 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX > Skipping output binding because one or more optional files are missing: fileoutparam<0:1>
+Nov-17 14:50:55.229 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:SAMTOOLS_FAIDX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:50:55.237 [Actor Thread 15] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov-17 14:50:55.266 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:50:55.275 [Task submitter] INFO  nextflow.Session - [bb/ef7886] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK (chromsizes)
+Nov-17 14:50:55.283 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:50:55.285 [Task submitter] INFO  nextflow.Session - [b3/18a070] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX (hg38-chr20-genes)
+Nov-17 14:50:55.591 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX (hg38-chr20-genes); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/b3/18a0703164294910c00b8ffb0afe73]
+Nov-17 14:50:55.591 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=10; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov-17 14:50:55.606 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:TABIX_BGZIPTABIX > Skipping output binding because one or more optional files are missing: fileoutparam<1:2>
+Nov-17 14:50:55.623 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_AWK (chromsizes); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/bb/ef7886e12622b5b1ac5f8a26ef6475]
+Nov-17 14:50:55.663 [Actor Thread 5] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /home/hkates/.nextflow/assets/nf-core/cutandrun/assets/blacklists/hg38-blacklist.bed
+Nov-17 14:50:55.677 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:50:55.677 [Task submitter] INFO  nextflow.Session - [25/db2934] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT (blacklist)
+Nov-17 14:50:55.987 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_INTERSECT (blacklist); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/25/db29347a6002736bb0e2c859ca583e]
+Nov-17 14:50:56.015 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:50:56.015 [Task submitter] INFO  nextflow.Session - [2e/74fbd6] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT (blacklist)
+Nov-17 14:50:56.241 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/testdata/GSE145187_10000/igg_rep1_r1.fastq.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/b3/98a0e2ec66bb73f4564217dbdc5511/igg_rep1_r1.fastq.gz
+Nov-17 14:50:56.242 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/testdata/GSE145187_10000/igg_rep1_r2.fastq.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/a9/06cfb614daff8d637c0cd13512ae2d/igg_rep1_r2.fastq.gz
+Nov-17 14:50:56.274 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/testdata/GSE145187_10000/h3k27me3_rep1_r1.fastq.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/43/a58f3b6af6a638a44cfb2e5620c013/h3k27me3_rep1_r1.fastq.gz
+Nov-17 14:50:56.274 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Local cache found for foreign file https://raw.githubusercontent.com/nf-core/test-datasets/cutandrun/testdata/GSE145187_10000/h3k27me3_rep1_r2.fastq.gz at /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/stage-a4ac3dcb-e44a-4938-861b-c73df2e2b58a/96/a8202766c5c859f534a1303f3fda05/h3k27me3_rep1_r2.fastq.gz
+Nov-17 14:50:56.305 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 19; name: NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_SORT (blacklist); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/2e/74fbd6466471671e66f80244a5e1ed]
+Nov-17 14:50:56.309 [Actor Thread 1] INFO  nextflow.processor.TaskProcessor - [81/6f6038] Cached process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC (h3k27me3_R1)
+Nov-17 14:50:56.309 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:50:56.309 [Task submitter] INFO  nextflow.Session - [02/e2f211] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE (h3k27me3_R1)
+Nov-17 14:51:11.814 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/02/e2f211d775821b7840ab116bbd3bc2]
+Nov-17 14:51:11.842 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:11.842 [Task submitter] INFO  nextflow.Session - [6a/46c0ec] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC (igg_ctrl_R1)
+Nov-17 14:51:14.398 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 18; name: NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:FASTQC (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/6a/46c0ec194875d40346cda824b73326]
+Nov-17 14:51:14.403 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:14.403 [Task submitter] INFO  nextflow.Session - [44/38adbf] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE (igg_ctrl_R1)
+Nov-17 14:51:19.691 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: NFCORE_CUTANDRUN:CUTANDRUN:FASTQC_TRIMGALORE:TRIMGALORE (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/44/38adbf2adcdb069c371444ee184675]
+Nov-17 14:51:19.706 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:19.706 [Task submitter] INFO  nextflow.Session - [3e/1ba25e] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT (blacklist)
+Nov-17 14:51:19.984 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 20; name: NFCORE_CUTANDRUN:CUTANDRUN:PREPARE_GENOME:BLACKLIST_BEDTOOLS_COMPLEMENT (blacklist); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/3e/1ba25ee5398ae9002a48c74564fd54]
+Nov-17 14:51:19.989 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:19.989 [Task submitter] INFO  nextflow.Session - [93/e446a8] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN (h3k27me3_R1)
+Nov-17 14:51:20.540 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 21; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/93/e446a8aed1314b9cb31515018778e3]
+Nov-17 14:51:20.548 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:20.548 [Task submitter] INFO  nextflow.Session - [f5/322a14] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN (h3k27me3_R1)
+Nov-17 14:51:20.568 [TaskFinalizer-9] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:20.571 [Actor Thread 3] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /home/hkates/.nextflow/assets/nf-core/cutandrun/bin/bt2_report_to_csv.awk
+Nov-17 14:51:22.797 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 22; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/f5/322a14d371cdf445624ef3e9bf8ef1]
+Nov-17 14:51:22.814 [TaskFinalizer-10] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:22.818 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:22.818 [Task submitter] INFO  nextflow.Session - [af/cde15e] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN (igg_ctrl_R1)
+Nov-17 14:51:23.547 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 24; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/af/cde15ee39ee5a48f4bd5f8daff9c1f]
+Nov-17 14:51:23.554 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:23.554 [Task submitter] INFO  nextflow.Session - [e9/42f9b8] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN (igg_ctrl_R1)
+Nov-17 14:51:23.560 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_SPIKEIN_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:25.811 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 23; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/e9/42f9b8a25be09589586ea26fc6988d]
+Nov-17 14:51:25.815 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:25.815 [Task submitter] INFO  nextflow.Session - [1f/75e483] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT (h3k27me3_R1)
+Nov-17 14:51:25.821 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BOWTIE2_TARGET_ALIGN > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:26.108 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 25; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/1f/75e4834fc9df0e7f8d8689114c3df8]
+Nov-17 14:51:26.112 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:26.113 [Task submitter] INFO  nextflow.Session - [92/b027dc] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT (h3k27me3_R1)
+Nov-17 14:51:26.118 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:26.121 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:26.122 [Task submitter] INFO  nextflow.Session - [34/3629ec] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT (h3k27me3_R1)
+Nov-17 14:51:26.388 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 28; name: NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/34/3629eccf187c92bfef67fcf4e374b1]
+Nov-17 14:51:26.393 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:26.393 [Task submitter] INFO  nextflow.Session - [52/f21e11] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT (igg_ctrl_R1)
+Nov-17 14:51:26.564 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 26; name: NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/92/b027dc248e9127a45060a7458a5900]
+Nov-17 14:51:26.571 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:26.571 [Task submitter] INFO  nextflow.Session - [75/5f93e9] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT (igg_ctrl_R1)
+Nov-17 14:51:26.591 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 29; name: NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_SPIKEIN_META:AWK_SCRIPT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/52/f21e114884a336fdbb5928743ef3a8]
+Nov-17 14:51:26.731 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 31; name: NFCORE_CUTANDRUN:CUTANDRUN:EXTRACT_BT2_TARGET_META:AWK_SCRIPT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/75/5f93e94fcb0c593ed8e8e4fcd4bd64]
+Nov-17 14:51:26.735 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:26.736 [Task submitter] INFO  nextflow.Session - [ec/135d4b] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (h3k27me3_R1)
+Nov-17 14:51:27.067 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 27; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/ec/135d4bb6617b8552e7728394625155]
+Nov-17 14:51:27.070 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:27.071 [Task submitter] INFO  nextflow.Session - [19/6f31b8] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT (igg_ctrl_R1)
+Nov-17 14:51:27.077 [TaskFinalizer-8] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:27.378 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 30; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/19/6f31b8a66cf5da9bf44ef03c7cff7e]
+Nov-17 14:51:27.383 [TaskFinalizer-9] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:27.390 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:27.390 [Task submitter] INFO  nextflow.Session - [59/a018a9] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (igg_ctrl_R1)
+Nov-17 14:51:27.659 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 32; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/59/a018a91e41a35174332cf1d995e082]
+Nov-17 14:51:27.663 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:27.664 [Task submitter] INFO  nextflow.Session - [00/bd4c69] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX (h3k27me3_R1)
+Nov-17 14:51:27.665 [TaskFinalizer-10] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:27.907 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 33; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/00/bd4c69fec6e14f263cfb0de4bd822e]
+Nov-17 14:51:27.915 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:27.915 [Task submitter] INFO  nextflow.Session - [15/3c9bd3] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (h3k27me3_R1)
+Nov-17 14:51:27.919 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:27.919 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:28.088 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 34; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/15/3c9bd3e815ab6595133a90061457bb]
+Nov-17 14:51:28.097 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:28.097 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:28.098 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:28.098 [Task submitter] INFO  nextflow.Session - [25/a21164] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW (h3k27me3_R1)
+Nov-17 14:51:28.311 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 35; name: NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/25/a21164065be0f528a22fba7740ded6]
+Nov-17 14:51:28.317 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:28.317 [Task submitter] INFO  nextflow.Session - [cd/0f0c9f] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX (igg_ctrl_R1)
+Nov-17 14:51:28.321 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:28.539 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 36; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/cd/0f0c9f98af848cbb9814b70e00e528]
+Nov-17 14:51:28.546 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:28.546 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:28.546 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:28.546 [Task submitter] INFO  nextflow.Session - [43/5549c0] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW (igg_ctrl_R1)
+Nov-17 14:51:28.810 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 38; name: NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/43/5549c059076b756e1a10c560275501]
+Nov-17 14:51:28.815 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_VIEW > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:28.817 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:28.817 [Task submitter] INFO  nextflow.Session - [78/d9d491] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (igg_ctrl_R1)
+Nov-17 14:51:29.005 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 37; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/78/d9d49106a58ddd26b9e6db34f1b6ef]
+Nov-17 14:51:29.009 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.010 [Task submitter] INFO  nextflow.Session - [2b/e1d610] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT (h3k27me3_R1)
+Nov-17 14:51:29.014 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:29.014 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:29.353 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 39; name: NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/2b/e1d610d03750e2de0933db2211058f]
+Nov-17 14:51:29.357 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.357 [Task submitter] INFO  nextflow.Session - [9c/5a7a7f] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (h3k27me3_R1)
+Nov-17 14:51:29.361 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:29.368 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.368 [Task submitter] INFO  nextflow.Session - [31/842bad] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (igg_ctrl_R1)
+Nov-17 14:51:29.714 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 42; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/9c/5a7a7fc2eb634b258ab99ef0103afa]
+Nov-17 14:51:29.719 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.719 [Task submitter] INFO  nextflow.Session - [7f/eeeb44] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (igg_ctrl_R1)
+Nov-17 14:51:29.747 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 43; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/31/842bad1550d8d41b7e3ef98e81dea2]
+Nov-17 14:51:29.758 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.758 [Task submitter] INFO  nextflow.Session - [f1/0e21bd] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (h3k27me3_R1)
+Nov-17 14:51:29.935 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 45; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/7f/eeeb441ee55042beaa330e7e2d4d5b]
+Nov-17 14:51:29.939 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.939 [Task submitter] INFO  nextflow.Session - [9f/1a7f79] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (igg_ctrl_R1)
+Nov-17 14:51:29.970 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 40; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/f1/0e21bdb10bf1da4397de29d22f21a4]
+Nov-17 14:51:29.981 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:29.981 [Task submitter] INFO  nextflow.Session - [c9/20dd81] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (h3k27me3_R1)
+Nov-17 14:51:30.182 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 41; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/9f/1a7f79e104fb82bfc8a5953db58203]
+Nov-17 14:51:30.186 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 44; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS_SPIKEIN:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/c9/20dd81e338443201804597867d0066]
+Nov-17 14:51:30.187 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.187 [Task submitter] INFO  nextflow.Session - [b3/f43679] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (h3k27me3_R1)
+Nov-17 14:51:30.197 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.197 [Task submitter] INFO  nextflow.Session - [12/536c1a] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (h3k27me3_R1)
+Nov-17 14:51:30.365 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 47; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/b3/f43679f44fdbd7477d939a2260a057]
+Nov-17 14:51:30.369 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.369 [Task submitter] INFO  nextflow.Session - [48/3f0791] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (h3k27me3_R1)
+Nov-17 14:51:30.577 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 48; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/12/536c1a22d2e2b1c62b96e969ff400f]
+Nov-17 14:51:30.581 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.581 [Task submitter] INFO  nextflow.Session - [31/4a7878] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (igg_ctrl_R1)
+Nov-17 14:51:30.627 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 51; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/48/3f0791288b432bfb14b17f36951446]
+Nov-17 14:51:30.630 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.630 [Task submitter] INFO  nextflow.Session - [69/2b6bf7] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (igg_ctrl_R1)
+Nov-17 14:51:30.799 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 52; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/31/4a787817b8ef89971975316f34e92f]
+Nov-17 14:51:30.803 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 49; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/69/2b6bf76a2841ce6a1fb931ad8a2b1f]
+Nov-17 14:51:30.804 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.805 [Task submitter] INFO  nextflow.Session - [10/3b87f2] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (igg_ctrl_R1)
+Nov-17 14:51:30.821 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:30.821 [Task submitter] INFO  nextflow.Session - [0d/a20f7b] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP (h3k27me3_R1)
+Nov-17 14:51:30.939 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 54; name: NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP (h3k27me3_R1); status: COMPLETED; exit: 127; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/0d/a20f7bf8052c58776383c7c80973a3]
+Nov-17 14:51:30.943 [TaskFinalizer-9] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP (h3k27me3_R1); work-dir=/blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/0d/a20f7bf8052c58776383c7c80973a3
+  error [nextflow.exception.ProcessFailedException]: Process `NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP (h3k27me3_R1)` terminated with an error exit status (127)
+Nov-17 14:51:30.946 [TaskFinalizer-9] INFO  nextflow.processor.TaskProcessor - [0d/a20f7b] NOTE: Process `NFCORE_CUTANDRUN:CUTANDRUN:PRESEQ_LCEXTRAP (h3k27me3_R1)` terminated with an error exit status (127) -- Error is ignored
+Nov-17 14:51:31.072 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 50; name: NFCORE_CUTANDRUN:CUTANDRUN:ALIGN_BOWTIE2:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_STATS (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/10/3b87f22239c599535fdaeee91a823a]
+Nov-17 14:51:31.076 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:31.076 [Task submitter] INFO  nextflow.Session - [9c/a63686] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT (igg_ctrl_R1)
+Nov-17 14:51:31.390 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 46; name: NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT (igg_ctrl_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/9c/a636867bd7db9f40a26da05c5a664e]
+Nov-17 14:51:31.395 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:31.395 [Task submitter] INFO  nextflow.Session - [a2/fcc51b] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1)
+Nov-17 14:51:31.400 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_SORT > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:32.416 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 55; name: NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1); status: COMPLETED; exit: 1; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/a2/fcc51bf584263846ed616a55792ea8]
+Nov-17 14:51:32.419 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1); work-dir=/blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/a2/fcc51bf584263846ed616a55792ea8
+  error [nextflow.exception.ProcessFailedException]: Process `NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1)` terminated with an error exit status (1)
+Nov-17 14:51:32.425 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-17 14:51:32.425 [Task submitter] INFO  nextflow.Session - [4a/1be1aa] Submitted process > NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX (h3k27me3_R1)
+Nov-17 14:51:32.429 [TaskFinalizer-3] ERROR nextflow.processor.TaskProcessor - Error executing process > 'NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1)'
+
+Caused by:
+  Process `NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES (h3k27me3_R1)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  picard \
+      -Xmx4915M \
+      MarkDuplicates \
+      --ASSUME_SORT_ORDER coordinate --REMOVE_DUPLICATES false --VALIDATION_STRINGENCY LENIENT --TMP_DIR tmp \
+      --INPUT h3k27me3_R1.target.filtered.sorted.bam \
+      --OUTPUT h3k27me3_R1.target.markdup.bam \
+      --REFERENCE_SEQUENCE hg38-chr20.fa \
+      --METRICS_FILE h3k27me3_R1.target.markdup.MarkDuplicates.metrics.txt
+  
+  cat <<-END_VERSIONS > versions.yml
+  "NFCORE_CUTANDRUN:CUTANDRUN:MARK_DUPLICATES_PICARD:PICARD_MARKDUPLICATES":
+      picard: $(echo $(picard MarkDuplicates --version 2>&1) | grep -o 'Version:.*' | cut -f2- -d:)
+  END_VERSIONS
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  14:51:32.076 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/hkates/.conda/envs/cutandrun2_env/share/picard-3.3.0-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+  [Sun Nov 17 14:51:32 EST 2024] MarkDuplicates --INPUT h3k27me3_R1.target.filtered.sorted.bam --OUTPUT h3k27me3_R1.target.markdup.bam --METRICS_FILE h3k27me3_R1.target.markdup.MarkDuplicates.metrics.txt --REMOVE_DUPLICATES false --ASSUME_SORT_ORDER coordinate --TMP_DIR tmp --VALIDATION_STRINGENCY LENIENT --REFERENCE_SEQUENCE hg38-chr20.fa --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --SORTING_COLLECTION_SIZE_RATIO 0.25 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --DUPLEX_UMI false --FLOW_MODE false --FLOW_DUP_STRATEGY FLOW_QUALITY_SUM_STRATEGY --FLOW_USE_END_IN_UNPAIRED_READS false --FLOW_USE_UNPAIRED_CLIPPED_END false --FLOW_UNPAIRED_END_UNCERTAINTY 0 --FLOW_UNPAIRED_START_UNCERTAINTY 0 --FLOW_SKIP_FIRST_N_FLOWS 0 --FLOW_Q_IS_KNOWN_END false --FLOW_EFFECTIVE_QUALITY_THRESHOLD 15 --ADD_PG_TAG_TO_READS true --ASSUME_SORTED false --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --COMPRESSION_LEVEL 5 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+  [Sun Nov 17 14:51:32 EST 2024] Executing as hkates@c0709a-s30.ufhpc on Linux 4.18.0-553.27.1.el8_10.x86_64 amd64; OpenJDK 64-Bit Server VM 17.0.13-internal+0-adhoc..src; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:3.3.0
+  INFO	2024-11-17 14:51:32	MarkDuplicates	Start of doWork freeMemory: 57646576; totalMemory: 71303168; maxMemory: 5154799616
+  INFO	2024-11-17 14:51:32	MarkDuplicates	Reading input file and constructing read end information.
+  INFO	2024-11-17 14:51:32	MarkDuplicates	Will retain up to 18676810 data points before spilling to disk.
+  WARNING	2024-11-17 14:51:32	AbstractOpticalDuplicateFinderCommandLineProgram	A field field parsed out of a read name was expected to contain an integer and did not. Read name: SRR12246717.1079785. Cause: String 'SRR12246717.1079785' did not start with a parsable number.
+  [Sun Nov 17 14:51:32 EST 2024] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.01 minutes.
+  Runtime.totalMemory()=301989888
+  To get help, see http://broadinstitute.github.io/picard/index.html#GettingHelp
+  Exception in thread "main" java.lang.NullPointerException: Cannot invoke "htsjdk.samtools.SAMReadGroupRecord.getReadGroupId()" because the return value of "htsjdk.samtools.SAMRecord.getReadGroup()" is null
+  	at picard.sam.markduplicates.MarkDuplicates.buildSortedReadEndLists(MarkDuplicates.java:558)
+  	at picard.sam.markduplicates.MarkDuplicates.doWork(MarkDuplicates.java:270)
+  	at picard.cmdline.CommandLineProgram.instanceMain(CommandLineProgram.java:281)
+  	at picard.cmdline.PicardCommandLine.instanceMain(PicardCommandLine.java:105)
+  	at picard.cmdline.PicardCommandLine.main(PicardCommandLine.java:115)
+
+Work dir:
+  /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/a2/fcc51bf584263846ed616a55792ea8
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Nov-17 14:51:32.431 [TaskFinalizer-3] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Nov-17 14:51:32.456 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-17 14:51:32.460 [Actor Thread 15] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:DEDUPLICATE_PICARD:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_FLAGSTAT; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Nov-17 14:51:32.475 [Actor Thread 15] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /home/hkates/.nextflow/assets/nf-core/cutandrun/bin/plot_consensus_peaks.py
+Nov-17 14:51:32.475 [Actor Thread 10] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:IGV_SESSION; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Nov-17 14:51:32.476 [Actor Thread 21] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:DEEPTOOLS_QC:DEEPTOOLS_MULTIBAMSUMMARY; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Nov-17 14:51:32.477 [Actor Thread 2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PLOT_CONSENSUS_PEAKS; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Nov-17 14:51:32.477 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=NFCORE_CUTANDRUN:CUTANDRUN:PEAK_QC:PEAK_FRIP; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Nov-17 14:51:32.480 [Actor Thread 20] DEBUG nextflow.util.HashBuilder - Hash asset file sha-256: /home/hkates/.nextflow/assets/nf-core/cutandrun/bin/igv_files_to_session.py
+Nov-17 14:51:32.511 [Actor Thread 11] DEBUG nextflow.sort.BigSort - Sort completed -- entries: 41; slices: 1; internal sort time: 0.027 s; external sort time: 0.006 s; total time: 0.033 s
+Nov-17 14:51:32.511 [Actor Thread 11] DEBUG nextflow.file.FileCollector - >> temp file exists? false
+Nov-17 14:51:32.511 [Actor Thread 11] DEBUG nextflow.file.FileCollector - Missed collect-file cache -- cause: java.nio.file.NoSuchFileException: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/collect-file/c8426135cc64e699fd995aaac77c5771
+Nov-17 14:51:32.532 [Actor Thread 11] DEBUG nextflow.file.FileCollector - Saved collect-files list to: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/collect-file/c8426135cc64e699fd995aaac77c5771
+Nov-17 14:51:32.533 [Actor Thread 11] DEBUG nextflow.file.FileCollector - Deleting file collector temp dir: /scratch/local/50066630/nxf-16961595285958452029
+Nov-17 14:51:32.771 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 53; name: NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX (h3k27me3_R1); status: COMPLETED; exit: 0; error: -; workDir: /blue/zhangw/hkates/TanziaMLH1MSH2/CUTANDRUN/MSH2/work/4a/1be1aa9db3d1c51f3e443057c07232]
+Nov-17 14:51:32.772 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-17 14:51:32.773 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-17 14:51:32.783 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<1:1>
+Nov-17 14:51:32.783 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Process NFCORE_CUTANDRUN:CUTANDRUN:FILTER_READS:SAMTOOLS_INDEX > Skipping output binding because one or more optional files are missing: fileoutparam<2:1>
+Nov-17 14:51:32.789 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Nov-17 14:51:32.789 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Nov-17 14:51:32.912 [main] INFO  nextflow.Nextflow - -[0;35m[nf-core/cutandrun][0;31m Pipeline completed with errors[0m-
+Nov-17 14:51:32.915 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=41; failedCount=2; ignoredCount=1; cachedCount=12; pendingCount=6; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=58.5s; failedDuration=1.9s; cachedDuration=8.1s;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=12 GB; ]
+Nov-17 14:51:32.915 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Nov-17 14:51:32.916 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Nov-17 14:51:33.377 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Nov-17 14:51:33.689 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-17 14:51:33.708 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-validation@1.1.3'
+Nov-17 14:51:33.708 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-validation
+Nov-17 14:51:33.710 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Nov-17 14:51:33.711 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
