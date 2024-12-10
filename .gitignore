@@ -1,4 +1,3 @@
-
 # Allow files in the root directory (i.e., don't ignore them)
 # Allow .gitkeep files in all directories
 !ATACseq/**/
@@ -11,22 +10,34 @@ ATACseq/**/scripts/core*
 ATACseq/**/scripts/rs*
 # Do not ignore files in the scripts/ directory
 IginoreLargeFiles.bash 
-# Ignore all files in the logs directory
-# Ignore all files in the results/fastp directory, except .gitkeep
-# Ignore all files in the salmon_index directory, except .gitkeep
-# Ignore everything in all subdirectories
-# Ignore large files
-#ignore rserver files
-RNAseq/results/2_fastp/*
-!RNAseq/results/2_fastp/.gitkeep
-RNAseq/results/4-6_deseq2/MLH1_DESeq2_result.RDATA
+
 RNAseq/salmon_index/*
 !RNAseq/salmon_index/.gitkeep
 RNAseq/scripts/logs/*
-rserver*
+# Ignore all files under MLH1/results and MSH2/results
+RNAseq/MLH1/results/**/*
+RNAseq/MSH2/results/**/*
+
+# Allow specific files (like .gitkeep) to be tracked
+!RNAseq/MLH1/results/4-6_deseq2/.gitkeep
+!RNAseq/MSH2/results/4-6_deseq2/.gitkeep
+
+# Existing rules for other directories
+RNAseq/results/2_fastp/*
+!RNAseq/results/2_fastp/.gitkeep
+
+# Ignore files in salmon_index directory except .gitkeep
+RNAseq/salmon_index/*
+!RNAseq/salmon_index/.gitkeep
+
+# Ignore log files
+RNAseq/scripts/logs/*
+
 #rserver etc files
+rserver*
 rstudio-rserver
 rstudio-rsession
+
 #CUTANDRUN
 # Ignore everything recursively inside CUTANDRUN
 CUTANDRUN/*/*/*
