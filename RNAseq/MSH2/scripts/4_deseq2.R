@@ -3,24 +3,11 @@ library(tximport)
 library(DESeq2)
 library(biomaRt)
 
-
-# Capture command-line arguments
-args <- commandArgs(trailingOnly = TRUE)
-if (length(args) < 2) {
-  stop("Please provide both 'dir' and 'out_dir' as arguments.")
-}
-
-# Set the variables from the command line
-dir <- args[1]
-out_dir <- args[2]
-
 # Define the directory containing the quantification results
-dir <- "results/3_salmon/"
-#out_dir="../results/4-6_deseq2/"
-#out_dir= "test_4a_out/"
+dir <- "results/salmon/"
 
 # Get the list of quantification directories starting with "MLH1"
-dirs <- list.files(dir, pattern="^MLH1.*_quant$", full.names=TRUE)
+dirs <- list.files(dir, pattern="^MSH2.*_quant$", full.names=TRUE)
 
 # Create a named vector of files for tximport
 files <- file.path(dirs, "quant.sf")
@@ -74,28 +61,28 @@ dds@elementMetadata <- DataFrame(gene_mapping)
 res$geneSymbol <- gene_mapping$external_gene_name
 
 # Save results
-MLH1_dds <- dds
-MLH1_res <- res
-MLH1_gene_mapping <- gene_mapping
+MSH2_dds <- dds
+MSH2_res <- res
+MSH2_gene_mapping <- gene_mapping
 
-write.csv(as.data.frame(MLH1_res), file=paste0(out_dir,"MLH1_DESeq2_gene_results.csv")
-save.image(file=paste0(out_dir,"MLH1_DESeq2_result.RDATA")
+write.csv(as.data.frame(MSH2_res), file="results/4_deseq2/MSH2_DESeq2_gene_results.csv")
+save.image(file="results/4_deseq2/MSH2_DESeq2_result.RDATA")
 
-saveRDS(MLH1_dds,paste0(out_dir,"MLH1_dds.Rds")
-saveRDS(MLH1_res,paste0(out_dir,"MLH1_res.Rds")
-saveRDS(MLH1_gene_mapping,paste0(out_dir,"MLH1_gene_mapping.Rds")
+saveRDS(MSH2_dds,"results/4_deseq2/MSH2_dds.Rds")
+saveRDS(MSH2_res,"results/4_deseq2/MSH2_res.Rds")
+saveRDS(MSH2_gene_mapping,"../results/4_deseq2/MSH2_gene_mapping.Rds")
 
 #Write more results (counts, etc.)
 # Extract the counts data frame
-counts_df <- as.data.frame(MLH1_dds@assays@data@listData[["counts"]])
+counts_df <- as.data.frame(MSH2_dds@assays@data@listData[["counts"]])
 counts_df$geneSymbol <- res$geneSymbol
 counts_df$ensembl_gene_id <- rownames(counts_df)
 counts_df <- counts_df[,c("geneSymbol","ensembl_gene_id",colnames(counts_df)[1:6])]
-avgTxLength_df <- as.data.frame(MLH1_dds@assays@data@listData[["avgTxLength"]])
-normalizationFactors_df <- as.data.frame(MLH1_dds@assays@data@listData[["normalizationFactors"]])
-mu_df <- as.data.frame(MLH1_dds@assays@data@listData[["mu"]])
-H_df <- as.data.frame(MLH1_dds@assays@data@listData[["H"]])
-cooks_df <- as.data.frame(MLH1_dds@assays@data@listData[["cooks"]])
+avgTxLength_df <- as.data.frame(MSH2_dds@assays@data@listData[["avgTxLength"]])
+normalizationFactors_df <- as.data.frame(MSH2_dds@assays@data@listData[["normalizationFactors"]])
+mu_df <- as.data.frame(MSH2_dds@assays@data@listData[["mu"]])
+H_df <- as.data.frame(MSH2_dds@assays@data@listData[["H"]])
+cooks_df <- as.data.frame(MSH2_dds@assays@data@listData[["cooks"]])
 
 # Extract the geneSymbol and ensembl_gene_id columns from counts_df
 cols_to_add <- counts_df[, c("geneSymbol", "ensembl_gene_id")]
@@ -140,7 +127,7 @@ list_of_dfs <- c(list(README = as.data.frame(README)), list_of_dfs)
 #Write to excel
 library(openxlsx)
 # Define the output file path
-output_file <- paste0(out_dir,"MLH1_DESeq2_analysis_dataframes.xlsx")
+output_file <- "results/4_deseq2/MSH2_DESeq2_analysis_dataframes.xlsx"
 
 # Create a new Excel workbook
 wb <- createWorkbook()
@@ -153,4 +140,3 @@ for (sheet_name in names(list_of_dfs)) {
 
 # Save the workbook
 saveWorkbook(wb, output_file, overwrite = TRUE)
-
