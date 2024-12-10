@@ -15,10 +15,10 @@
 module load bowtie2/2.4.5
 
 # Define the base path for trimmed data
-base_trim_path="../1_trimgalore"  # This path should reflect where trim_galore output is stored
+base_trim_path="results/1_trimgalore"  # This path should reflect where trim_galore output is stored
 
 # Read the sample name from the sample list
-sample=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" ../MSH2_sample_list.txt)
+sample=$(sed -n "$((SLURM_ARRAY_TASK_ID + 1))p" MSH2_sample_list.txt)
 
 # Define the paths for trimmed files (L001 and L002) from trim_galore
 R1_trim_L001=$(find ${base_trim_path} -type f -name "${sample}_L001_val_1.fq.gz")
@@ -31,10 +31,10 @@ cat $R1_trim_L001 $R1_trim_L002 > ${base_trim_path}/${sample}_R1_combined.fq.gz
 cat $R2_trim_L001 $R2_trim_L002 > ${base_trim_path}/${sample}_R2_combined.fq.gz
 
 # Create output directory for Bowtie2 if it doesn't exist
-mkdir -p ../3_bowtie
+mkdir -p results/3_bowtie
 
 # Run Bowtie2 alignment
 bowtie2 --phred33 --mm --maxins 500 --very-sensitive --threads 6 -x /blue/zhangw/hkates/reference_data/homo_sapiens.grch38.v104 \
 -1 ${base_trim_path}/${sample}_R1_combined.fq.gz -2 ${base_trim_path}/${sample}_R2_combined.fq.gz \
--S ../3_bowtie/${sample}.sam
+-S results/3_bowtie/${sample}.sam
 
