@@ -13,10 +13,10 @@ samples <- data.frame(
   Condition = c(rep("MLH1KO", 3), rep("MLH1R4", 3)),  # The experimental conditions
   Treatment = rep("None", 6),  # Since there's no treatment in this setup
   Replicate = c(1, 2, 3, 1, 2, 3),  # Indicating replicates
-  bamReads = c("../6_bigwig/MLH1KO-1_sort_n.bam", "../6_bigwig/MLH1KO-2_sort_n.bam", "../6_bigwig/MLH1KO-3_sort_n.bam",
-               "../6_bigwig/MLH1R4-1_sort_n.bam", "../6_bigwig/MLH1R4-2_sort_n.bam", "../6_bigwig/MLH1R4-3_sort_n.bam"),
-  Peaks = c("../5_genrich/MLH1KO-1.narrowPeak", "../5_genrich/MLH1KO-2.narrowPeak", "../5_genrich/MLH1KO-3.narrowPeak",
-            "../5_genrich/MLH1R4-1.narrowPeak", "../5_genrich/MLH1R4-2.narrowPeak", "../5_genrich/MLH1R4-3.narrowPeak"),
+  bamReads = c("results/6_bigwig/MLH1KO-1_sort_n.bam", "results/6_bigwig/MLH1KO-2_sort_n.bam", "results/6_bigwig/MLH1KO-3_sort_n.bam",
+               "results/6_bigwig/MLH1R4-1_sort_n.bam", "results/6_bigwig/MLH1R4-2_sort_n.bam", "results/6_bigwig/MLH1R4-3_sort_n.bam"),
+  Peaks = c("results/5_genrich/MLH1KO-1.narrowPeak", "results/5_genrich/MLH1KO-2.narrowPeak", "results/5_genrich/MLH1KO-3.narrowPeak",
+            "results/5_genrich/MLH1R4-1.narrowPeak", "results/5_genrich/MLH1R4-2.narrowPeak", "results/5_genrich/MLH1R4-3.narrowPeak"),
   PeakCaller = rep("narrow", 6),  # For Genrich, 'narrow' for narrowPeak format
   stringsAsFactors = FALSE
 )
@@ -35,11 +35,11 @@ dbaObj <- dba.contrast(dbaObj, categories = DBA_CONDITION)
 
 # Perform differential binding analysis
 dbaObj <- dba.analyze(dbaObj)
-saveRDS(dbaObj,file="../7_diffbind/MLH1_dbaObj.RDATA")
+saveRDS(dbaObj,file="results/7_diffbind/MLH1_dbaObj.RDATA")
 # Generate and inspect the report of differentially bound regions
 diffPeaks <- dba.report(dbaObj)
-write.csv(diffPeaks, file = "../7_diffbind/MLH1_differential_binding_results.csv")
-diffPeaksIn <- read.csv("../7_diffbind/MLH1_differential_binding_results.csv")
+write.csv(diffPeaks, file = "results/7_diffbind/MLH1_differential_binding_results.csv")
+diffPeaksIn <- read.csv("results/7_diffbind/MLH1_differential_binding_results.csv")
 
 # Function to write peaks data frame to a BED file
 write_peaks_to_bed <- function(peaks_df, output_file) {
@@ -65,7 +65,7 @@ write_peaks_to_bed <- function(peaks_df, output_file) {
 }
 
 # Example usage with your dataframe 'diffPeaksIn'
-write_peaks_to_bed(diffPeaksIn, "../7_diffbind/MLH1_differential_binding_results.bed")
+write_peaks_to_bed(diffPeaksIn, "results/7_diffbind/MLH1_differential_binding_results.bed")
 
 # MLH1 unique peaks
 
@@ -78,8 +78,8 @@ MLH1R4_filtered_peaks <- diffPeaksIn %>%
   filter(Fold > 0 & Conc_MLH1KO < max_Conc_MLH1KO & Conc_MLH1R4 > min_Conc_MLH1R4)
 
 # Check the filtered results
-write.csv(MLH1R4_filtered_peaks,"../7_diffbind/MLH1R4_filtered_differential_binding_results.csv")
-write_peaks_to_bed(MLH1R4_filtered_peaks, "../7_diffbind/MLH1R4_filtered_differential_binding_results.bed")
+write.csv(MLH1R4_filtered_peaks,"results/7_diffbind/MLH1R4_filtered_differential_binding_results.csv")
+write_peaks_to_bed(MLH1R4_filtered_peaks, "results/7_diffbind/MLH1R4_filtered_differential_binding_results.bed")
 
 # MLH1KO unique peaks
 
@@ -92,12 +92,12 @@ MLH1KO_filtered_peaks <- diffPeaksIn %>%
   filter(Fold < 0 & Conc_MLH1R4 < max_Conc_MLH1R4 & Conc_MLH1KO > min_Conc_MLH1KO)
 
 # Check the filtered results
-write.csv(MLH1KO_filtered_peaks,"../7_diffbind/MLH1KO_filtered_differential_binding_results.csv")
-write_peaks_to_bed(MLH1KO_filtered_peaks, "../7_diffbind/MLH1KO_filtered_differential_binding_results.bed")
+write.csv(MLH1KO_filtered_peaks,"results/7_diffbind/MLH1KO_filtered_differential_binding_results.csv")
+write_peaks_to_bed(MLH1KO_filtered_peaks, "results/7_diffbind/MLH1KO_filtered_differential_binding_results.bed")
 
 #From this point, you can view filtered peaks and per-sample reads in IGV by loading:
-#"../7_diffbind/filtered_differential_binding_results.bed"
-#"../6_bigwig/MLH1KO-1.bw","../6_bigwig/MLH1KO-2.bw","../6_bigwig/MLH1KO-3.bw","../6_bigwig/MLH1R4-1.bw","../6_bigwig/MLH1R4-2.bw","../6_bigwig/MLH1R4-3.bw")
+#"results/7_diffbind/filtered_differential_binding_results.bed"
+#"results/6_bigwig/MLH1KO-1.bw","results/6_bigwig/MLH1KO-2.bw","results/6_bigwig/MLH1KO-3.bw","results/6_bigwig/MLH1R4-1.bw","results/6_bigwig/MLH1R4-2.bw","results/6_bigwig/MLH1R4-3.bw")
 #Write all the results to an excel
 
 ##Annotate peaks with chipseeker
@@ -107,7 +107,7 @@ library(TxDb.Hsapiens.UCSC.hg38.knownGene)  # You can change the genome version 
 library(clusterProfiler)
 
 # Load the peaks (ensure peaks are in BED format)
-peaks <- readPeakFile("../7_diffbind/MLH1_differential_binding_results.bed")
+peaks <- readPeakFile("results/7_diffbind/MLH1_differential_binding_results.bed")
 
 library(GenomicRanges)
 
@@ -144,7 +144,7 @@ peak_annotation_df$X=rownames(peak_annotation_df)
 # merge peaks and annotation
 peaks_with_anno <- merge(diffPeaksIn,peak_annotation_df,by="X")
 
-# Remove redundant .y columns (from ChIPseeker/diffbind for seqnames)
+# Remove redundant .y columns (from ChIPseekresults/diffbind for seqnames)
 peaks_with_anno <- peaks_with_anno %>%
   dplyr::select(-seqnames.y, -start.y, -end.y, -width.y, -strand.y,-seqnames.x)
 
@@ -158,7 +158,7 @@ peaks_with_anno$Unique_to_group <- ifelse(
 # Add DE results
 
 #Read in DE results
-DE_results <- read.csv("../../../RNAseq/results/deseq2/MLH1_DESeq2_gene_results.csv")
+DE_results <- read.csv("../RNAseq/MLH1/results/4_deseq2/MLH1_DESeq2_gene_results.csv")
 
 # Specify the direction of the log2FoldChange
 DE_results <- DE_results %>% dplyr::rename(log2FoldChange_KOvsR4=log2FoldChange)
@@ -279,5 +279,5 @@ dfs <- list(
 
 #Add the gene symbol to the annotation
 # Write the list of data frames to an Excel file using writexl
-write_xlsx(dfs, "../7_diffbind/MLH1_Differential_binding_results.xlsx")
+write_xlsx(dfs, "results/7_diffbind/MLH1_Differential_binding_results.xlsx")
 
