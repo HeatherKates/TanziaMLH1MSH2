@@ -11,7 +11,7 @@
 #SBATCH --error=logs/fastp.%j.err
 #SBATCH --array=1-12
 
-echo This is task $SLURM_ARRAY_TASK_ID
+echo "This is task $SLURM_ARRAY_TASK_ID"
 
 echo -e "\nInfo: Starting a job on $(date) on $(hostname) in $(pwd).\n"
 
@@ -21,21 +21,19 @@ echo -e "\nInfo: Starting a job on $(date) on $(hostname) in $(pwd).\n"
 
 module load fastp/0.23.4
 
-# Define the base directory
-BASE_DIR="/orange/zhangw/GE7607/GE-7607-WZhang-10B-22MNM5LT3-Lane2"
+# Define the base directory for symlinks
+BASE_DIR="data"
 
-# Create an array of subdirectories dynamically
-DIRS=$(ls -d ${BASE_DIR}/*/)
+# Create an array of symlinks
+FILES=($(ls ${BASE_DIR}/*_R1_001.fastq.gz))
 
-# Get the directory for the current task
-DIR=$(echo $DIRS | tr ' ' '\n' | sed -n "${SLURM_ARRAY_TASK_ID}p")
-
-# Define the R1 and R2 files
-Sample1=$(ls ${DIR}/*_R1_001.fastq.gz)
-Sample2=$(ls ${DIR}/*_R2_001.fastq.gz)
+# Get the R1 and R2 files for the current task
+Sample1=${FILES[$((SLURM_ARRAY_TASK_ID - 1))]}
+Sample2=$(echo ${Sample1} | sed 's/_R1_/_R2_/')
 
 # Define the output directory
-OUT_DIR="../results/2_fastp"
+OUT_DIR="results/2_fastp"
+mkdir -p "${OUT_DIR}"
 
 # Extract sample name from the input file path
 SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_001.fastq.gz//')
@@ -49,5 +47,5 @@ fastp -i ${Sample1} -I ${Sample2} \
       -q 20 -u 30 -n 5 \
       --cut_front --cut_tail --cut_right -w 3
 
-echo -e "\nInfo: fastp job completed on $(date) on $(hostname).\n"
+echo -e "\nInfo: fastp job completed for ${SAMPLE_NAME} on $(date) on $(hostname).\n"
 
