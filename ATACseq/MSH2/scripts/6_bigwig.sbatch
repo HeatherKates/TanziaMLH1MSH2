@@ -13,10 +13,9 @@
 
 module load deeptools/3.5.2
 module load samtools/1.20
-cd ../
 
 # Get list of BAM files
-bam_files=(4a_samtools/*.sorted.bam)
+bam_files=(results/4a_samtools/*.sorted.bam)
 
 # Select the BAM file for the current array task
 bam_file=${bam_files[$SLURM_ARRAY_TASK_ID]}
@@ -25,11 +24,11 @@ bam_file=${bam_files[$SLURM_ARRAY_TASK_ID]}
 sample_name=$(basename $bam_file .sorted.bam)
 
 # Sort the filtered BAM by coordinate (if necessary) for visualization and diffbind
-samtools sort -o 6_bigwig/${sample_name}_sort_n.bam $bam_file
+samtools sort -o results/6_bigwig/${sample_name}_sort_n.bam $bam_file
 
 # Re-index the BAM file just in case it's needed
-samtools index 6_bigwig/${sample_name}_sort_n.bam
+samtools index results/6_bigwig/${sample_name}_sort_n.bam
 
 # Create the BigWig file using bamCoverage
-bamCoverage --bam 6_bigwig/${sample_name}_sort_n.bam -o 6_bigwig/${sample_name}.bw --binSize 10 --normalizeUsing RPKM -p=6
+bamCoverage --bam results/6_bigwig/${sample_name}_sort_n.bam -o results/6_bigwig/${sample_name}.bw --binSize 10 --normalizeUsing RPKM -p=6
 

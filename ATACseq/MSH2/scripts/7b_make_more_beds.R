@@ -1,15 +1,15 @@
 # Read in the annotated peak data
 library(readxl)
-df <- read_excel("../7_diffbind/MSH2_Differential_binding_results.xlsx",sheet = "peaks_with_anno")
+df <- read_excel("results/7_diffbind/MLH1_Differential_binding_results.xlsx",sheet = "peaks_with_anno")
 
-# Make a peak df of just MSH2KO unique peaks that are also DE (p adj < 0.05) and log2FC > 0 in MSH2KO vs MSH2R4
-MS2KO_unique_peaks_DE_genes <- df %>% filter(Unique_to_group == "MSH2KO") %>% filter (DE_result.padj < 0.0509) %>% filter (DE_result.log2FoldChange_KOvsR4 > 0)
-MS2R4_unique_peaks_DE_genes <- df %>% filter(Unique_to_group == "MSH2R4") %>% filter (DE_result.padj < 0.0509) %>% filter (DE_result.log2FoldChange_KOvsR4 < 0)
+# Make a peak df of just MLH1KO unique peaks that are also DE (p adj < 0.05) and log2FC > 0 in MLH1KO vs MLH1R4
+MLH1KO_unique_peaks_DE_genes <- df %>% filter(Unique_to_group == "MLH1KO") %>% filter (DE_result.padj < 0.0509) %>% filter (DE_result.log2FoldChange_KOvsR4 > 0)
+MLH1R4_unique_peaks_DE_genes <- df %>% filter(Unique_to_group == "MLH1R4") %>% filter (DE_result.padj < 0.0509) %>% filter (DE_result.log2FoldChange_KOvsR4 < 0)
 
 
 # 1. Select and rename relevant columns
 # Select the necessary columns and reverse the DE log2FoldChange values
-MSH2KO_df_for_bed <- MS2KO_unique_peaks_DE_genes %>%
+MLH1KO_df_for_bed <- MLH1KO_unique_peaks_DE_genes %>%
   dplyr::select(seqnames = geneChr, 
                 start, 
                 end, 
@@ -18,7 +18,7 @@ MSH2KO_df_for_bed <- MS2KO_unique_peaks_DE_genes %>%
                 gene_expression_log2FC = DE_result.log2FoldChange_KOvsR4) %>%
   dplyr::mutate(gene_expression_log2FC = -gene_expression_log2FC)  # Reverse the log2FoldChange values
 
-MSH2R4_df_for_bed <- MS2R4_unique_peaks_DE_genes %>%
+MLH1R4_df_for_bed <- MLH1R4_unique_peaks_DE_genes %>%
   dplyr::select(seqnames = geneChr, 
                 start, 
                 end, 
@@ -72,9 +72,9 @@ write_binding_log2FC_to_bedgraph <- function(peaks_df, output_file) {
   message("BEDGraph file written to: ", output_file)
 }
 
-write_gene_expression_log2FC_to_bedgraph(MSH2KO_df_for_bed, "../7_diffbind/MSH2K0_peaks_gene_expression_log2FC.bedgraph")
-write_binding_log2FC_to_bedgraph(MSH2KO_df_for_bed, "../7_diffbind/MSH2KO_peaks_binding_log2FC.bedgraph")
+write_gene_expression_log2FC_to_bedgraph(MLH1KO_df_for_bed, "results/7_diffbind/MLH1K0_peaks_gene_expression_log2FC.bedgraph")
+write_binding_log2FC_to_bedgraph(MLH1KO_df_for_bed, "results/7_diffbind/MLH1KO_peaks_binding_log2FC.bedgraph")
 
-write_gene_expression_log2FC_to_bedgraph(MSH2R4_df_for_bed, "../7_diffbind/MSH2R4_gene_expression_log2FC.bedgraph")
-write_binding_log2FC_to_bedgraph(MSH2R4_df_for_bed, "../7_diffbind/MSH2R4_binding_log2FC.bedgraph")
+write_gene_expression_log2FC_to_bedgraph(MLH1R4_df_for_bed, "results/7_diffbind/MLH1R4_gene_expression_log2FC.bedgraph")
+write_binding_log2FC_to_bedgraph(MLH1R4_df_for_bed, "results/7_diffbind/MLH1R4_binding_log2FC.bedgraph")
 
