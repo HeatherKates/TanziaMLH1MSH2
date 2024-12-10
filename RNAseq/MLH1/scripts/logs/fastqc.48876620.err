@@ -1,0 +1,7 @@
+Started analysis of MSH2R4-1_S10_L002_R1_001.fastq.gz
+Started analysis of MSH2R4-1_S10_L002_R2_001.fastq.gz
+Approx 5% complete for MSH2R4-1_S10_L002_R1_001.fastq.gz
+Approx 5% complete for MSH2R4-1_S10_L002_R2_001.fastq.gz
+Approx 10% complete for MSH2R4-1_S10_L002_R1_001.fastq.gz
+Approx 10% complete for MSH2R4-1_S10_L002_R2_001.fastq.gz
+slurmstepd: error: *** JOB 48876620 ON c0706a-s15 CANCELLED AT 2024-10-30T09:09:22 ***
