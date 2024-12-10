@@ -11,12 +11,11 @@
 #SBATCH --account=timgarrett
 #SBATCH --qos=timgarrett-b
 
-cd ../
 # Load necessary modules
 module load genrich
 
 # Get all sorted BAM files in the directory
-bam_path="4a_samtools"
+bam_path="results/4a_samtools"
 bam_files=($(ls $bam_path/*.sorted.bam))
 
 # Get the BAM file for the current SLURM_ARRAY_TASK_ID
@@ -26,5 +25,5 @@ bam_file=${bam_files[$SLURM_ARRAY_TASK_ID]}
 sample=$(basename $bam_file .sorted.bam)
 
 # Run Genrich on the current BAM file
-Genrich -t "$bam_file" -o "5_genrich/${sample}.narrowPeak" -j -y -r -v -e MT -d 100 -q 0.05 
+Genrich -t "$bam_file" -o "results/5_genrich/${sample}.narrowPeak" -j -y -r -v -e MT -d 100 -q 0.05 
 
