@@ -10,13 +10,20 @@
 #SBATCH --output=logs/makeindex.out
 #SBATCH --error=logs/makeindex.err
 
-
 # Load Salmon module
 module load salmon/1.10.1
 
-# Create the directory for the Salmon index
-mkdir -p ../salmon_index
+# Define the directory for the Salmon index
 path="../salmon_index"
+
+# Check if the Salmon index directory exists
+if [ -d "$path" ]; then
+    echo "The directory $path already exists. Exiting without executing further commands."
+    exit 0
+fi
+
+# Create the directory for the Salmon index
+mkdir -p $path
 
 # Download the transcriptome and move it to the designated directory
 wget -P $path ftp://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz
