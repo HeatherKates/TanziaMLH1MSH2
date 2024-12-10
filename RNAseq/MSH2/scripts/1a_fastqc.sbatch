@@ -9,34 +9,31 @@
 #SBATCH -t 02:00:00
 #SBATCH --output=logs/fastqc.%j.out
 #SBATCH --error=logs/fastqc.%j.err
-#SBATCH --array=1-1
+#SBATCH --array=1-6
 
 echo "This is task $SLURM_ARRAY_TASK_ID"
 
 echo -e "\nInfo: Starting a job on $(date) on $(hostname) in $(pwd).\n"
 
 ###################################################################
-# This file is to perform FastQC quality control for two lanes per sample
+# This file performs FastQC quality control for MLH1 data samples
 ###################################################################
 
 module load fastqc/0.12.1
 
-# Define the base directory
-BASE_DIR="/orange/zhangw/GE7607/GE-7607-WZhang-10B-22MNM5LT3-Lane2"
+# Define the base directory for input data
+DATA_DIR="data"
 
-# Create an array of subdirectories dynamically (one per sample)
-DIRS=$(ls -d ${BASE_DIR}/*/)
-
-# Get the directory for the current task
-DIR=$(echo $DIRS | tr ' ' '\n' | sed -n "${SLURM_ARRAY_TASK_ID}p")
-
-# Define the R1 and R2 files
-Sample1=$(ls ${DIR}/*_R1_001.fastq.gz)
-Sample2=$(ls ${DIR}/*_R2_001.fastq.gz)
-
-# Define the output directory
-OUT_DIR="../results/1_fastqc"
+# Define the output directory for FastQC results
+OUT_DIR="results/1_fastqc"
 mkdir -p ${OUT_DIR}
+
+# Create an array of R1 files in the data directory
+R1_FILES=(${DATA_DIR}/*_R1_001.fastq.gz)
+
+# Get the file for the current task based on SLURM_ARRAY_TASK_ID
+Sample1=${R1_FILES[$((SLURM_ARRAY_TASK_ID-1))]}
+Sample2=$(echo ${Sample1} | sed 's/_R1_/_R2_/')
 
 # Extract sample name from the input file path
 SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_001.fastq.gz//')
@@ -45,3 +42,4 @@ SAMPLE_NAME=$(basename ${Sample1} | sed 's/_R1_001.fastq.gz//')
 fastqc ${Sample1} ${Sample2} -o ${OUT_DIR} -t 2
 
 echo -e "\nInfo: FastQC job completed for ${SAMPLE_NAME} on $(date) on $(hostname).\n"
+
